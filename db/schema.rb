@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_10_024230) do
+ActiveRecord::Schema.define(version: 2020_02_10_135738) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,77 @@ ActiveRecord::Schema.define(version: 2020_02_10_024230) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "answers", force: :cascade do |t|
+    t.bigint "question_id", null: false
+    t.bigint "user_id", null: false
+    t.text "answer"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["question_id"], name: "index_answers_on_question_id"
+    t.index ["user_id"], name: "index_answers_on_user_id"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "resort_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["resort_id"], name: "index_favorites_on_resort_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "forecasts", force: :cascade do |t|
+    t.bigint "resort_id", null: false
+    t.string "issued_day"
+    t.string "issued_date"
+    t.string "forecast_day"
+    t.string "time_of_day"
+    t.integer "max_temperature"
+    t.integer "min_temperature"
+    t.string "wind_direction"
+    t.integer "wind_speed"
+    t.integer "snow_amount"
+    t.string "weather"
+    t.integer "rain"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["resort_id"], name: "index_forecasts_on_resort_id"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.string "question"
+    t.bigint "resort_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["resort_id"], name: "index_questions_on_resort_id"
+    t.index ["user_id"], name: "index_questions_on_user_id"
+  end
+
+  create_table "resorts", force: :cascade do |t|
+    t.string "name"
+    t.string "prefecture"
+    t.string "address"
+    t.string "town"
+    t.string "phone_number"
+    t.string "url"
+    t.integer "adult_price"
+    t.integer "child_price"
+    t.date "season_start"
+    t.date "season_end"
+    t.integer "top_elevation"
+    t.integer "bottom_elevation"
+    t.boolean "ski_school"
+    t.boolean "child_care"
+    t.integer "courses"
+    t.integer "lifts"
+    t.integer "advanced"
+    t.integer "beginner"
+    t.integer "intermediate"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -49,4 +120,11 @@ ActiveRecord::Schema.define(version: 2020_02_10_024230) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "answers", "questions"
+  add_foreign_key "answers", "users"
+  add_foreign_key "favorites", "resorts"
+  add_foreign_key "favorites", "users"
+  add_foreign_key "forecasts", "resorts"
+  add_foreign_key "questions", "resorts"
+  add_foreign_key "questions", "users"
 end
