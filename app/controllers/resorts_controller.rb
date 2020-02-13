@@ -5,7 +5,8 @@ class ResortsController < ApplicationController
     @markers = @resorts.map do |resort|
       {
         lat: resort.latitude,
-        lng: resort.longitude
+        lng: resort.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { resort: resort })
       }
     end
   end
