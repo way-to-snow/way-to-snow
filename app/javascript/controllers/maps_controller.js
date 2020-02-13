@@ -1,5 +1,11 @@
+// Map stylesheet (needed to place markers)
 import 'mapbox-gl/dist/mapbox-gl.css';
+// Search bar stylesheet
+import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
+// JS to create map
 import mapboxgl from 'mapbox-gl';
+// JS to search map
+import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 
 import { Controller } from "stimulus"
 
@@ -41,6 +47,12 @@ export default class extends Controller {
       const bounds = new mapboxgl.LngLatBounds();
       markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
       map.fitBounds(bounds, { padding: 150, maxZoom: 15, duration: 500 });
+
+      // Search bar for the map
+      map.addControl(new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        mapboxgl: mapboxgl
+      }));
 
   }
 }
