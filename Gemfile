@@ -19,6 +19,8 @@ gem 'webpacker'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.12.0'
 gem 'pundit'
+gem 'geocoder'
+gem 'faker'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
