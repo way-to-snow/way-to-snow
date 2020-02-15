@@ -1,14 +1,19 @@
 class ResortsController < ApplicationController
+  before_action :validate_user
+
+  def validate_user
+    @user = current_user
+  end
+
   def index
     if params[:slopes_length].present?
       @resorts = Resort.where('slopes_length > ?', 10)
-    # elsif params[:favorites].present?
-    #   raise
-    #   if current_user.favorites.any?
-    #     @resorts = current_user.favorites.resorts
-    #   else
-    #     flash.now[:alert] = "You don't have any favorite resorts yet!"
-    #   end
+    elsif params[:favorites].present?
+      if @user.favorites.any?
+        @resorts = @user.resorts
+      else
+        flash.now[:alert] = "You don't have any favorite resorts yet!"
+      end
     else
       @resorts = Resort.where.not(latitude: nil, longitude: nil)
     end
