@@ -23,30 +23,6 @@ pages = ["https://www.skiresort.info/ski-resorts/japan/",
 #   puts scrape_urls(page)
 # end
 
-def scrape_weather(url)
-  html_content = open(url).read
-  doc = Nokogiri::HTML(html_content)
-
-  doc.search('.panel-simple table:nth-child(5) tr:nth-child(10) td:nth-child(2) strong').each_with_index do |element, index|
-    puts element.text.scan(/-?\d+/).map(&:to_i)
-  end
-  doc.search('.panel-simple table:nth-child(5) tr:nth-child(10) td:nth-child(2) span').each_with_index do |element, index|
-    puts element.text.scan(/-?\d+/).map(&:to_i)
-  end
-  doc.search('.panel-simple table:nth-child(11) tr:nth-child(1) td:nth-child(2) span:nth-child(3)').each_with_index do |element, index|
-    puts element.text.scan(/\d+/).map(&:to_i)
-  end
-  doc.search('.panel-simple table:nth-child(11) tr:nth-child(1) td:nth-child(2) span:nth-child(1)').each_with_index do |element, index|
-    puts element.text
-  end
-  doc.search('.panel-simple table:nth-child(9) tr:nth-child(3) td:nth-child(2)').each_with_index do |element, index|
-    # p element
-    puts element.text.scan(/\d+.*/).map(&:to_i)
-  end
-end
-
-scrape_weather("https://www.skiresort.info/ski-resort/rusutsu/weather/")
-
 puts 'Creating resorts...'
 
 Resort.create(
@@ -2696,3 +2672,52 @@ Resort.create(
 )
 
 puts 'Finished creating resorts.'
+
+
+
+def scrape_weather(resort)
+  html_content = open("https://www.skiresort.info/ski-resort/#{resort.url_path}/weather/").read
+  doc = Nokogiri::HTML(html_content)
+
+  for num in 2..5
+    max = 0
+    min = 0
+    wind = 0
+    wind_direction = ""
+    snowfall = 0
+    doc.search(".panel-simple table:nth-child(5) tr:nth-child(10) td:nth-child(#{num}) strong").each_with_index do |element, index|
+      max = element.text.gsub(/°C/,"").to_i
+    end
+    doc.search(".panel-simple table:nth-child(5) tr:nth-child(10) td:nth-child(#{num}) span").each_with_index do |element, index|
+      min = element.text.gsub(/°C/,"").to_i
+    end
+    doc.search(".panel-simple table:nth-child(11) tr:nth-child(1) td:nth-child(#{num}) span:nth-child(3)").each_with_index do |element, index|
+      wind = element.text.to_i
+    end
+    doc.search(".panel-simple table:nth-child(11) tr:nth-child(1) td:nth-child(#{num}) span:nth-child(1)").each_with_index do |element, index|
+      wind_direction = element.text
+    end
+    doc.search(".panel-simple table:nth-child(9) tr:nth-child(3) td:nth-child(#{num})").each_with_index do |element, index|
+      snowfall = element.text.gsub(/</, "").gsub(/cm/, "").to_i
+    end
+    forecast = Forecast.create(
+      resort: resort,
+      max_temperature: max,
+      min_temperature: min,
+      wind_speed: wind,
+      wind_direction: wind_direction,
+      snow_amount: snowfall
+    )
+    p forecast
+    forecast.save
+  end
+end
+
+puts "Creating weather forecasts"
+
+Resort.all.each do |resort|
+  scrape_weather(resort)
+end
+
+puts "Finished creating weather forecasts"
+
