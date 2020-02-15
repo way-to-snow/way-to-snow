@@ -59,6 +59,7 @@ Resort.create(
   slopes_length: 50.8,
   lifts: 31,
   adult_price: 8000,
+  url_path: 'niseko-united-annupurigrand-hirafuhanazononiseko-village',
   uid: '3686'
 )
 
@@ -72,6 +73,7 @@ Resort.create(
   slopes_length: 42,
   lifts: 18,
   adult_price: 6200,
+  url_path: 'rusutsu',
   uid: '4157'
 )
 
@@ -85,6 +87,7 @@ Resort.create(
   slopes_length: 32,
   lifts: 9,
   adult_price: 6000,
+  url_path: 'furano',
   uid: '2458'
 )
 
@@ -98,6 +101,7 @@ Resort.create(
   slopes_length: 25,
   lifts: 8,
   adult_price: 5600,
+  url_path: 'sahoro',
   uid: '4172'
 )
 
@@ -111,6 +115,7 @@ Resort.create(
   slopes_length: 20,
   lifts: 15,
   adult_price: 6000,
+  url_path: 'naeba-mt-naeba',
   uid: '3621'
 )
 
@@ -124,6 +129,7 @@ Resort.create(
   slopes_length: 83,
   lifts: 58,
   adult_price: 5500,
+  url_path: 'shigakogen-mountain-resort',
   uid: '5013'
 )
 
@@ -137,6 +143,7 @@ Resort.create(
   slopes_length: 50,
   lifts: 5,
   adult_price: 4800,
+  url_path: 'myoko-suginohara',
   uid: '3615'
 )
 
@@ -150,6 +157,7 @@ Resort.create(
   slopes_length: 30,
   lifts: 10,
   adult_price: 5500,
+  url_path: 'kiroro',
   uid: '3000'
 )
 
@@ -163,6 +171,7 @@ Resort.create(
   slopes_length: 44.5,
   lifts: 18,
   adult_price: 5200,
+  url_path: 'nozawa-onsen',
   uid: '338'
 )
 
@@ -176,6 +185,7 @@ Resort.create(
   slopes_length: 45.1,
   lifts: 18,
   adult_price: 5900,
+  url_path: 'appi-kogen',
   uid: '1731'
 )
 
@@ -189,6 +199,7 @@ Resort.create(
   slopes_length: 50,
   lifts: 12,
   adult_price: 4400,
+  url_path: 'hakuba-iwatake-mountain-resort',
   uid: '2827'
 )
 
@@ -202,6 +213,7 @@ Resort.create(
   slopes_length: 52,
   lifts: 22,
   adult_price: 5500,
+  url_path: 'happo-one-hakuba',
   uid: '2612'
 )
 
@@ -215,6 +227,7 @@ Resort.create(
   slopes_length: 50,
   lifts: 38,
   adult_price: 5000,
+  url_path: 'zao-onsen',
   uid: '5063'
 )
 
@@ -228,6 +241,7 @@ Resort.create(
   slopes_length: 24,
   lifts: 5,
   adult_price: 4900,
+  url_path: 'takasu-snow-park',
   uid: '4607'
 )
 
@@ -241,6 +255,7 @@ Resort.create(
   slopes_length: 25,
   lifts: 23,
   adult_price: 6000,
+  url_path: 'mitsumatakaguratashiro-mt-naeba',
   uid: '3434'
 )
 
@@ -254,6 +269,7 @@ Resort.create(
   slopes_length: 33.8,
   lifts: 30,
   adult_price: 4600,
+  url_path: 'yuzawa-kogengala-yuzawaishiuchi-maruyama',
   uid: '2466'
 )
 
@@ -267,6 +283,7 @@ Resort.create(
   slopes_length: 16,
   lifts: 5,
   adult_price: 4500,
+  url_path: 'lotte-arai-resort',
   uid: '1734'
 )
 
@@ -280,6 +297,7 @@ Resort.create(
   slopes_length: 23.7,
   lifts: 19,
   adult_price: 5000,
+  url_path: 'hakuba-47goryu',
   uid: '2532'
 )
 
@@ -293,6 +311,7 @@ Resort.create(
   slopes_length: 20,
   lifts: 5,
   adult_price: nil,
+  url_path: 'aomori-spring',
   uid: '3642'
 )
 
@@ -306,6 +325,7 @@ Resort.create(
   slopes_length: 20,
   lifts: 21,
   adult_price: 4800,
+  url_path: 'myoko-akakura',
   uid: '1657'
 )
 
@@ -319,6 +339,7 @@ Resort.create(
   slopes_length: 15,
   lifts: 5,
   adult_price: 4200,
+  url_path: 'palcall-tsumagoi',
   uid: '3850'
 )
 
@@ -332,6 +353,7 @@ Resort.create(
   slopes_length: 15.1,
   lifts: 5,
   adult_price: 4752,
+  url_path: 'yubari-resort-mount-racey',
   uid: '3547'
 )
 
@@ -345,6 +367,7 @@ Resort.create(
   slopes_length: 11.8,
   lifts: 3,
   adult_price: 4800,
+  url_path: 'hakodate-nanae',
   uid: '2592'
 )
 
@@ -358,6 +381,7 @@ Resort.create(
   slopes_length: 15.6,
   lifts: 5,
   adult_price: 5500,
+  url_path: 'yakebitaiyama',
   uid: '33080'
 )
 
@@ -371,6 +395,7 @@ Resort.create(
   slopes_length: 15.5,
   lifts: 5,
   adult_price: 4500,
+  url_path: 'meiho',
   uid: '3368'
 )
 
@@ -384,6 +409,7 @@ Resort.create(
   slopes_length: 21,
   lifts: 11,
   adult_price: 5400,
+  url_path: 'hoshino-resorts-tomamu',
   uid: '1689'
 )
 
@@ -397,6 +423,7 @@ Resort.create(
   slopes_length: 20,
   lifts: 6,
   adult_price: 4200,
+  url_path: 'shizukuishi',
   uid: '4332'
 )
 
@@ -410,6 +437,7 @@ Resort.create(
   slopes_length: 20,
   lifts: 10,
   adult_price: 4500,
+  url_path: 'hachi-kita-kogen',
   uid: '2584'
 )
 
@@ -423,6 +451,7 @@ Resort.create(
   slopes_length: 11,
   lifts: 5,
   adult_price: 4500,
+  url_path: 'sapporo-kokusai-jozankei-kogen',
   uid: '2874'
 )
 
@@ -436,6 +465,7 @@ Resort.create(
   slopes_length: 14.1,
   lifts: 5,
   adult_price: 3900,
+  url_path: 'ontake-2240',
   uid: '3791'
 )
 
@@ -449,6 +479,7 @@ Resort.create(
   slopes_length: 20,
   lifts: 9,
   adult_price: 4200,
+  url_path: 'aizu-kogen-takatsue',
   uid: '1651'
 )
 
@@ -462,6 +493,7 @@ Resort.create(
   slopes_length: 11,
   lifts: 5,
   adult_price: 4000,
+  url_path: 'aizu-kogen-daikurayama',
   uid: '1648'
 )
 
@@ -475,6 +507,7 @@ Resort.create(
   slopes_length: 21.3,
   lifts: 15,
   adult_price: 4500,
+  url_path: 'davostaro-sugadaira-kogen',
   uid: '4524'
 )
 
@@ -488,6 +521,7 @@ Resort.create(
   slopes_length: 12.1,
   lifts: 8,
   adult_price: 4500,
+  url_path: 'zao-eboshi',
   uid: '5061'
 )
 
@@ -501,6 +535,7 @@ Resort.create(
   slopes_length: 12.6,
   lifts: 7,
   adult_price: 4300,
+  url_path: 'minakami-houdaigi',
   uid: '3409'
 )
 
@@ -514,6 +549,7 @@ Resort.create(
   slopes_length: 10.8,
   lifts: 5,
   adult_price: 4700,
+  url_path: 'grandeco-snow-resort',
   uid: '2545'
 )
 
@@ -527,6 +563,7 @@ Resort.create(
   slopes_length: 7.9,
   lifts: 4,
   adult_price: 4000,
+  url_path: 'nomugi-pass-nomugitoge',
   uid: '3698'
 )
 
@@ -540,6 +577,7 @@ Resort.create(
   slopes_length: 8,
   lifts: 6,
   adult_price: 5500,
+  url_path: 'okushiga-kogen',
   uid: '3774'
 )
 
@@ -553,6 +591,7 @@ Resort.create(
   slopes_length: 11,
   lifts: 4,
   adult_price: nil,
+  url_path: 'panorama-area-hachimantai',
   uid: '2887'
 )
 
@@ -566,6 +605,7 @@ Resort.create(
   slopes_length: 7.6,
   lifts: 3,
   adult_price: 3600,
+  url_path: 'ani-mt-moriyoshi',
   uid: '1712'
 )
 
@@ -579,6 +619,7 @@ Resort.create(
   slopes_length: 10,
   lifts: 5,
   adult_price: nil,
+  url_path: 'adatara-kogen-resort',
   uid: '1635'
 )
 
@@ -592,6 +633,7 @@ Resort.create(
   slopes_length: 9.9,
   lifts: 4,
   adult_price: 4000,
+  url_path: 'grand-sunpia-inawashiro',
   uid: '30809'
 )
 
@@ -605,6 +647,7 @@ Resort.create(
   slopes_length: 5.6,
   lifts: 1,
   adult_price: 5500,
+  url_path: 'higashitateyama',
   uid: '2677'
 )
 
@@ -618,6 +661,7 @@ Resort.create(
   slopes_length: 15.9,
   lifts: 8,
   adult_price: 3800,
+  url_path: 'sun-alpina-kashimayari',
   uid: '4543'
 )
 
@@ -631,6 +675,7 @@ Resort.create(
   slopes_length: 7.8,
   lifts: 3,
   adult_price: 4000,
+  url_path: 'ciao-ontake-snow-resort',
   uid: '2164'
 )
 
@@ -644,6 +689,7 @@ Resort.create(
   slopes_length: 5.3,
   lifts: 1,
   adult_price: 2500,
+  url_path: 'canmore-ski-village-higashikawa',
   uid: '11171'
 )
 
@@ -657,6 +703,7 @@ Resort.create(
   slopes_length: 10,
   lifts: 6,
   adult_price: 4300,
+  url_path: 'yabuhara-kogen',
   uid: '5008'
 )
 
@@ -670,6 +717,7 @@ Resort.create(
   slopes_length: 7,
   lifts: 3,
   adult_price: 4300,
+  url_path: 'moiwa',
   uid: '3445'
 )
 
@@ -683,6 +731,7 @@ Resort.create(
   slopes_length: 7.8,
   lifts: 5,
   adult_price: 4500,
+  url_path: 'asahi-tengston',
   uid: '1753'
 )
 
@@ -696,6 +745,7 @@ Resort.create(
   slopes_length: 11.6,
   lifts: 9,
   adult_price: 5500,
+  url_path: 'yokoteyama-shibutoge',
   uid: '5041'
 )
 
@@ -709,6 +759,7 @@ Resort.create(
   slopes_length: 6.1,
   lifts: 4,
   adult_price: 3600,
+  url_path: 'suhara-ski-resort',
   uid: '4531'
 )
 
@@ -722,6 +773,7 @@ Resort.create(
   slopes_length: 10,
   lifts: 11,
   adult_price: 4600,
+  url_path: 'ryuoo-ski-park',
   uid: '4162'
 )
 
@@ -735,6 +787,7 @@ Resort.create(
   slopes_length: 7.6,
   lifts: 7,
   adult_price: 4700,
+  url_path: 'hunter-mountain-shiobara',
   uid: '2764'
 )
 
@@ -748,6 +801,7 @@ Resort.create(
   slopes_length: 11.9,
   lifts: 9,
   adult_price: 3800,
+  url_path: 'tainai',
   uid: '4598'
 )
 
@@ -761,6 +815,7 @@ Resort.create(
   slopes_length: 5.9,
   lifts: 5,
   adult_price: 4400,
+  url_path: 'mount-jeans-nasu',
   uid: '3537'
 )
 
@@ -774,6 +829,7 @@ Resort.create(
   slopes_length: 6,
   lifts: 4,
   adult_price: 4200,
+  url_path: 'ojiro',
   uid: '3667'
 )
 
@@ -787,6 +843,7 @@ Resort.create(
   slopes_length: 12,
   lifts: 4,
   adult_price: 3900,
+  url_path: 'muikamachi-hakkaisan',
   uid: '3594'
 )
 
@@ -800,6 +857,7 @@ Resort.create(
   slopes_length: 7,
   lifts: 7,
   adult_price: 3600,
+  url_path: 'echo-valley',
   uid: '2327'
 )
 
@@ -813,6 +871,7 @@ Resort.create(
   slopes_length: 5.8,
   lifts: 9,
   adult_price: 5500,
+  url_path: 'karuizawa',
   uid: '2942'
 )
 
@@ -826,6 +885,7 @@ Resort.create(
   slopes_length: 11.7,
   lifts: 7,
   adult_price: 3000,
+  url_path: 'pippu',
   uid: '3940'
 )
 
@@ -839,6 +899,7 @@ Resort.create(
   slopes_length: 9.2,
   lifts: 5,
   adult_price: 4400,
+  url_path: 'edelweiss',
   uid: '2329'
 )
 
@@ -852,6 +913,7 @@ Resort.create(
   slopes_length: 10,
   lifts: 8,
   adult_price: 3500,
+  url_path: 'biwako-valley',
   uid: '1917'
 )
 
@@ -865,6 +927,7 @@ Resort.create(
   slopes_length: 7.3,
   lifts: 4,
   adult_price: 3000,
+  url_path: 'hidaka-kokusai',
   uid: '2668'
 )
 
@@ -878,6 +941,7 @@ Resort.create(
   slopes_length: 7,
   lifts: 3,
   adult_price: 4000,
+  url_path: 'shimokura-area-hachimantai',
   uid: '4312'
 )
 
@@ -891,6 +955,7 @@ Resort.create(
   slopes_length: 6,
   lifts: 5,
   adult_price: 4200,
+  url_path: 'naspa-ski-garden',
   uid: '3650'
 )
 
@@ -904,6 +969,7 @@ Resort.create(
   slopes_length: 10,
   lifts: 4,
   adult_price: 3500,
+  url_path: 'chateau-shiozawa',
   uid: '2128'
 )
 
@@ -917,6 +983,7 @@ Resort.create(
   slopes_length: 9,
   lifts: 6,
   adult_price: 4200,
+  url_path: 'pine-beak-sugadaira-kogen',
   uid: '30864'
 )
 
@@ -930,6 +997,7 @@ Resort.create(
   slopes_length: 7,
   lifts: 9,
   adult_price: 4000,
+  url_path: 'okuibuki',
   uid: '3771'
 )
 
@@ -943,6 +1011,7 @@ Resort.create(
   slopes_length: 10,
   lifts: 4,
   adult_price: 4000,
+  url_path: 'aizu-kogen-nango',
   uid: '1649'
 )
 
@@ -956,6 +1025,7 @@ Resort.create(
   slopes_length: 6.5,
   lifts: 3,
   adult_price: 4300,
+  url_path: 'shirakabako-royal-hill',
   uid: '4323'
 )
 
@@ -969,6 +1039,7 @@ Resort.create(
   slopes_length: 10,
   lifts: 3,
   adult_price: nil,
+  url_path: 'hakkoda',
   uid: '2591'
 )
 
@@ -982,6 +1053,7 @@ Resort.create(
   slopes_length: 4.5,
   lifts: 7,
   adult_price: 4700,
+  url_path: 'fujimi-panorama',
   uid: '2451'
 )
 
@@ -995,6 +1067,7 @@ Resort.create(
   slopes_length: 7.4,
   lifts: 7,
   adult_price: 4400,
+  url_path: 'oze-tokura',
   uid: '3838'
 )
 
@@ -1008,6 +1081,7 @@ Resort.create(
   slopes_length: 8,
   lifts: 3,
   adult_price: 3600,
+  url_path: 'yamaboku-yamada-bokujo',
   uid: '5017'
 )
 
@@ -1021,6 +1095,7 @@ Resort.create(
   slopes_length: 8,
   lifts: 4,
   adult_price: 5500,
+  url_path: 'ichinose-family-resort',
   uid: '2784'
 )
 
@@ -1034,6 +1109,7 @@ Resort.create(
   slopes_length: 7.5,
   lifts: 5,
   adult_price: nil,
+  url_path: 'hyounosen-kokusai',
   uid: '2775'
 )
 
@@ -1047,6 +1123,7 @@ Resort.create(
   slopes_length: 8.9,
   lifts: 4,
   adult_price: 3300,
+  url_path: 'jeunesse-kurikoma',
   uid: '2864'
 )
 
@@ -1060,6 +1137,7 @@ Resort.create(
   slopes_length: 7.1,
   lifts: 3,
   adult_price: 3500,
+  url_path: 'minenohara-kogen',
   uid: '3417'
 )
 
@@ -1073,6 +1151,7 @@ Resort.create(
   slopes_length: 7.2,
   lifts: 6,
   adult_price: 4500,
+  url_path: 'katashina-kogen-resort',
   uid: '2953'
 )
 
@@ -1086,6 +1165,7 @@ Resort.create(
   slopes_length: 8.8,
   lifts: 4,
   adult_price: 4300,
+  url_path: 'imajyo-365',
   uid: '2798'
 )
 
@@ -1099,6 +1179,7 @@ Resort.create(
   slopes_length: 7,
   lifts: 5,
   adult_price: nil,
+  url_path: 'iizuna-kogen',
   uid: '30784'
 )
 
@@ -1112,6 +1193,7 @@ Resort.create(
   slopes_length: 8.9,
   lifts: 6,
   adult_price: 4200,
+  url_path: 'numajiri',
   uid: '3731'
 )
 
@@ -1125,6 +1207,7 @@ Resort.create(
   slopes_length: 4,
   lifts: 3,
   adult_price: 5500,
+  url_path: 'nishitateyama',
   uid: '3688'
 )
 
@@ -1138,6 +1221,7 @@ Resort.create(
   slopes_length: 7.5,
   lifts: 3,
   adult_price: 3300,
+  url_path: 'zao-sumikawa',
   uid: '5067'
 )
 
@@ -1151,6 +1235,7 @@ Resort.create(
   slopes_length: 8,
   lifts: 7,
   adult_price: 3900,
+  url_path: 'ryokufu-resort',
   uid: '4160'
 )
 
@@ -1164,6 +1249,7 @@ Resort.create(
   slopes_length: 4.9,
   lifts: 4,
   adult_price: 4700,
+  url_path: 'manza-onsen',
   uid: '3327'
 )
 
@@ -1177,6 +1263,7 @@ Resort.create(
   slopes_length: 3,
   lifts: 2,
   adult_price: 5500,
+  url_path: 'giant-resort',
   uid: '2496'
 )
 
@@ -1190,6 +1277,7 @@ Resort.create(
   slopes_length: 5.5,
   lifts: 2,
   adult_price: nil,
+  url_path: 'yanaba-parallel',
   uid: '5020'
 )
 
@@ -1203,6 +1291,7 @@ Resort.create(
   slopes_length: 3,
   lifts: 8,
   adult_price: 4800,
+  url_path: 'hakodateyama',
   uid: '2593'
 )
 
@@ -1216,6 +1305,7 @@ Resort.create(
   slopes_length: 5,
   lifts: 6,
   adult_price: 3500,
+  url_path: 'moya-hills',
   uid: '3562'
 )
 
@@ -1229,6 +1319,7 @@ Resort.create(
   slopes_length: 5.9,
   lifts: 9,
   adult_price: 4000,
+  url_path: 'yuzawa-nakazato',
   uid: '5051'
 )
 
@@ -1242,6 +1333,7 @@ Resort.create(
   slopes_length: 5,
   lifts: 2,
   adult_price: nil,
+  url_path: 'hakkaisanroku',
   uid: '28932'
 )
 
@@ -1255,6 +1347,7 @@ Resort.create(
   slopes_length: 2.2,
   lifts: 1,
   adult_price: 5500,
+  url_path: 'hasuike',
   uid: '2625'
 )
 
@@ -1268,6 +1361,7 @@ Resort.create(
   slopes_length: 5,
   lifts: 3,
   adult_price: nil,
+  url_path: 'wakasugi-kogen-oya',
   uid: '4912'
 )
 
@@ -1281,6 +1375,7 @@ Resort.create(
   slopes_length: 6,
   lifts: 5,
   adult_price: 3800,
+  url_path: 'karigahara',
   uid: '2934'
 )
 
@@ -1294,6 +1389,7 @@ Resort.create(
   slopes_length: 5.9,
   lifts: 3,
   adult_price: 2050,
+  url_path: 'taiheizan-opus',
   uid: '4597'
 )
 
@@ -1307,6 +1403,7 @@ Resort.create(
   slopes_length: 5,
   lifts: 3,
   adult_price: 3000,
+  url_path: 'taira',
   uid: '4599'
 )
 
@@ -1320,6 +1417,7 @@ Resort.create(
   slopes_length: 10,
   lifts: 3,
   adult_price: 4600,
+  url_path: 'gassan-nishikawa',
   uid: '507'
 )
 
@@ -1333,6 +1431,7 @@ Resort.create(
   slopes_length: 6.4,
   lifts: 4,
   adult_price: 4000,
+  url_path: 'wakabuna-kogen',
   uid: '4910'
 )
 
@@ -1346,6 +1445,7 @@ Resort.create(
   slopes_length: 5,
   lifts: 2,
   adult_price: 2500,
+  url_path: 'kyowa',
   uid: '3131'
 )
 
@@ -1359,6 +1459,7 @@ Resort.create(
   slopes_length: 4.3,
   lifts: 2,
   adult_price: 3000,
+  url_path: 'asahimura-budo',
   uid: '1756'
 )
 
@@ -1372,6 +1473,7 @@ Resort.create(
   slopes_length: 3.2,
   lifts: 5,
   adult_price: 3100,
+  url_path: 'st-mary',
   uid: '4469'
 )
 
@@ -1385,6 +1487,7 @@ Resort.create(
   slopes_length: 6,
   lifts: 3,
   adult_price: 3700,
+  url_path: 'hidatakayama',
   uid: '2670'
 )
 
@@ -1398,6 +1501,7 @@ Resort.create(
   slopes_length: 1.8,
   lifts: 3,
   adult_price: 5500,
+  url_path: 'sun-valley-resort',
   uid: '4547'
 )
 
@@ -1411,6 +1515,7 @@ Resort.create(
   slopes_length: 3,
   lifts: 3,
   adult_price: 3000,
+  url_path: 'hanawa-kazuno',
   uid: '2888'
 )
 
@@ -1424,6 +1529,7 @@ Resort.create(
   slopes_length: 3.8,
   lifts: 3,
   adult_price: nil,
+  url_path: 'ashibetsu',
   uid: '1763'
 )
 
@@ -1437,6 +1543,7 @@ Resort.create(
   slopes_length: 5.7,
   lifts: 6,
   adult_price: 4000,
+  url_path: 'yuzawa-park',
   uid: '5052'
 )
 
@@ -1450,6 +1557,7 @@ Resort.create(
   slopes_length: 3.5,
   lifts: 4,
   adult_price: 3300,
+  url_path: 'asahi-shizen',
   uid: '1752'
 )
 
@@ -1463,6 +1571,7 @@ Resort.create(
   slopes_length: 3.1,
   lifts: 2,
   adult_price: 4500,
+  url_path: 'mineyama-kogen',
   uid: '31950'
 )
 
@@ -1476,6 +1585,7 @@ Resort.create(
   slopes_length: 4.5,
   lifts: 6,
   adult_price: 5000,
+  url_path: 'kumanoyu-resort',
   uid: '3111'
 )
 
@@ -1489,6 +1599,7 @@ Resort.create(
   slopes_length: 3,
   lifts: 4,
   adult_price: 4000,
+  url_path: 'kunizakai',
   uid: '3114'
 )
 
@@ -1502,6 +1613,7 @@ Resort.create(
   slopes_length: 4.1,
   lifts: 3,
   adult_price: 3800,
+  url_path: 'sakae-club',
   uid: '4183'
 )
 
@@ -1515,6 +1627,7 @@ Resort.create(
   slopes_length: 3,
   lifts: 3,
   adult_price: 2500,
+  url_path: 'minami-furano',
   uid: '3413'
 )
 
@@ -1528,6 +1641,7 @@ Resort.create(
   slopes_length: 3.5,
   lifts: 3,
   adult_price: 4200,
+  url_path: 'hiroshima-kenmin-no-mori',
   uid: '2703'
 )
 
@@ -1541,6 +1655,7 @@ Resort.create(
   slopes_length: 3.5,
   lifts: 2,
   adult_price: 3500,
+  url_path: 'hirayu-onsen',
   uid: '2701'
 )
 
@@ -1554,6 +1669,7 @@ Resort.create(
   slopes_length: 3.2,
   lifts: 4,
   adult_price: nil,
+  url_path: 'beruku-yogo',
   uid: '1881'
 )
 
@@ -1567,6 +1683,7 @@ Resort.create(
   slopes_length: 3.1,
   lifts: 3,
   adult_price: 3500,
+  url_path: 'karuizawa-snow-park',
   uid: '2935'
 )
 
@@ -1580,6 +1697,7 @@ Resort.create(
   slopes_length: 3.3,
   lifts: 1,
   adult_price: 2200,
+  url_path: 'horotachi',
   uid: '2744'
 )
 
@@ -1593,6 +1711,7 @@ Resort.create(
   slopes_length: 4.7,
   lifts: 4,
   adult_price: 4500,
+  url_path: 'norn-minakami',
   uid: '3711'
 )
 
@@ -1606,6 +1725,7 @@ Resort.create(
   slopes_length: 3,
   lifts: 1,
   adult_price: nil,
+  url_path: 'shintokuyama',
   uid: '4319'
 )
 
@@ -1619,6 +1739,7 @@ Resort.create(
   slopes_length: 0.4,
   lifts: 2,
   adult_price: nil,
+  url_path: 'sky-shishiku',
   uid: '4378'
 )
 
@@ -1632,6 +1753,7 @@ Resort.create(
   slopes_length: 4.4,
   lifts: 4,
   adult_price: 2600,
+  url_path: 'iwakisan-hyakuzawa',
   uid: '2824'
 )
 
@@ -1645,6 +1767,7 @@ Resort.create(
   slopes_length: 3.6,
   lifts: 4,
   adult_price: 4000,
+  url_path: 'yogo-kogen',
   uid: '5036'
 )
 
@@ -1658,6 +1781,7 @@ Resort.create(
   slopes_length: 3,
   lifts: 3,
   adult_price: 4000,
+  url_path: 'yeti-resort',
   uid: '5035'
 )
 
@@ -1671,6 +1795,7 @@ Resort.create(
   slopes_length: 4.4,
   lifts: 3,
   adult_price: 3800,
+  url_path: 'kotobiki-forest-park',
   uid: '3072'
 )
 
@@ -1684,6 +1809,7 @@ Resort.create(
   slopes_length: 4.2,
   lifts: 2,
   adult_price: 2900,
+  url_path: 'engaru-rock-valley',
   uid: '2355'
 )
 
@@ -1697,6 +1823,7 @@ Resort.create(
   slopes_length: 6.7,
   lifts: 1,
   adult_price: 2900,
+  url_path: 'asahidake',
   uid: '1754'
 )
 
@@ -1710,6 +1837,7 @@ Resort.create(
   slopes_length: 2.6,
   lifts: 3,
   adult_price: 6500,
+  url_path: 'kujyumachi',
   uid: '3107'
 )
 
@@ -1723,6 +1851,7 @@ Resort.create(
   slopes_length: 2.3,
   lifts: 3,
   adult_price: 4000,
+  url_path: 'ibuki-no-sato',
   uid: '30834'
 )
 
@@ -1736,6 +1865,7 @@ Resort.create(
   slopes_length: 4.3,
   lifts: 1,
   adult_price: 3500,
+  url_path: 'nakasato-kiyotsu',
   uid: '3632'
 )
 
@@ -1749,6 +1879,7 @@ Resort.create(
   slopes_length: 3,
   lifts: 1,
   adult_price: nil,
+  url_path: 'nakayamatoge-kogen',
   uid: '3634'
 )
 
@@ -1762,6 +1893,7 @@ Resort.create(
   slopes_length: 1.6,
   lifts: 1,
   adult_price: 2500,
+  url_path: 'motai',
   uid: '3522'
 )
 
@@ -1775,6 +1907,7 @@ Resort.create(
   slopes_length: 3,
   lifts: 3,
   adult_price: 3000,
+  url_path: 'takanbo',
   uid: '4604'
 )
 
@@ -1788,6 +1921,7 @@ Resort.create(
   slopes_length: 4,
   lifts: 3,
   adult_price: 4000,
+  url_path: 'pilatus-tateshina',
   uid: '3928'
 )
 
@@ -1801,6 +1935,7 @@ Resort.create(
   slopes_length: 3,
   lifts: 2,
   adult_price: 5500,
+  url_path: 'terakoya-resort',
   uid: '4659'
 )
 
@@ -1814,6 +1949,7 @@ Resort.create(
   slopes_length: 4.2,
   lifts: 3,
   adult_price: 3100,
+  url_path: 'yudonosan',
   uid: '5046'
 )
 
@@ -1827,6 +1963,7 @@ Resort.create(
   slopes_length: 2,
   lifts: 2,
   adult_price: 5500,
+  url_path: 'ichinose-yamanokami',
   uid: '2785'
 )
 
@@ -1840,6 +1977,7 @@ Resort.create(
   slopes_length: 2.3,
   lifts: 2,
   adult_price: 3800,
+  url_path: 'white-valley-matsubara',
   uid: '4957'
 )
 
@@ -1853,6 +1991,7 @@ Resort.create(
   slopes_length: 1,
   lifts: 1,
   adult_price: nil,
+  url_path: 'numata-choei-takaho',
   uid: '3732'
 )
 
@@ -1866,6 +2005,7 @@ Resort.create(
   slopes_length: 2,
   lifts: 1,
   adult_price: 2800,
+  url_path: 'taranokidai',
   uid: '4625'
 )
 
@@ -1879,6 +2019,7 @@ Resort.create(
   slopes_length: 2.6,
   lifts: 3,
   adult_price: 3000,
+  url_path: 'koide',
   uid: '3039'
 )
 
@@ -1892,6 +2033,7 @@ Resort.create(
   slopes_length: 2.3,
   lifts: 3,
   adult_price: nil,
+  url_path: 'tsuchitaru',
   uid: '4756'
 )
 
@@ -1905,6 +2047,7 @@ Resort.create(
   slopes_length: 1.8,
   lifts: 2,
   adult_price: 3600,
+  url_path: 'ikawa-kainayama',
   uid: '2793'
 )
 
@@ -1918,6 +2061,7 @@ Resort.create(
   slopes_length: 1.5,
   lifts: 2,
   adult_price: nil,
+  url_path: 'sannokura',
   uid: '4205'
 )
 
@@ -1931,6 +2075,7 @@ Resort.create(
   slopes_length: 1.5,
   lifts: 1,
   adult_price: 3800,
+  url_path: 'tateshina-tokyu',
   uid: '4630'
 )
 
@@ -1944,6 +2089,7 @@ Resort.create(
   slopes_length: 1,
   lifts: 1,
   adult_price: 3800,
+  url_path: 'tsuguro-kogen',
   uid: '4758'
 )
 
@@ -1957,6 +2103,7 @@ Resort.create(
   slopes_length: 1,
   lifts: 1,
   adult_price: 2000,
+  url_path: 'nanao-korosa',
   uid: '3640'
 )
 
@@ -1970,6 +2117,7 @@ Resort.create(
   slopes_length: 2.8,
   lifts: 2,
   adult_price: 3400,
+  url_path: 'awasuno',
   uid: '1785'
 )
 
@@ -1983,6 +2131,7 @@ Resort.create(
   slopes_length: 1.8,
   lifts: 3,
   adult_price: 5500,
+  url_path: 'maruike',
   uid: '3340'
 )
 
@@ -1996,6 +2145,7 @@ Resort.create(
   slopes_length: 2.8,
   lifts: 3,
   adult_price: 3000,
+  url_path: 'kutsuki',
   uid: '3127'
 )
 
@@ -2009,6 +2159,7 @@ Resort.create(
   slopes_length: 1.6,
   lifts: 1,
   adult_price: nil,
+  url_path: 'kanayasan',
   uid: '2915'
 )
 
@@ -2022,6 +2173,7 @@ Resort.create(
   slopes_length: 1.7,
   lifts: 1,
   adult_price: nil,
+  url_path: 'hida-highland',
   uid: '2665'
 )
 
@@ -2035,6 +2187,7 @@ Resort.create(
   slopes_length: 2.7,
   lifts: 1,
   adult_price: nil,
+  url_path: 'gokazan-yubetsu',
   uid: '2908'
 )
 
@@ -2048,6 +2201,7 @@ Resort.create(
   slopes_length: 2,
   lifts: 3,
   adult_price: nil,
+  url_path: 'akazawa',
   uid: '1659'
 )
 
@@ -2061,6 +2215,7 @@ Resort.create(
   slopes_length: 1.5,
   lifts: 2,
   adult_price: 2000,
+  url_path: 'shichinohechoei',
   uid: '4309'
 )
 
@@ -2074,6 +2229,7 @@ Resort.create(
   slopes_length: 0.9,
   lifts: 1,
   adult_price: nil,
+  url_path: 'kutchancho-asahigaoka',
   uid: '3105'
 )
 
@@ -2087,6 +2243,7 @@ Resort.create(
   slopes_length: 1.3,
   lifts: 5,
   adult_price: 4000,
+  url_path: 'ishizuchi',
   uid: '2812'
 )
 
@@ -2100,6 +2257,7 @@ Resort.create(
   slopes_length: 2.4,
   lifts: 1,
   adult_price: 3600,
+  url_path: 'akita-hachimantai',
   uid: '30874'
 )
 
@@ -2113,6 +2271,7 @@ Resort.create(
   slopes_length: 2.5,
   lifts: 3,
   adult_price: 3600,
+  url_path: 'ushidake-onsen',
   uid: '4796'
 )
 
@@ -2126,6 +2285,7 @@ Resort.create(
   slopes_length: 1.2,
   lifts: 2,
   adult_price: nil,
+  url_path: 'hinoemata',
   uid: '2696'
 )
 
@@ -2139,6 +2299,7 @@ Resort.create(
   slopes_length: 1.9,
   lifts: 1,
   adult_price: 2500,
+  url_path: 'ludens-yuzawa',
   uid: '3267'
 )
 
@@ -2152,6 +2313,7 @@ Resort.create(
   slopes_length: 1.8,
   lifts: 2,
   adult_price: 2500,
+  url_path: 'matsudai',
   uid: '3350'
 )
 
@@ -2165,6 +2327,7 @@ Resort.create(
   slopes_length: 1.2,
   lifts: 1,
   adult_price: nil,
+  url_path: 'bifuka',
   uid: '1897'
 )
 
@@ -2178,6 +2341,7 @@ Resort.create(
   slopes_length: 2,
   lifts: 2,
   adult_price: 5500,
+  url_path: 'tannenomori-okojo',
   uid: '4621'
 )
 
@@ -2191,6 +2355,7 @@ Resort.create(
   slopes_length: 1.5,
   lifts: 1,
   adult_price: 3000,
+  url_path: 'yunotani-yakushi',
   uid: '5050'
 )
 
@@ -2204,6 +2369,7 @@ Resort.create(
   slopes_length: 1.5,
   lifts: 2,
   adult_price: 3500,
+  url_path: 'araragi-kogen',
   uid: '1736'
 )
 
@@ -2217,6 +2383,7 @@ Resort.create(
   slopes_length: 1.1,
   lifts: 3,
   adult_price: 5500,
+  url_path: 'ichinose-diamond',
   uid: '2783'
 )
 
@@ -2230,6 +2397,7 @@ Resort.create(
   slopes_length: 1.5,
   lifts: 1,
   adult_price: nil,
+  url_path: 'suishozan-kazuno',
   uid: '2889'
 )
 
@@ -2243,6 +2411,7 @@ Resort.create(
   slopes_length: 1.6,
   lifts: 1,
   adult_price: 3600,
+  url_path: 'ishiuchi-hanaoka',
   uid: '30884'
 )
 
@@ -2256,6 +2425,7 @@ Resort.create(
   slopes_length: 1.2,
   lifts: 1,
   adult_price: 2000,
+  url_path: 'muroran-kogen-danpara',
   uid: '3601'
 )
 
@@ -2269,6 +2439,7 @@ Resort.create(
   slopes_length: 2.8,
   lifts: 2,
   adult_price: 3000,
+  url_path: 'kaneyama',
   uid: '2920'
 )
 
@@ -2282,6 +2453,7 @@ Resort.create(
   slopes_length: 1,
   lifts: 2,
   adult_price: 3500,
+  url_path: 'gujo-kogen',
   uid: '2574'
 )
 
@@ -2295,6 +2467,7 @@ Resort.create(
   slopes_length: 2.1,
   lifts: 3,
   adult_price: 2670,
+  url_path: 'towadako-onsen',
   uid: '4721'
 )
 
@@ -2308,6 +2481,7 @@ Resort.create(
   slopes_length: 2.7,
   lifts: 2,
   adult_price: 3800,
+  url_path: 'daisetsuzan-kurodake-sounkyo',
   uid: '2239'
 )
 
@@ -2321,6 +2495,7 @@ Resort.create(
   slopes_length: 2.3,
   lifts: 2,
   adult_price: nil,
+  url_path: 'tengamori',
   uid: '4652'
 )
 
@@ -2334,6 +2509,7 @@ Resort.create(
   slopes_length: 0.8,
   lifts: 1,
   adult_price: nil,
+  url_path: 'yokomuki-onsen',
   uid: '5039'
 )
 
@@ -2347,6 +2523,7 @@ Resort.create(
   slopes_length: 0.7,
   lifts: 1,
   adult_price: 3900,
+  url_path: 'daisen-masumizu-kogen',
   uid: '3345'
 )
 
@@ -2360,6 +2537,7 @@ Resort.create(
   slopes_length: 0.9,
   lifts: 1,
   adult_price: 2800,
+  url_path: 'tadami',
   uid: '4593'
 )
 
@@ -2373,6 +2551,7 @@ Resort.create(
   slopes_length: 0.8,
   lifts: 2,
   adult_price: 2000,
+  url_path: 'nakazato-snow-wood',
   uid: '3635'
 )
 
@@ -2386,6 +2565,7 @@ Resort.create(
   slopes_length: 1,
   lifts: 1,
   adult_price: 2500,
+  url_path: 'kyukamura-myoko-resort',
   uid: '3133'
 )
 
@@ -2399,6 +2579,7 @@ Resort.create(
   slopes_length: 2.3,
   lifts: 2,
   adult_price: 4000,
+  url_path: 'hiruzen-bear-valley',
   uid: '2708'
 )
 
@@ -2412,6 +2593,7 @@ Resort.create(
   slopes_length: 1.8,
   lifts: 3,
   adult_price: 2050,
+  url_path: 'yogoshiyama',
   uid: '5037'
 )
 
@@ -2425,6 +2607,7 @@ Resort.create(
   slopes_length: 0.3,
   lifts: 1,
   adult_price: 2300,
+  url_path: 'eniwa-shimin',
   uid: '2358'
 )
 
@@ -2438,6 +2621,7 @@ Resort.create(
   slopes_length: 0.7,
   lifts: 1,
   adult_price: 5500,
+  url_path: 'kidoike',
   uid: '2983'
 )
 
@@ -2451,6 +2635,7 @@ Resort.create(
   slopes_length: 0.4,
   lifts: 1,
   adult_price: 4200,
+  url_path: 'ipponsugi',
   uid: '2808'
 )
 
@@ -2464,6 +2649,7 @@ Resort.create(
   slopes_length: 1,
   lifts: 2,
   adult_price: nil,
+  url_path: 'yokote-park',
   uid: '30869'
 )
 
@@ -2477,6 +2663,7 @@ Resort.create(
   slopes_length: 0.3,
   lifts: 2,
   adult_price: 4100,
+  url_path: 'sayama',
   uid: '4226'
 )
 
@@ -2490,6 +2677,7 @@ Resort.create(
   slopes_length: 0.3,
   lifts: 2,
   adult_price: nil,
+  url_path: 'shizuokashi-riverwell-ikawa',
   uid: '4333'
 )
 
@@ -2503,6 +2691,7 @@ Resort.create(
   slopes_length: 0.6,
   lifts: 2,
   adult_price: nil,
+  url_path: 'yakurai',
   uid: '5015'
 )
 
