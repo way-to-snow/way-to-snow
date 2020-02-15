@@ -1,0 +1,21 @@
+.button-holder {
+  position: absolute;
+  z-index: 1;
+  top: 200px;
+  right: 10px;
+}
+
+.button {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px;
+  background-color: white;
+  border-radius: 4px;
+  font-family: 'Open Sans';
+  color: #333333;
+}
+
+.button:hover {
+  background-color: #f2f2f2;
+  color: #333333;
+}
