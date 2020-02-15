@@ -1,8 +1,22 @@
 class ResortsController < ApplicationController
   def index
-    @resorts = Resort.where.not(latitude: nil, longitude: nil)
+    if params[:slopes_length].present?
+      @resorts = Resort.where('slopes_length > ?', 10)
+    # elsif params[:favorites].present?
+    #   raise
+    #   if current_user.favorites.any?
+    #     @resorts = current_user.favorites.resorts
+    #   else
+    #     flash.now[:alert] = "You don't have any favorite resorts yet!"
+    #   end
+    else
+      @resorts = Resort.where.not(latitude: nil, longitude: nil)
+    end
+    map_maker(@resorts)
+  end
 
-    @markers = @resorts.map do |resort|
+  def map_maker(resorts)
+    @markers = resorts.map do |resort|
       {
         lat: resort.latitude,
         lng: resort.longitude,
