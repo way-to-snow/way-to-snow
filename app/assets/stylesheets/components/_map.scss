@@ -6,3 +6,11 @@
   text-align: center;
   font-family: 'Open Sans', sans-serif;
 }
+
+.marker {
+  background-image: url('marker.png');
+  background-size: cover;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
