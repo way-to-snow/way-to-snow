@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="resort-header"></div>
+    <h1><%= @resort.name %></h1>
+  </div>
+  <div class="resort-information">
+
+  </div>
+  <div class="weather-table">
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col"><%= Time.now.strftime("%A") %></th>
+          <th scope="col"><%= (Time.now + 1.day).strftime("%A") %></th>
+          <th scope="col"><%= (Time.now + 2.day).strftime("%A") %></th>
+          <th scope="col"><%= (Time.now + 3.day).strftime("%A") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Max Temperature</th>
+          <% @resort.forecasts.each do |forecast| %>
+            <td><%= forecast.max_temperature %>°C</td>
+          <% end %>
+        </tr>
+        <tr>
+          <th scope="row">Min Temperature</th>
+          <% @resort.forecasts.each do |forecast| %>
+            <td><%= forecast.min_temperature %>°C</td>
+          <% end %>
+        </tr>
+        <tr>
+          <th scope="row">Snowfall</th>
+          <% @resort.forecasts.each do |forecast| %>
+            <td><%= forecast.snow_amount %> cm</td>
+          <% end %>
+        </tr>
+        <tr>
+          <th scope="row">Rain</th>
+          <% @resort.forecasts.each do |forecast| %>
+            <td><%= forecast.rain %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <th scope="row">Wind Direction</th>
+          <% @resort.forecasts.each do |forecast| %>
+            <td><%= forecast.wind_direction %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <th scope="row">Wind Speed</th>
+          <% @resort.forecasts.each do |forecast| %>
+            <td><%= forecast.wind_speed %> km/h</td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
