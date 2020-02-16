@@ -1,2 +1,4 @@
 <h2><%= resort.name %></h2>
 <p><%= resort.address %></p>
+<%= link_to '<i class="fas fa-heart"></i>'.html_safe, resort_favorites_path(resort), method: 'POST', class: 'button-favorite', style: 'text-decoration:none' %>
+<p><%= resort.favorites.count %></p>
