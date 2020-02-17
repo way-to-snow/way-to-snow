@@ -2685,6 +2685,8 @@ def scrape_weather(resort)
     wind = 0
     wind_direction = ""
     snowfall = 0
+    day = ""
+    rain = ""
     doc.search(".panel-simple table:nth-child(5) tr:nth-child(10) td:nth-child(#{num}) strong").each_with_index do |element, index|
       max = element.text.gsub(/°C/,"").to_i
     end
@@ -2700,13 +2702,17 @@ def scrape_weather(resort)
     doc.search(".panel-simple table:nth-child(9) tr:nth-child(3) td:nth-child(#{num})").each_with_index do |element, index|
       snowfall = element.text.gsub(/</, "").gsub(/cm/, "").to_i
     end
+    doc.search(".panel-simple table:nth-child(5) thead th:nth-child(#{num})").each_with_index do |element, index|
+      day = element.text[1, 3]
+    end
     forecast = Forecast.create(
       resort: resort,
       max_temperature: max,
       min_temperature: min,
       wind_speed: wind,
       wind_direction: wind_direction,
-      snow_amount: snowfall
+      snow_amount: snowfall,
+      forecast_day: day
     )
     p forecast
     forecast.save
@@ -2715,9 +2721,11 @@ end
 
 puts "Creating weather forecasts"
 
-Resort.all.each do |resort|
-  scrape_weather(resort)
-end
+# Resort.all.each do |resort|
+#   scrape_weather(resort)
+# end
+scrape_weather(Resort.first)
+
 
 puts "Finished creating weather forecasts"
 
