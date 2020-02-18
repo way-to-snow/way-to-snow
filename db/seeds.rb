@@ -67,34 +67,27 @@ end
 puts 'Finished seeding resorts...'
 
 def weather_api(resort)
-  api_response = open("https://api.openweathermap.org/data/2.5/forecast?lat=#{resort.latitude}&lon=#{resort.longitude}&appid=#{ENV['OPENWEATHER_API_KEY']}&units=metric").read
+  api_response = open("https://api.openweathermap.org/data/2.5/forecast/daily?lat=#{resort.latitude}&lon=#{resort.longitude}&appid=#{ENV['OPENWEATHER_API_KEY']}&units=metric").read
   weather = JSON.parse(api_response)
 
-  start = 0
-  finish = 7
+  i = 0
 
   4.times do
-    day = weather['list'][start..finish]
+    day = weather['list'][i]
+    p Time.at(day['dt'])
     forecast = Forecast.create(
       resort: resort,
-      forecast_day: Time.at(weather["list"][start]["dt"]),
-      max_temperature: day.map { |hash| hash['main']['temp_max'] }.max,
-      min_temperature: day.map { |hash| hash['main']['temp_min'] }.min,
-      wind_speed: day.map { |hash| hash['wind']['speed'] }.max,
-      wind_direction: deg_to_compass((day.map { |hash| hash['wind']['deg'] }.sum / 8)),
-      snow_amount: daily_sum(day, 'snow'),
-      weather: weather['list'][start]['weather'][0]['main']
+      forecast_day: Time.at(day['dt']),
+      max_temperature: day['temp']['max'],
+      min_temperature: day['temp']['min'],
+      wind_speed: day['speed'],
+      wind_direction: deg_to_compass(day['deg']),
+      weather: day['weather'][0]['description'],
+      snow_amount: day['snow'].nil? ? 0 : day['snow'],
+      rain: day['rain'].nil? ? 0 : day['rain']
       )
-    start += 8
-    finish += 8
+    i += 1
   end
-end
-
-def daily_sum(day, type)
-  answer = day.map do |hash|
-    hash[type].nil? ? [0] : hash[type].values
-  end
-  answer.flatten.sum.round(1)
 end
 
 def deg_to_compass(deg)
@@ -110,4 +103,3 @@ Resort.all.each do |resort|
 end
 
 puts "Finished creating weather forecasts"
-
