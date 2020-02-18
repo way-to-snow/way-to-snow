@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_18_230515) do
+ActiveRecord::Schema.define(version: 2020_02_18_233635) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -124,13 +124,13 @@ ActiveRecord::Schema.define(version: 2020_02_18_230515) do
   end
 
   create_table "weather_reports", force: :cascade do |t|
-    t.string "api_response"
     t.integer "snow_depth"
     t.integer "snow_change"
     t.datetime "date"
     t.bigint "resort_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.jsonb "report", default: "{}", null: false
     t.index ["resort_id"], name: "index_weather_reports_on_resort_id"
   end
 

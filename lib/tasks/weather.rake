@@ -1,45 +1,32 @@
-desc "Importing daily weather forecasts"
+desc "Importing daily weather report"
 task weather: :environment do
   # All your magic here
   # Any valid Ruby code is allowed
 
-  def weather_api(resort)
-    api_response = open("https://api.openweathermap.org/data/2.5/forecast/daily?lat=#{resort.latitude}&lon=#{resort.longitude}&appid=#{ENV['OPENWEATHER_API_KEY']}&units=metric").read
-    weather = JSON.parse(api_response)
+def weather_report(resort)
+  html = open("https://www.snowjapan.com/japan-ski-resorts/#{resort.url_path}").read
+  doc = Nokogiri::HTML(html)
+  api = open("https://api.openweathermap.org/data/2.5/forecast/daily?lat=#{resort.latitude}&lon=#{resort.longitude}&appid=#{ENV['OPENWEATHER_API_KEY']}&units=metric").read
+  weather = JSON.parse(api)
 
-    i = 0
+  weather_report = WeatherReport.create(
+    resort: resort,
+    snow_depth: doc.xpath("//div[@class='current-snow-depth-box-body-data']/text()")[0].text.to_i,
+    snow_change: doc.xpath("//div[@class='current-snow-depth-box-body-dif']/text()")[0].text.gsub(/[^0-9,-]/, '').to_i,
+    date: Time.at(weather['list'][0]['dt']),
+    report: weather
+  )
+end
 
-    4.times do
-      day = weather['list'][i]
-      p Time.at(day['dt'])
-      forecast = Forecast.create(
-        resort: resort,
-        forecast_day: Time.at(day['dt']),
-        max_temperature: day['temp']['max'],
-        min_temperature: day['temp']['min'],
-        wind_speed: day['speed'],
-        wind_direction: deg_to_compass(day['deg']),
-        weather: day['weather'][0]['description'],
-        snow_amount: day['snow'].nil? ? 0 : day['snow'],
-        rain: day['rain'].nil? ? 0 : day['rain']
-        )
-      i += 1
-    end
-  end
+  puts "Fetching weather reports"
 
-  def deg_to_compass(deg)
-    val = ((deg / 22.5) + 0.5).floor
-    sym = ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW']
-    sym[(val % 16)]
-  end
+  # Resort.all.each do |resort|
+  #   weather_report(resort)
+  # end
 
-  puts "Creating weather forecasts"
+  weather_report(Resort.first)
 
-  Resort.all.each do |resort|
-    weather_api(resort)
-  end
-
-  puts "Finished creating weather forecasts"
+  puts "Finished fetching weather reports"
 
 end
 

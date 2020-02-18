@@ -37,8 +37,6 @@ def more_details(resort)
   html = open("https://www.snowjapan.com/japan-ski-resorts/#{resort.url_path}").read
   doc = Nokogiri::HTML(html)
 
-  resort.snow_depth = doc.xpath("//div[@class='current-snow-depth-box-body-data']/text()")[0].text.to_i
-  resort.snow_change = doc.xpath("//div[@class='current-snow-depth-box-body-dif']/text()")[0].text.gsub(/[^0-9,-]/, '').to_i
   resort.url = doc.css('div#information a').map { |link| link['href'] }[0]
   resort.advanced = doc.css('div.percent1').text.to_i
   resort.intermediate = doc.css('div.percent2').text.to_i
