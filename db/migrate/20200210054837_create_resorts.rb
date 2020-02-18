@@ -9,8 +9,6 @@ class CreateResorts < ActiveRecord::Migration[6.0]
       t.string :url
       t.integer :adult_price
       t.integer :child_price
-      t.date :season_start
-      t.date :season_end
       t.integer :top_elevation
       t.integer :bottom_elevation
       t.boolean :ski_school
