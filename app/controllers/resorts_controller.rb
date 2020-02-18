@@ -8,6 +8,8 @@ class ResortsController < ApplicationController
   def index
     if params[:slopes_length].present?
       @resorts = Resort.where('slopes_length > ?', 10)
+    elsif params[:snow].present?
+      @resorts = Resort.where('snow_change > ?', 0)
     elsif params[:favorites].present?
       if @user.favorites.any?
         @resorts = @user.resorts
