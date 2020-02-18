@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_14_035315) do
+ActiveRecord::Schema.define(version: 2020_02_18_230515) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -109,8 +109,6 @@ ActiveRecord::Schema.define(version: 2020_02_14_035315) do
     t.integer "longest_course"
     t.boolean "sb_school"
     t.string "season_planned"
-    t.integer "snow_depth"
-    t.integer "snow_change"
   end
 
   create_table "users", force: :cascade do |t|
@@ -125,6 +123,17 @@ ActiveRecord::Schema.define(version: 2020_02_14_035315) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "weather_reports", force: :cascade do |t|
+    t.string "api_response"
+    t.integer "snow_depth"
+    t.integer "snow_change"
+    t.datetime "date"
+    t.bigint "resort_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["resort_id"], name: "index_weather_reports_on_resort_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "answers", "questions"
   add_foreign_key "answers", "users"
@@ -133,4 +142,5 @@ ActiveRecord::Schema.define(version: 2020_02_14_035315) do
   add_foreign_key "forecasts", "resorts"
   add_foreign_key "questions", "resorts"
   add_foreign_key "questions", "users"
+  add_foreign_key "weather_reports", "resorts"
 end
