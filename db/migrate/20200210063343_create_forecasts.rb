@@ -9,7 +9,7 @@ class CreateForecasts < ActiveRecord::Migration[6.0]
       t.integer :wind_speed
       t.float :snow_amount
       t.string :weather
-      t.integer :rain
+      t.float :rain
 
       t.timestamps
     end
