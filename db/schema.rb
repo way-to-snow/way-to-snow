@@ -57,15 +57,12 @@ ActiveRecord::Schema.define(version: 2020_02_14_035315) do
 
   create_table "forecasts", force: :cascade do |t|
     t.bigint "resort_id", null: false
-    t.string "issued_day"
-    t.string "issued_date"
-    t.string "forecast_day"
-    t.string "time_of_day"
+    t.time "forecast_day"
     t.integer "max_temperature"
     t.integer "min_temperature"
     t.string "wind_direction"
     t.integer "wind_speed"
-    t.integer "snow_amount"
+    t.float "snow_amount"
     t.string "weather"
     t.integer "rain"
     t.datetime "created_at", precision: 6, null: false
