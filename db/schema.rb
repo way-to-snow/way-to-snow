@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_15_035759) do
+ActiveRecord::Schema.define(version: 2020_02_14_035315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,8 +92,6 @@ ActiveRecord::Schema.define(version: 2020_02_15_035759) do
     t.string "url"
     t.integer "adult_price"
     t.integer "child_price"
-    t.date "season_start"
-    t.date "season_end"
     t.integer "top_elevation"
     t.integer "bottom_elevation"
     t.boolean "ski_school"
@@ -107,9 +105,15 @@ ActiveRecord::Schema.define(version: 2020_02_15_035759) do
     t.datetime "updated_at", precision: 6, null: false
     t.float "latitude"
     t.float "longitude"
-    t.float "slopes_length"
-    t.string "uid"
     t.string "url_path"
+    t.string "name_ja"
+    t.string "address_ja"
+    t.float "percent_snowboards"
+    t.integer "longest_course"
+    t.boolean "sb_school"
+    t.string "season_planned"
+    t.integer "snow_depth"
+    t.integer "snow_change"
   end
 
   create_table "users", force: :cascade do |t|
