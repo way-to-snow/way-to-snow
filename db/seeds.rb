@@ -7,7 +7,7 @@ require 'smarter_csv'
 
 puts 'Creating resorts with basic info...'
 
-resort = SmarterCSV.process('db/resorts.csv')
+resorts = SmarterCSV.process('db/resorts.csv')
 resorts.each do |resort|
   Resort.create(
     name: resort[:resort_name],
