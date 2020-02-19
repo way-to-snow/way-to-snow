@@ -18,16 +18,14 @@ def weather_report(resort)
   )
 end
 
-  puts "Fetching weather reports"
+puts "Fetching weather reports"
 
-  # Resort.all.each do |resort|
-  #   weather_report(resort)
-  # end
-
-  weather_report(Resort.first)
-
-  puts "Finished fetching weather reports"
-
+Resort.all.each do |resort|
+  puts "Getting weather report for #{resort.name}"
+  weather_report(resort)
 end
 
+puts "Finished fetching weather reports"
+
+end
 #rake weather

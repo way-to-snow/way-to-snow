@@ -32,9 +32,8 @@ task forecast: :environment do
     sym[(val % 16)]
   end
 
-  puts "Creating forecasts"
-
   Resort.all.each do |resort|
+    puts "Creating four day forecasts for #{resort.name}"
     get_forecasts(resort)
   end
 
