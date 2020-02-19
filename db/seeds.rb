@@ -5,6 +5,12 @@ require 'json'
 require 'csv'
 require 'smarter_csv'
 
+puts 'Creating generic user...'
+
+User.create(email: "user1@waytosnow.com", password: "snowboard")
+
+puts 'User created...'
+
 puts 'Creating resorts with basic info...'
 
 resorts = SmarterCSV.process('db/resorts.csv')
