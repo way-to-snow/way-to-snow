@@ -6,20 +6,14 @@ class ResortsController < ApplicationController
   end
 
   def index
-    if params[:slopes_length].present?
-      @resorts = Resort.where('slopes_length > ?', 10)
-    elsif params[:snow].present?
-      @resorts = Resort.where('snow_change > ?', 0)
+    if params[:snow].present?
+      @resorts = new_snow
     elsif params[:favorites].present?
-      if @user.favorites.any?
-        @resorts = @user.resorts
-      else
-        flash.now[:alert] = "You don't have any favorite resorts yet!"
-      end
+      @user.favorites.any? ? @resorts = @user.resorts : @resorts = Resort.all
     else
-      @resorts = Resort.where.not(latitude: nil, longitude: nil)
+      @resorts = Resort.all
+      map_maker(@resorts)
     end
-    map_maker(@resorts)
   end
 
   def map_maker(resorts)
@@ -37,4 +31,19 @@ class ResortsController < ApplicationController
   def show
     @resort = Resort.find(params[:id])
   end
+
+  def new_snow
+    Resort.all.select do |resort|
+      resort.weather_reports.order('date DESC').first.snow_change.positive?
+    end
+  end
 end
+
+    # if params[:snow].present?
+    #   @resorts = Resort.where('slopes_length > ?', 10)
+    # elsif params[:favorites].present?
+    #   @user.favorites.any? ? @resorts = @user.resorts : (redirect_to action: 'index')
+    # else
+    #   @resorts = Resort.where.not(latitude: nil, longitude: nil)
+    # end
+

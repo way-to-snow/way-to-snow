@@ -9,17 +9,27 @@ def weather_report(resort)
   api = open("https://api.openweathermap.org/data/2.5/forecast/daily?lat=#{resort.latitude}&lon=#{resort.longitude}&appid=#{ENV['OPENWEATHER_API_KEY']}&units=metric").read
   weather = JSON.parse(api)
   snow = doc.css('div.resort-option-box-main td')[1].text.split(' ')
-  snow.count == 7 && snow[0] != '---' ? depth = snow[0].gsub(/[^0-9,-]/, '').to_i : depth = nil
-  snow.count == 7 && snow[0] != '---' ? change = snow[1].gsub(/[^0-9,-]/, '').to_i : change = nil
+  snow.count == 7 && snow[0] != '---' ? depth = snow[0].gsub(/[^0-9,-]/, '').to_i : depth = 0
+  snow.count == 7 && snow[0] != '---' ? change = snow[1].gsub(/[^0-9,-]/, '').to_i : change = 0
 
   weather_report = WeatherReport.create(
     resort: resort,
     snow_depth: depth,
     snow_change: change,
     date: Time.at(weather['list'][0]['dt']),
-    report: weather
+    report: weather,
+    current: true
   )
 end
+
+puts "Turning off old weather reports"
+
+WeatherReport.all.each do |report|
+  report.current = false
+  report.save
+end
+
+puts "Ready for new weather reports"
 
 puts "Fetching weather reports"
 
