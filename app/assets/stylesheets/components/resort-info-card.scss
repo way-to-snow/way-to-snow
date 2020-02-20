@@ -1,0 +1,66 @@
+.resort-info-header{
+  background: $blue;
+  color: white;
+  padding: 8px;
+}
+
+.resort-info-header h2{
+  font-size: 14px;
+  font-weight: light;
+}
+
+.resort-info-body{
+  // height: 200px;
+  // margin-bottom: 10px;
+  // width: 200px;
+}
+
+.resort-info-body ul{
+  overflow: hidden;
+  height: 180px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 5%;
+}
+
+.resort-info-body li{
+  list-style-type: none;
+  // position: absolute;
+  text-align: right;
+}
+
+.resort-info-body .top{
+  color: #12B5EA;
+  right: 0;
+  top: 4px;
+  width: 45%;
+}
+
+.resort-info-body .drop{
+  color: #12B5EA;
+  right: 0;
+  top: 4px;
+  width: 45%;
+}
+
+.resort-info-body .bottom{
+  color: #12B5EA;
+  right: 0;
+  top: 4px;
+  width: 45%;
+}
+
+.resort-info-body .value{
+  font-size: 16px;
+  font-weight: 500;
+  height: 18px;
+  border-bottom: 2px dotted #e4e4e4;
+}
+
+.resort-info-body .label{
+  font-size: 10px;
+  font-weight: 400;
+  height: 14px;
+  line-height: 14px;
+  text-transform: uppercase;
+}

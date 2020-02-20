@@ -1,3 +1,62 @@
 .forecast-table{
-  border: 1px solid black;
+  margin-top: 20px;
+  font-size: 12px;
+}
+
+.forecast-table .table-header{
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4FB0C6;
+  color: white;
+}
+
+.forecast-table td, th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.forecast-table tr:nth-child(even){
+  background-color: #f2f2f2;
+}
+
+.forecast-table tr:hover {background-color: #ddd;}
+
+.terrain-table{
+  width: 400px;
+  margin: 0 auto;
+  margin-top: 8px;
+  color: #12B5EA;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.terrain-table #beg{
+  background-color: #3D4FFF;
+  text-align: center;
+  color: white;
+}
+
+.terrain-table #int{
+  background-color: #FF4B4B;
+  text-align: center;
+  color: white;
+}
+
+.terrain-table #adv{
+  background-color: #00121e;
+  text-align: center;
+  color: white;
+}
+
+.terrain-table #beg-label{
+  text-align: left;
+}
+
+.terrain-table #int-label{
+  text-align: center;
+}
+
+.terrain-table #adv-label{
+  text-align: right;
 }
