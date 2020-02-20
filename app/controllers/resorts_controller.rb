@@ -28,7 +28,8 @@ class ResortsController < ApplicationController
         lat: resort.latitude,
         lng: resort.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { resort: resort }),
-        image_url: helpers.asset_url('marker.png')
+        # uncomment below to add a custom image
+        # image_url: helpers.asset_url('marker.svg')
       }
     end
   end

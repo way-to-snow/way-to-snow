@@ -4,13 +4,32 @@
 
 .mapboxgl-popup-content {
   text-align: center;
-  font-family: 'Open Sans', sans-serif;
 }
 
+// .marker {
+//   background-color: black;
+//   border-radius: 50%;
+//   border: 1px solid white;
+//   width: 15px;
+//   height: 15px;
+//   cursor: pointer;
+// }
+
+// CSS triangle
+// .marker {
+//   border-left: 10px solid transparent;
+//   border-right: 10px solid transparent;
+//   border-bottom: 13px solid #b857cc;
+//   cursor: pointer;
+// }
+
 .marker {
-  background-image: url('marker.png');
-  background-size: cover;
+  display: block;
   width: 15px;
   height: 15px;
-  cursor: pointer;
+  border-radius: 50%;
+  border: 1px solid white;
+  // box-shadow: 1px 1px 1px white;
+  background-color: #E85B46;
+  // background-image: linear-gradient(-45deg, rgba(255,255,220,.3) 0%, transparent 100%);
 }
