@@ -16,6 +16,8 @@ export default class extends Controller {
   currentMarkers = [];
 
   filter() {
+    const value = event.target.dataset.value;
+    console.log(value);
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = () => {
       if (xhr.readyState === 4) {
@@ -23,45 +25,9 @@ export default class extends Controller {
         this.refresh(markers);
       };
     };
-    xhr.open('GET', '/resorts.json?new_snow=true');
+    xhr.open('GET', `/resorts.json?${value}`);
     xhr.send()
   };
-
-  // newSnow() {
-  //   var xhr = new XMLHttpRequest();
-  //   xhr.onreadystatechange = () => {
-  //     if (xhr.readyState === 4) {
-  //       const markers = JSON.parse(xhr.responseText);
-  //       this.refresh(markers);
-  //     };
-  //   };
-  //   xhr.open('GET', '/resorts.json?new_snow=true');
-  //   xhr.send()
-  // };
-
-  // lotsSnow() {
-  //   var xhr = new XMLHttpRequest();
-  //   xhr.onreadystatechange = () => {
-  //     if (xhr.readyState === 4) {
-  //       const markers = JSON.parse(xhr.responseText);
-  //       this.refresh(markers);
-  //     };
-  //   };
-  //   xhr.open('GET', '/resorts.json?lots_snow=true');
-  //   xhr.send()
-  // };
-
-  // favorites() {
-  //   var xhr = new XMLHttpRequest();
-  //   xhr.onreadystatechange = () => {
-  //     if (xhr.readyState === 4) {
-  //       const markers = JSON.parse(xhr.responseText);
-  //       this.refresh(markers);
-  //     };
-  //   };
-  //   xhr.open('GET', '/resorts.json?favorites=true');
-  //   xhr.send()
-  // };
 
   connect() {
     console.log("Hello from the maps controller");
