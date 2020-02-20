@@ -41,10 +41,10 @@ export default class extends Controller {
     this.map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/nskibiak/ck6kloetk2cm91impc47n19sy',
-      // center: [138.5, 37.674],
+      center: [138.4, 38.0],
       // pitch: 60,
       // bearing: -45,
-      // zoom: 5
+      zoom: 4.5
     });
 
     // Add address search field to the map
@@ -93,9 +93,9 @@ export default class extends Controller {
     });
 
     // Setting map boundaries to markers
-    const bounds = new mapboxgl.LngLatBounds();
-    markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
-    this.map.fitBounds(bounds, { padding: 150, maxZoom: 15, duration: 100 });
+    // const bounds = new mapboxgl.LngLatBounds();
+    // markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
+    // this.map.fitBounds(bounds, { padding: 150, maxZoom: 15, duration: 100 });
 
     // Hiding mapbox logos and copyrights.
     const logo = document.querySelector("#map > div.mapboxgl-control-container > div.mapboxgl-ctrl-bottom-left > div > a");

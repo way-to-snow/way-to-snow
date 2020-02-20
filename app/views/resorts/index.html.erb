@@ -7,11 +7,6 @@
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   ></div>
   <div class="button-holder">
-    <%#= link_to 'All resorts', resorts_path, class: 'button', style: "text-decoration:none" %>
-    <%#= link_to 'my fav <i class="fas fa-heart"></i>'.html_safe, '?favorites=true', class: 'button', style: "text-decoration:none" %>
-    <%#= link_to 'new <i class="far fa-snowflake"></i>'.html_safe, '?new_snow=true', class: 'button', style: "text-decoration:none" %>
-    <%#= link_to 'lots <i class="far fa-snowflake"></i>'.html_safe, '?lots_snow=true', class: 'button', style: "text-decoration:none" %>
-    <%#= button_to "Favorites", @resorts, remote: true %>
     <div class="button" data-action="click->maps#filter" data-value="">All resorts</i></div>
     <div class="button" data-action="click->maps#filter" data-value="favorites=true">my fav <i class="fas fa-heart"></i></div>
     <div class="button" data-action="click->maps#filter" data-value="new_snow=true">new <i class="far fa-snowflake"></i></div>
