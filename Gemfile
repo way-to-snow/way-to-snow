@@ -22,6 +22,7 @@ gem 'pundit'
 gem 'geocoder'
 gem 'faker'
 gem 'smarter_csv'
+gem 'pg_search'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

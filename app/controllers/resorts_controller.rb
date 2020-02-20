@@ -6,20 +6,16 @@ class ResortsController < ApplicationController
   end
 
   def index
-    if params[:slopes_length].present?
-      @resorts = Resort.where('slopes_length > ?', 10)
-    elsif params[:snow].present?
-      @resorts = Resort.where('snow_change > ?', 0)
+    if params[:new_snow].present?
+      @resorts = Resort.joins(:weather_reports).where('weather_reports.snow_change > ? AND current = ?', 0, true)
+    elsif params[:lots_snow].present?
+      @resorts = Resort.joins(:weather_reports).where('weather_reports.snow_depth > ? AND current = ?', 99, true)
     elsif params[:favorites].present?
-      if @user.favorites.any?
-        @resorts = @user.resorts
-      else
-        flash.now[:alert] = "You don't have any favorite resorts yet!"
-      end
+      @user.favorites.any? ? @resorts = @user.resorts : @resorts = Resort.all
     else
-      @resorts = Resort.where.not(latitude: nil, longitude: nil)
+      @resorts = Resort.all
     end
-    map_maker(@resorts)
+      map_maker(@resorts)
   end
 
   def map_maker(resorts)
@@ -28,7 +24,8 @@ class ResortsController < ApplicationController
         lat: resort.latitude,
         lng: resort.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { resort: resort }),
-        image_url: helpers.asset_url('marker.png')
+        # uncomment below to add a custom image
+        # image_url: helpers.asset_url('marker.svg')
       }
     end
   end
@@ -36,4 +33,19 @@ class ResortsController < ApplicationController
   def show
     @resort = Resort.find(params[:id])
   end
+
+  # def new_snow
+  #   Resort.all.select do |resort|
+  #     resort.weather_reports.order('date DESC').first.snow_change.positive?
+  #   end
+  # end
 end
+
+    # if params[:snow].present?
+    #   @resorts = Resort.where('slopes_length > ?', 10)
+    # elsif params[:favorites].present?
+    #   @user.favorites.any? ? @resorts = @user.resorts : (redirect_to action: 'index')
+    # else
+    #   @resorts = Resort.where.not(latitude: nil, longitude: nil)
+    # end
+
