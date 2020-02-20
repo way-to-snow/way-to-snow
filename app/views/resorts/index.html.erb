@@ -8,11 +8,10 @@
 ></div>
 <div class="button-holder">
   <%= link_to 'All resorts', resorts_path, class: 'button', style: "text-decoration:none" %>
-  <%= link_to '<i class="fas fa-heart"></i>'.html_safe, '?favorites=true', class: 'button', style: "text-decoration:none" %>
-  <%= link_to '<i class="far fa-snowflake"></i>'.html_safe, '?snow=true', class: 'button', style: "text-decoration:none" %>
-
+  <%= link_to 'my fav <i class="fas fa-heart"></i>'.html_safe, '?favorites=true', class: 'button', style: "text-decoration:none" %>
+  <%= link_to 'new <i class="far fa-snowflake"></i>'.html_safe, '?new_snow=true', class: 'button', style: "text-decoration:none" %>
+  <%= link_to 'lots <i class="far fa-snowflake"></i>'.html_safe, '?lots_snow=true', class: 'button', style: "text-decoration:none" %>
   <%#= button_to "Favorites", @resorts, remote: true %>
-  <%= link_to 'Fav <i class="fas fa-heart"></i>'.html_safe, '?favorites=true', class: 'button', style: "text-decoration:none" %>
 </div>
 # of resorts shown: <%= @resorts.count %>
 <div class="marker"></div>

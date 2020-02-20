@@ -6,14 +6,16 @@ class ResortsController < ApplicationController
   end
 
   def index
-    if params[:snow].present?
-      @resorts = new_snow
+    if params[:new_snow].present?
+      @resorts = Resort.joins(:weather_reports).where('weather_reports.snow_change > ? AND current = ?', 0, true)
+    elsif params[:lots_snow].present?
+      @resorts = Resort.joins(:weather_reports).where('weather_reports.snow_depth > ? AND current = ?', 99, true)
     elsif params[:favorites].present?
       @user.favorites.any? ? @resorts = @user.resorts : @resorts = Resort.all
     else
       @resorts = Resort.all
-      map_maker(@resorts)
     end
+      map_maker(@resorts)
   end
 
   def map_maker(resorts)
@@ -32,11 +34,11 @@ class ResortsController < ApplicationController
     @resort = Resort.find(params[:id])
   end
 
-  def new_snow
-    Resort.all.select do |resort|
-      resort.weather_reports.order('date DESC').first.snow_change.positive?
-    end
-  end
+  # def new_snow
+  #   Resort.all.select do |resort|
+  #     resort.weather_reports.order('date DESC').first.snow_change.positive?
+  #   end
+  # end
 end
 
     # if params[:snow].present?
