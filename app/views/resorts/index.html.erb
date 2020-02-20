@@ -1,21 +1,21 @@
-<div
-  id="map"
-  style="width: 100%;
-  height: 90vh;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-  data-controller="maps"
-></div>
-<div class="button-holder">
-  <%= link_to 'All resorts', resorts_path, class: 'button', style: "text-decoration:none" %>
-  <%= link_to 'my fav <i class="fas fa-heart"></i>'.html_safe, '?favorites=true', class: 'button', style: "text-decoration:none" %>
-  <%= link_to 'new <i class="far fa-snowflake"></i>'.html_safe, '?new_snow=true', class: 'button', style: "text-decoration:none" %>
-  <%= link_to 'lots <i class="far fa-snowflake"></i>'.html_safe, '?lots_snow=true', class: 'button', style: "text-decoration:none" %>
-  <%#= button_to "Favorites", @resorts, remote: true %>
-</div>
-# of resorts shown: <%= @resorts.count %>
-<div class="marker"></div>
+<div data-controller="maps">
+  <div
+    id="map"
+    style="width: 100%;
+    height: 90vh;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  ></div>
+  <div class="button-holder">
+    <div class="button" data-action="click->maps#filter" data-value="">All resorts</i></div>
+    <div class="button" data-action="click->maps#filter" data-value="favorites=true">my fav <i class="fas fa-heart"></i></div>
+    <div class="button" data-action="click->maps#filter" data-value="new_snow=true">new <i class="far fa-snowflake"></i></div>
+    <div class="button" data-action="click->maps#filter" data-value="lots_snow=true">lots <i class="far fa-snowflake"></i></div>
+  </div>
+  # of resorts shown: <%= @resorts.count %>
+  <div class="marker"></div>
 
-<% if flash[:alert] %>
-  <div class="alert"><%= flash[:alert] %></div>
-<% end %>
+  <% if flash[:alert] %>
+    <div class="alert"><%= flash[:alert] %></div>
+  <% end %>
+</div>
