@@ -16,8 +16,8 @@
   <div class="marker"></div>
   <div data-controller="slider">
     <input type="range" name="travel-input" min="1" max="6" id="hours-input" value="6" data-action="change->slider#displayChoice">
-    <output name="travel-output" id="hours-output">1</output>
-    <label for="travel"> (hours) Max Travel Time</label>
-    <div class="button" data-controller="maps" data-action="click->maps#setUserLocation" data-value="">Filter by distance!</div>
+    <output name="travel-output" id="hours-output">6</output>
+    <label for="travel"> (hours) max travel time</label>
+    <div class="button" data-action="click->slider#getUserLocation">Filter by distance!</div>
   </div>
 </div>

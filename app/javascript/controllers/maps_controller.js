@@ -61,7 +61,7 @@ export default class extends Controller {
   };
 
   placeMarkers(markers) {
-    // clear any existing markers
+    // first clear any existing markers
     this.currentMarkers.forEach((marker) => {
       marker.remove();
     });
@@ -98,16 +98,6 @@ export default class extends Controller {
     xhr.open('GET', `/resorts.json?${value}`);
     xhr.send()
   };
-
-  setUserLocation() {
-    navigator.geolocation.getCurrentPosition(function(position){
-      console.log(position);
-      $.get( "http://maps.googleapis.com/maps/api/geocode/json?latlng="+ position.coords.latitude + "," + position.coords.longitude +"&sensor=false", function(data) {
-                    console.log(data);
-                  })
-    });
-  };
-
 
 }
 
