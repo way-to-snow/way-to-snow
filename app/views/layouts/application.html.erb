@@ -11,9 +11,11 @@
     <%= stylesheet_pack_tag 'application', media: 'all' %>
   </head>
   <body>
-    <%#= render 'shared/navbar' %>
+    <canvas class="sparkle-canvas"></canvas>
     <%= render 'shared/flashes' %>
-    <%= yield %>
+    <%= yield %>    
+  <%#= render 'shared/navbar' %>
+
 
     <%= javascript_pack_tag 'application' %>
   </body>

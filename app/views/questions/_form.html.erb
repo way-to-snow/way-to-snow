@@ -1,0 +1,8 @@
+<%= simple_form_for([ resort, question ], method: :update ) do |form| %>
+  <%= form.input :question, as: :text %>
+  <%= form.button :submit %>
+<% end %>
+
+<% if flash[:alert] %>
+  <div class="alert"><%= flash[:alert] %></div>
+<% end %>

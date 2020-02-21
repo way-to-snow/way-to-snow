@@ -55,4 +55,15 @@
       </tbody>
     </table>
   </div>
+  <div id="qna-view">
+    <%= render 'questions/form', resort: @resort, question: @question %>
+    <% if @resort.questions.blank? %>
+        Be the first to leave a review for <%= @resort.name %>
+    <% else %>
+      <h3> Following are <%= @resort.questions.count %> nos of questions for <%= @resort.name %>: </h3>
+      <% @resort.questions.each do |question| %>
+      <%= render 'questions/index', question: question %>
+      <% end %>
+    <% end %>
+  </div>
 </div>
