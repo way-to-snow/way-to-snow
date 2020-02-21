@@ -1,6 +1,8 @@
 <div class="popup-header">
-  <h3><%= resort.name %></h3>
-  <h5><%= resort.town %>, <%= resort.prefecture %></h5>
+  <hr>
+  <div class="resort-name"><%= resort.name %></div>
+  <div class="resort-address"><%= resort.town %>, <%= resort.prefecture %></div>
+  <hr>
 </div>
 <div>
   <%= link_to '<i class="fas fa-heart"></i> Add to favorites!'.html_safe, resort_favorites_path(resort), method: 'POST', class: 'button-favorite', style: 'text-decoration:none' %>
