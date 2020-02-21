@@ -1,4 +1,10 @@
-<h2><%= resort.name %></h2>
-<p><%= resort.address %></p>
-<%= link_to '<i class="fas fa-heart"></i>'.html_safe, resort_favorites_path(resort), method: 'POST', class: 'button-favorite', style: 'text-decoration:none' %>
-<p><%= resort.favorites.count %></p>
+<div class="popup-header">
+  <h3><%= resort.name %></h3>
+  <h5><%= resort.town %>, <%= resort.prefecture %></h5>
+</div>
+<div>
+  <%= link_to '<i class="fas fa-heart"></i> Add to favorites!'.html_safe, resort_favorites_path(resort), method: 'POST', class: 'button-favorite', style: 'text-decoration:none' %>
+</div>
+<div class="mt-1">
+  <%= link_to 'Click here for more details!', resort_path(resort), style: 'text-decoration:none'%>
+</div>
