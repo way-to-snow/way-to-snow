@@ -8,7 +8,7 @@ import "controllers";
 
 const CANVAS = document.querySelector(".sparkle-canvas");
     const CTX = CANVAS.getContext("2d");
-    const SPARKLE_COUNT_DIVISOR = 120000;
+    const SPARKLE_COUNT_DIVISOR = 200000;
     const SCALE_MIN = 0.2;
     const SCALE_MAX = 1;
     const CYCLE_DURATION_IN_SECONDS = 10;

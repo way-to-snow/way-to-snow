@@ -7,7 +7,7 @@ class QuestionsController < ApplicationController
     end
 
 
-    def update
+    def create
         @resort = Resort.find(params[:resort_id])
         @question = Question.new(question_params)
         @question.resort = @resort
