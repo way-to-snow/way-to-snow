@@ -7,27 +7,3 @@
 @import 'table';
 @import 'resort-header';
 @import 'resort-info-card';
-
-.holder {
-  display: flex;
-}
-
-#image-holder {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-}
-
-#banner-image {
-  position: absolute;
-  width: 100vw;
-  object-fit: cover;
-  top: -60%;
-}
-
-#message {
-  position: absolute;
-  bottom: 10%;
-  left: 5%;
-}
