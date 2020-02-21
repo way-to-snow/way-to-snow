@@ -15,15 +15,19 @@ class ResortsController < ApplicationController
     else
       @resorts = Resort.all
     end
-      map_maker(@resorts)
+      @markers = map_maker(@resorts)
+      respond_to do |format|
+        format.html
+        format.json { render json:@markers }
+      end
   end
 
   def map_maker(resorts)
-    @markers = resorts.map do |resort|
+    resorts.map do |resort|
       {
         lat: resort.latitude,
         lng: resort.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { resort: resort }),
+        infoWindow: render_to_string(partial: "info_window", locals: { resort: resort }, formats: [:html])
         # uncomment below to add a custom image
         # image_url: helpers.asset_url('marker.svg')
       }
@@ -44,20 +48,11 @@ class ResortsController < ApplicationController
      redirect_to resort_path(@resort)
     else
      render 'resorts/show'
-    end
-end
+    end 
+  end
   # def new_snow
   #   Resort.all.select do |resort|
   #     resort.weather_reports.order('date DESC').first.snow_change.positive?
   #   end
   # end
 end
-
-    # if params[:snow].present?
-    #   @resorts = Resort.where('slopes_length > ?', 10)
-    # elsif params[:favorites].present?
-    #   @user.favorites.any? ? @resorts = @user.resorts : (redirect_to action: 'index')
-    # else
-    #   @resorts = Resort.where.not(latitude: nil, longitude: nil)
-    # end
-
