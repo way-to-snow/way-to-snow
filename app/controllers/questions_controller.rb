@@ -1,11 +1,9 @@
 class QuestionsController < ApplicationController
-    before_action :set_questions
+    before_action :validate_user
 
-    def set_questions
-        @resort = Resort.find(params[:resort_id])
-        @questions = @resort.questions 
+    def validate_user
+      @user = current_user
     end
-
 
     def create
         @resort = Resort.find(params[:resort_id])
@@ -13,16 +11,16 @@ class QuestionsController < ApplicationController
         @question.resort = @resort
         @question.user = current_user
         if @question.save!
-         redirect_to resort_path(@resort)
+            respond_to do |format|
+                format.html { redirect_to resort_path(@resort) }
+                format.js
+            end        
         else
-         render 'resorts/show'
+            respond_to do |format|
+                format.html { render 'resorts/show' }
+                format.js
+            end        
         end
-    end
-
-
-    def show
-        @question = Question.find(params[:id])
-        @answer = Answer.new  # <-- You need this now.
     end
 
 private
@@ -30,7 +28,5 @@ private
     def question_params
         params.require(:question).permit(:question)
     end
-
-  
 
 end

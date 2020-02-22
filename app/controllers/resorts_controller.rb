@@ -37,20 +37,10 @@ class ResortsController < ApplicationController
   def show
     @resort = Resort.find(params[:id])
     @question = Question.new
+    @answer = Answer.new
   end
 
-  def update
-    @resort = Resort.find(params[:resort_id])
-    @question = Question.new(question_params)
-    @question.resort = @resort
-    @question.user = current_user
-    if @question.save!
-     redirect_to resort_path(@resort)
-    else
-     render 'resorts/show'
-    end 
-  end
-  # def new_snow
+
   #   Resort.all.select do |resort|
   #     resort.weather_reports.order('date DESC').first.snow_change.positive?
   #   end

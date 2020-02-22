@@ -1,14 +1,15 @@
-<div id="question">
+<div data-question-id="<%= question.id %>">
     <p><%= question.id %>)  <%= question.question %> </p>
 
   <div id="answer">
     <% if question.answers.blank? %>
-         <p> No answers for this question yet. Build your good karma by answering questions here </p>
+         <p> No answers for this question yet </p>
     <% else %>
       <% question.answers.each do |answer| %>
-      <%= render 'questions/answers', answer: answer %>
+      <%= render 'questions/answers', answer: answer %> 
       <% end %>
     <% end %>
+    <%= render 'questions/answer_form', question: question, answer: @answer %>
   </div>
 </div>
 
