@@ -11,35 +11,3 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-
-body {
-    margin: 0;
-    background:transparent;
-  }
-
-  .sparkle-canvas,
-  .instructions {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
-
-  .instructions {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    user-select: none;
-    font-family: sans-serif;
-    font-size: 4vw;
-  }
-
-  .sparkle-canvas {
-    pointer-events: none;
-    z-index: -1;
-  }
-
-  .container {
-    background: white;
-  }

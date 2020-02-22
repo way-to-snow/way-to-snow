@@ -1,9 +1,0 @@
-<%= simple_form_for([ question, answer ]) do |form| %>
-  <%= form.input :answer, as: :text %>
-  <%= form.button :submit %>
-<% end %>
-
-<% if flash[:alert] %>
-  <div class="alert"><%= flash[:alert] %></div>
-<% end %>
-

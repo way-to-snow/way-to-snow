@@ -36,13 +36,5 @@ class ResortsController < ApplicationController
 
   def show
     @resort = Resort.find(params[:id])
-    @question = Question.new
-    @answer = Answer.new
   end
-
-
-  #   Resort.all.select do |resort|
-  #     resort.weather_reports.order('date DESC').first.snow_change.positive?
-  #   end
-  # end
 end
