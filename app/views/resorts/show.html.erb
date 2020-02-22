@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="resort-header" style="background-image: url(<%= asset_path "headers/show_header_2.jpeg" %>)">
+  <div class="resort-header">
     <h1><%= @resort.name.upcase %></h1>
     <p><%= @resort.name_ja %></p>
   </div>
@@ -8,7 +8,7 @@
       <div class="resort-info-card">
         <div class="resort-info-header" ><h2>ELEVATION</h2></div>
         <div class="resort-info-body" >
-          <ul style="background-image: url(<%= asset_path "mountain.png" %>)">
+          <ul id="mountain">
             <li class="top">
               <div class="value"><%= @resort.top_elevation%> M</div>
               <div class="label">Top</div>
