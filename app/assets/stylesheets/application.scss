@@ -37,4 +37,9 @@ body {
 
   .sparkle-canvas {
     pointer-events: none;
+    z-index: -1;
+  }
+
+  .container {
+    background: white;
   }
