@@ -1,4 +1,10 @@
-<h2><%= resort.name %></h2>
-<p><%= resort.address %></p>
-<%= link_to '<i class="fas fa-heart"></i>'.html_safe, resort_favorites_path(resort), method: 'POST', class: 'button-favorite', style: 'text-decoration:none' %>
-<p><%= resort.favorites.count %></p>
+<div data-controller="slider">
+  <h2><%= resort.name %></h2>
+  <p><%= resort.address %></p>
+  <%= link_to '<i class="fas fa-heart"></i>'.html_safe, resort_favorites_path(resort), method: 'POST', class: 'button-favorite', style: 'text-decoration:none' %>
+  <p><%= resort.favorites.count %></p>
+<!--   <div id="lonlat"><%= resort.longitude %>,<%= resort.latitude %></div> -->
+  <p>Travel time: <span data-target="slider.output" data-value="<%= resort.longitude %>,<%= resort.latitude %>"></span></p>
+</div>
+
+
