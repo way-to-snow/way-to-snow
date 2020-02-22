@@ -6,6 +6,8 @@
 }
 
 .button {
+  // display: flex;
+  text-align: center;
   font-size: 12px;
   font-weight: bold;
   padding: 4px;
@@ -13,6 +15,7 @@
   border-radius: 4px;
   font-family: 'Open Sans';
   color: #333333;
+  margin: 4px 0px;
 }
 
 .button:hover {

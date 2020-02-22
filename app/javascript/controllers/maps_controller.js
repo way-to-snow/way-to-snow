@@ -10,7 +10,7 @@ import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ ]
+  static targets = [ "counter" ]
 
   map = null;
   currentMarkers = [];
@@ -65,6 +65,9 @@ export default class extends Controller {
     this.currentMarkers.forEach((marker) => {
       marker.remove();
     });
+
+    // update resort counter # displayed
+    this.counterTarget.textContent = `${markers.length}`;
 
     // Placing new markers on the map
     this.currentMarkers = markers.map((marker) => {

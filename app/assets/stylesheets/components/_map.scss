@@ -33,3 +33,34 @@
   cursor: pointer;
   background-color: #E85B46;
 }
+
+#map-container {
+  // display: flex;
+}
+
+#map {
+  width: 100vw;
+  height: 100vh;
+}
+
+.resort-counter {
+  background-color: white;
+  position: absolute;
+  z-index: 1;
+  bottom: 200px;
+  right: 10px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 8px;
+  border-radius: 4px;
+  font-family: 'Open Sans';
+  color: #333333;
+  width: 175px;
+}
+
+#resort-counter-number {
+  color: red;
+  font-size: 18px;
+}
+
