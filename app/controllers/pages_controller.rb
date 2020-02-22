@@ -3,4 +3,8 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def ticket
+    @resort = Resort.find(params[:id])
+  end
 end
