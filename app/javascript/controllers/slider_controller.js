@@ -7,9 +7,7 @@ export default class extends Controller {
   connect = () => {
     navigator.geolocation.getCurrentPosition((position) => {
       const start = [position.coords.longitude, position.coords.latitude];
-      // var end = [140.4017353, 38.1705275];
       var end = this.outputTarget.dataset.value.split(',');
-      console.log(end);
       var key = 'pk.eyJ1IjoibnNraWJpYWsiLCJhIjoiY2s2a2Q5YjJvMDJ3YjNtcGI1ejAzemM3NCJ9.gSugKEHi4BDco9_-NYOmbg';
       var url = 'https://api.mapbox.com/directions/v5/mapbox/driving/' + start[0] + ',' + start[1] + ';' + end[0] + ',' + end[1] + '?steps=true&geometries=geojson&access_token=' + key;
       fetch(url)
