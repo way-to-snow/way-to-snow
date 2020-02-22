@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="ticket">
+    <h1 class="resort-title"><%= @resort.name.upcase %></h1>
+    <br>
+    <p>Valid for 1 day pass</p>
+    <p>¥<%= @resort.adult_price %></p>
+    <div class="qr-code"><%= image_tag "ticket.png" %></div>
+    <p>Present QR code at resort for day pass</p>
+  </div>
+</div>
