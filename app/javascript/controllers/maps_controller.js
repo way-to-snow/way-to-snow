@@ -15,25 +15,7 @@ export default class extends Controller {
   map = null;
   currentMarkers = [];
 
-  filter() {
-    const value = event.target.dataset.value;
-    console.log(value);
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = () => {
-      if (xhr.readyState === 4) {
-        const markers = JSON.parse(xhr.responseText);
-        this.refresh(markers);
-      };
-    };
-    xhr.open('GET', `/resorts.json?${value}`);
-    xhr.send()
-  };
-
   connect() {
-    console.log("Hello from the maps controller");
-    // const testButton = this.element.getElementById('test-button');
-    // testButton.addEventListener('click', function(event){console.log("I clicked!")});
-
     const mapElement = document.getElementById('map');
 
     // Get map data from API and fill div
@@ -47,41 +29,51 @@ export default class extends Controller {
       zoom: 4.5
     });
 
-    // Add address search field to the map
-    this.map.addControl(new MapboxGeocoder({
+    // Declare all the objects in the map
+    const markers = JSON.parse(mapElement.dataset.markers);
+
+    const searchBar = new MapboxGeocoder({
       accessToken: mapboxgl.accessToken,
       mapboxgl: mapboxgl
-    }));
+    });
 
-    // Add zoom and rotation controls to the map.
-    this.map.addControl(new mapboxgl.NavigationControl());
+    const navControls = new mapboxgl.NavigationControl()
 
-    // Add geolocate control to the map.
-    this.map.addControl(
-      new mapboxgl.GeolocateControl({
+    const geoLocateButton = new mapboxgl.GeolocateControl({
         positionOptions: {enableHighAccuracy: true},
         trackUserLocation: true
-      })
-    );
+      });
 
-    const markers = JSON.parse(mapElement.dataset.markers);
-    this.refresh(markers);
-  }
+    const mapBoxLogo = document.querySelector("#map > div.mapboxgl-control-container > div.mapboxgl-ctrl-bottom-left > div > a");
 
-  refresh(markers) {
-    // clear the markers
+    const mapBoxCopyright = document.querySelector("#map > div.mapboxgl-control-container > div.mapboxgl-ctrl-bottom-right");
+
+    this.placeMarkers(markers);
+
+    // Add controls to the map
+    this.map.addControl(searchBar);
+    this.map.addControl(navControls);
+    this.map.addControl(geoLocateButton);
+
+    // Hiding mapbox logos and copyrights.
+    mapBoxLogo.classList.add('invisible');
+    mapBoxCopyright.classList.add('invisible');
+  };
+
+  placeMarkers(markers) {
+    // first clear any existing markers
     this.currentMarkers.forEach((marker) => {
       marker.remove();
     });
 
-    // Placing markers on the map
+    // Placing new markers on the map
     this.currentMarkers = markers.map((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.infoWindow); // add this
       // Create a HTML element for your custom marker
       const element = document.createElement('div');
       element.className = 'marker';
-      // // element.style.backgroundImage = `url('${marker.image_url}')`;
-      // // element.style.backgroundSize = 'contain';
+      // element.style.backgroundImage = `url('${marker.image_url}')`;
+      // element.style.backgroundSize = 'contain';
       // element.style.width = '15px';
       // element.style.height = '15px';
 
@@ -91,18 +83,26 @@ export default class extends Controller {
         .setPopup(popup) // add this
         .addTo(this.map);
     });
+  };
+
+  filter() {
+    const value = event.target.dataset.value;
+    console.log(value);
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = () => {
+      if (xhr.readyState === 4) {
+        const markers = JSON.parse(xhr.responseText);
+        this.placeMarkers(markers);
+      };
+    };
+    xhr.open('GET', `/resorts.json?${value}`);
+    xhr.send()
+  };
+
+}
 
     // Setting map boundaries to markers
     // const bounds = new mapboxgl.LngLatBounds();
     // markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
     // this.map.fitBounds(bounds, { padding: 150, maxZoom: 15, duration: 100 });
-
-    // Hiding mapbox logos and copyrights.
-    const logo = document.querySelector("#map > div.mapboxgl-control-container > div.mapboxgl-ctrl-bottom-left > div > a");
-    logo.classList.add('invisible');
-    const copyrights = document.querySelector("#map > div.mapboxgl-control-container > div.mapboxgl-ctrl-bottom-right");
-    copyrights.classList.add('invisible');
-
-  }
-}
 

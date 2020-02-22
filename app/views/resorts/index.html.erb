@@ -14,8 +14,10 @@
   </div>
   # of resorts shown: <%= @resorts.count %>
   <div class="marker"></div>
-
-  <% if flash[:alert] %>
-    <div class="alert"><%= flash[:alert] %></div>
-  <% end %>
+  <div data-controller="slider">
+    <input type="range" name="travel-input" min="1" max="6" id="hours-input" value="6" data-action="change->slider#displayChoice">
+    <output name="travel-output" id="hours-output">6</output>
+    <label for="travel"> (hours) max travel time</label>
+    <div class="button" data-action="click->slider#getTravelTime">Filter by distance!</div>
+  </div>
 </div>
