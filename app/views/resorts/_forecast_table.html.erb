@@ -1,0 +1,30 @@
+<!-- replaced resort with resort -->
+
+<table class="forecast-table">
+  <thead>
+    <tr>
+      <th scope="col" class="table-header" width="150px;"></th>
+      <th scope="col" class="table-header" width="70px;"><%= Time.now.strftime("%A") %></th>
+      <th scope="col" class="table-header" width="70px;"><%= (Time.now + 1.day).strftime("%A") %></th>
+      <th scope="col" class="table-header" width="70px;"><%= (Time.now + 2.day).strftime("%A") %></th>
+      <th scope="col" class="table-header" width="70px;"><%= (Time.now + 3.day).strftime("%A") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% row_titles = ['Max Temperature', 'Min Temperature', 'Snowfall', 'Rain', 'Wind Direction', 'Wind Speed'] %>
+    <% params = [:max_temperature, :min_temperature, :snow_amount, :rain, :wind_direction, :wind_speed] %>
+    <% row_titles.each_with_index do |row_title, index| %>
+      <%= '<tr>'.html_safe %>
+        <%= "<th scope='row'>'#{row_title}'</th>".html_safe %>
+          <!--         need to fix forecasts -->
+          <% resort.forecasts[0..3].each do |forecast| %>
+            <%= '<td>'.html_safe %>
+              <%= forecast.method(params[index]).call %>
+            <%= '</td>'.html_safe %>
+          <% end %>
+      <%= '</tr>'.html_safe %>
+    <% end %>
+  </tbody>
+</table>
+
+
