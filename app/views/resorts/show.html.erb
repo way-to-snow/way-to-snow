@@ -1,6 +1,6 @@
 <div class="container">
   <div class="resort-header">
-    <h1><%= @resort.name %></h1>
+    <h1><%= @resort.name.upcase %></h1>
     <p><%= @resort.name_ja %></p>
   </div>
   <div class="main-container">
@@ -77,11 +77,11 @@
         <table class="forecast-table">
           <thead>
             <tr>
-              <th scope="col" class="table-header"></th>
-              <th scope="col" class="table-header"><%= Time.now.strftime("%A") %></th>
-              <th scope="col" class="table-header"><%= (Time.now + 1.day).strftime("%A") %></th>
-              <th scope="col" class="table-header"><%= (Time.now + 2.day).strftime("%A") %></th>
-              <th scope="col" class="table-header"><%= (Time.now + 3.day).strftime("%A") %></th>
+              <th scope="col" class="table-header" width="150px;"></th>
+              <th scope="col" class="table-header" width="70px;"><%= Time.now.strftime("%A") %></th>
+              <th scope="col" class="table-header" width="70px;"><%= (Time.now + 1.day).strftime("%A") %></th>
+              <th scope="col" class="table-header" width="70px;"><%= (Time.now + 2.day).strftime("%A") %></th>
+              <th scope="col" class="table-header" width="70px;"><%= (Time.now + 3.day).strftime("%A") %></th>
             </tr>
           </thead>
           <tbody>
@@ -106,7 +106,7 @@
             <tr>
               <th scope="row">Rain</th>
               <% @resort.forecasts.each do |forecast| %>
-                <td><%= forecast.rain %></td>
+                <td><%= forecast.rain %> cm</td>
               <% end %>
             </tr>
             <tr>
