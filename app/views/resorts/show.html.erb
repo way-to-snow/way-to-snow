@@ -127,60 +127,7 @@
     </div>
   </div>
 
-  <div id="questions_answers">
-
-    <% if @resort.questions.blank? %>
-        Be the first to ask a questiion for <%= @resort.name %>
-        <%= render 'questions/question_form', resort: @resort, question: @question %>
-    <% else %>
-
-        <div class="container py-3">
-          <div class="row">
-              <div class="col-10 mx-auto">
-                <h5> Following are <%= @resort.questions.count %> nos of questions for <%= @resort.name %>: </h5>
-                <%= render 'questions/question_form', resort: @resort, question: @question %>
-                  <div class="accordion" id="faqExample">
-
-                      <div class="card">
-                          <div class="card-header p-2" id=":question_id">
-                              <h5 class="mb-0">
-                                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    <div id="questions">
-                                      <% @resort.questions.each do |question| %>
-                                        <%= render 'questions/index', question: question, answer: @answer%>
-
-                                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#faqExample">
-                                              <div class="card-body">
-                                              <div id="answers">
-                                                  <% if question.answers.blank? %>
-                                                      <p> No answers for this question yet </p>
-                                                  <% else %>
-                                                    <% question.answers.each do |answer| %>
-                                                    <%= render 'questions/answers', answer: answer %> 
-                                                    <% end %>
-                                                  <% end %>
-                                                  <%= render 'questions/answer_form', question: question, answer: @answer %>
-                                                </div>
-                                          </div>
-                                        </div>
-
-
-                                      <% end %>
-                                    </div>
-                                  </button>
-                                </h5>
-                          </div>
-
-                      </div>
-                  </div>
-
-              </div>
-          </div>
-          <!--/row-->
-        </div>
-
-    <% end %>
-  </div>
+  <%= render 'q&a', resort: @resort, question: @question %>
 
 
 
