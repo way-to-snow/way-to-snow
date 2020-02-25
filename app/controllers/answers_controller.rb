@@ -5,11 +5,13 @@ class AnswersController < ApplicationController
       @answer = Answer.new(answer_params)
       @answer.question = @question
       @answer.user = current_user
-      if @answer.save!
-        redirect_to resort_path(@resort)
-      else
-        render 'resorts/show'
-      end
+      # if @answer.user != @question.user 
+        if @answer.save!
+          redirect_to resort_path(@resort)
+        else
+          render 'resorts/show'
+        end
+      # end
     end
     
     private
