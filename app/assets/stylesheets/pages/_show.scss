@@ -11,4 +11,13 @@
 
 .weather{
   margin: 20px;
+  flex-grow: 2;
+}
+
+.resort-header {
+  background-image: asset-url('show_header.jpeg');
+}
+
+#mountain {
+  background-image: asset-url('mountain.png');
 }

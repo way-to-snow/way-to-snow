@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="resort-header" style="background-image: url(<%= asset_path "headers/show_header_2.jpeg" %>)">
-    <h1><%= @resort.name %></h1>
+  <div class="resort-header">
+    <h1><%= @resort.name.upcase %></h1>
     <p><%= @resort.name_ja %></p>
   </div>
   <div class="main-container">
@@ -8,7 +8,7 @@
       <div class="resort-info-card">
         <div class="resort-info-header" ><h2>ELEVATION</h2></div>
         <div class="resort-info-body" >
-          <ul style="background-image: url(<%= asset_path "mountain.png" %>)">
+          <ul id="mountain">
             <li class="top">
               <div class="value"><%= @resort.top_elevation%> M</div>
               <div class="label">Top</div>
@@ -74,55 +74,7 @@
     <div class="weather">
       <div class="resort-info-header"><h2>WEATHER</h2></div>
       <div class="weather-table">
-        <table class="forecast-table">
-          <thead>
-            <tr>
-              <th scope="col" class="table-header"></th>
-              <th scope="col" class="table-header"><%= Time.now.strftime("%A") %></th>
-              <th scope="col" class="table-header"><%= (Time.now + 1.day).strftime("%A") %></th>
-              <th scope="col" class="table-header"><%= (Time.now + 2.day).strftime("%A") %></th>
-              <th scope="col" class="table-header"><%= (Time.now + 3.day).strftime("%A") %></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">Max Temperature</th>
-              <% @resort.forecasts.each do |forecast| %>
-                <td><%= forecast.max_temperature %>°C</td>
-              <% end %>
-            </tr>
-            <tr>
-              <th scope="row">Min Temperature</th>
-              <% @resort.forecasts.each do |forecast| %>
-                <td><%= forecast.min_temperature %>°C</td>
-              <% end %>
-            </tr>
-            <tr>
-              <th scope="row">Snowfall</th>
-              <% @resort.forecasts.each do |forecast| %>
-                <td><%= forecast.snow_amount %> cm</td>
-              <% end %>
-            </tr>
-            <tr>
-              <th scope="row">Rain</th>
-              <% @resort.forecasts.each do |forecast| %>
-                <td><%= forecast.rain %></td>
-              <% end %>
-            </tr>
-            <tr>
-              <th scope="row">Wind Direction</th>
-              <% @resort.forecasts.each do |forecast| %>
-                <td><%= forecast.wind_direction %></td>
-              <% end %>
-            </tr>
-            <tr>
-              <th scope="row">Wind Speed</th>
-              <% @resort.forecasts.each do |forecast| %>
-                <td><%= forecast.wind_speed %> km/h</td>
-              <% end %>
-            </tr>
-          </tbody>
-        </table>
+        <%= render 'resorts/forecast_table', resort: @resort %>
       </div>
     </div>
   </div>
