@@ -8,10 +8,6 @@ Rails.application.routes.draw do
   resources :questions, only: [] do
     resources :answers, only: [:create]
   end
-
-  
-
-
   # resources :questions do
   #   member do
   #     post "answers", to: "answers#create"
