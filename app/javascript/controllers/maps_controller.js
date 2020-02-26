@@ -22,7 +22,7 @@ export default class extends Controller {
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     this.map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/nskibiak/ck6kloetk2cm91impc47n19sy',
+      style: 'mapbox://styles/nskibiak/ck72q78sz1kf11iot6ya2iny0',
       center: [138.4, 38.0],
       // pitch: 60,
       // bearing: -45,
