@@ -74,6 +74,9 @@
     </div>
     <div class="weather">
       <div class="resort-info-header"><h2>WEATHER</h2></div>
+      <div class="weather-overview">
+        <%= render 'resorts/forecast_overview', resort: @resort %>
+      </div>
       <div class="weather-table">
         <%= render 'resorts/forecast_table', resort: @resort %>
       </div>
