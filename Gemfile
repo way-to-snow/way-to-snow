@@ -24,6 +24,7 @@ gem 'faker'
 gem 'smarter_csv'
 gem 'pg_search'
 gem "chartkick"
+gem 'groupdate'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
