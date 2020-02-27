@@ -25,24 +25,19 @@
 
 .marker {
   display: block;
-  width: 7px;
-  height: 7px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
-  border: 1px solid #c1c2cb;
+  border: 1px solid white;
+  // #c1c2cb;
   // box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.2);
   cursor: pointer;
-  background-color: #cc392d;
+  background-color: #357266;
 }
-
-.marker .big {
-  width: 14px;
-  height: 14px;
-}
-
 
 .marker:hover {
-  width: 14px;
-  height: 14px;
+  width: 21px;
+  height: 21px;
 }
 
 #map-container {

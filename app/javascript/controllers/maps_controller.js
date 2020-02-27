@@ -65,9 +65,9 @@ export default class extends Controller {
     this.map.on('zoom', () => {
       console.log(this.map.getZoom());
       if (this.map.getZoom() > zoomThreshold) {
-        console.log("passed the threshold");
+        console.log('Below zoom level 7');
       } else {
-        console.log('not yet');
+        console.log('Above zoom level 7');
       }
     });
 
