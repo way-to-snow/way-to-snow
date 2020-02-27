@@ -3,12 +3,13 @@
     <hr>
     <div class="resort-name"><%= resort.name %></div>
     <div class="resort-address"><%= resort.town %>, <%= resort.prefecture %></div>
-    <div class="resort-snow"><%= resort.town %>, <%= resort.prefecture %></div>
+    <div class="resort-snow">Snow Depth: <%= snow_depth %> cm</div>
+    <div class="resort-change">Snow Change: <%= (snow_change > 0) ? snow_change : "0" %> cm</div>
     <hr>
   </div>
   <% favorited = current_user.resorts.include?(resort) %>
   <div>
-    <i data-target="popup.heart" class="fas fa-heart button-favorite <%= favorited ? 'red' : '' %>" id="heart" style="text-decoration:none" data-action="click->popup#favorite" data-value="<%= resort.id %>"></i>
+    <i data-target="popup.heart" class="fas fa-heart button-favorite <%= favorited ? 'red' : '' %>" id="heart" style="text-decoration:none" data-action="click->popup#favorite" data-value="<%= resort.id %>" data-favorited="<%= favorited %>"></i>
   </div>
   <div>
     <p><span data-target="popup.count"><%= resort.favorites.count %></span> users like this resort!</p>
@@ -17,7 +18,7 @@
     <%= link_to 'Click here for more details!', resort_path(resort), style: 'text-decoration:none'%>
   </div>
   <div>
-    <p>Travel time: <span data-target="popup.output" data-value="<%= resort.longitude %>, <%= resort.latitude %>" data-favorited='<%= favorited %>'></span></p>
+    <p>Travel time: <span data-target="popup.output" data-value="<%= resort.longitude %>, <%= resort.latitude %>"></span></p>
   </div>
 </div>
 
