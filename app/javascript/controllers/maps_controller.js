@@ -110,17 +110,14 @@ export default class extends Controller {
 
   filter() {
     const value = event.target.dataset.value;
-    console.log(value);
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = () => {
-      if (xhr.readyState === 4) {
-        const markers = JSON.parse(xhr.responseText);
+    const url = `/resorts.json?${value}`;
+    fetch(url)
+      .then(response => response.json())
+      .then(markers => {
         this.placeMarkers(markers);
-      };
-    };
-    xhr.open('GET', `/resorts.json?${value}`);
-    xhr.send()
+      })
   };
+
 
 }
 
