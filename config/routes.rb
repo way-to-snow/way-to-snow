@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     get 'favorites/delete', to: 'favorites#destroy', as: 'delete_favorite'
 
   end
+
+  get 'charts', to: 'charts#snow', as: 'snow_chart'
+
   devise_for :users
   root to: 'pages#home'
 
