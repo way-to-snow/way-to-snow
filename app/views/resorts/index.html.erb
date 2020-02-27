@@ -1,5 +1,5 @@
 <div id="map-container" data-controller="maps">
-  <div id="map" data-action="change->maps#zoom" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  <div id="map" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
   <div id="map-controls">
     <div class="button-holder">
       <div class="button" data-action="click->maps#filter" data-value="">All resorts</i></div>
@@ -10,10 +10,3 @@
     <div class="resort-counter">Showing <span data-target="maps.counter" id="resort-counter-number"></span> resorts</div>
   </div>
 </div>
-
-<!--   <div data-controller="slider">
-    <input type="range" name="travel-input" min="1" max="6" id="hours-input" value="6" data-action="change->slider#displayChoice">
-    <output name="travel-output" id="hours-output">6</output>
-    <label for="travel"> (hours) max travel time</label>
-    <div class="button" data-action="click->slider#getTravelTime">Filter by distance!</div>
-  </div> -->
