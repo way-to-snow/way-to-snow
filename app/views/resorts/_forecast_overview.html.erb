@@ -1,0 +1,43 @@
+<% snowfall_today = resort.forecasts[0].snow_amount %>
+<% rain_today = resort.forecasts[0].rain %>
+<% wind_today  = resort.forecasts[0].wind_speed  %>
+
+<% snowfall_tomorrow = resort.forecasts[1].snow_amount %>
+<% rain_tomorrow = resort.forecasts[1].rain %>
+<% wind_tomorrow  = resort.forecasts[1].wind_speed  %>
+
+<% snowfall_day_after = resort.forecasts[2].snow_amount %>
+<% rain_day_after = resort.forecasts[2].rain %>
+<% wind_day_after  = resort.forecasts[2].wind_speed %>
+
+
+<% def conditions(snowfall, rain, wind) %>
+  <% if rain > 0 || wind > 45 %>
+    <div class="bad">Bad conditions</div>
+    <% if rain.round > 0 %>
+      <p>It will rain <%= rain.round %>cm</p>
+    <% end %>
+    <% if wind > 45 %>
+      <p>It will be windy</p>
+    <% end %>
+  <% elsif snowfall == 0 %>
+    <div class="average">Average conditions</div>
+    <p>No new snow forecast</p>
+  <% elsif snowfall >0 && snowfall < 10  %>
+    <div class="good">Good conditions</div>
+    <p>The forecast is for <%= snowfall.round %>cm of snowfall</p>
+  <% else %>
+    <div class="great">Great conditions</div>
+    <p>The forecast is for <%= snowfall.round %>cm of snowfall</p>
+  <% end %>
+<% end %>
+
+Today:
+<% conditions(snowfall_today, rain_today, wind_today) %>
+Tomorrow:
+<% conditions(snowfall_tomorrow, rain_tomorrow, wind_tomorrow) %>
+<%= (Time.now + 2.day).strftime("%A")%>:
+<% conditions(snowfall_day_after, rain_day_after, wind_day_after) %>
+
+
+

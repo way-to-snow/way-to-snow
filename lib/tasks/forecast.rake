@@ -32,6 +32,10 @@ task forecast: :environment do
     sym[(val % 16)]
   end
 
+  puts "Destroying old forecasts"
+
+  Forecast.destroy_all
+
   Resort.all.each do |resort|
     puts "Creating four day forecasts for #{resort.name}"
     get_forecasts(resort)

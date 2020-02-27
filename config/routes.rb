@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   resources :resorts do
-    resources :favorites, only: [:create, :index, :destroy]
-    resources :questions, only: [:create, :show]
+     resources :questions, only: [:create, :show]
+
+    get 'favorites', to: 'favorites#create', as: 'create_favorite'
+    get 'favorites/delete', to: 'favorites#destroy', as: 'delete_favorite'
+
   end
 
   
@@ -26,5 +29,6 @@ Rails.application.routes.draw do
 
   devise_for :users
   root to: 'pages#home'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  get 'resorts/:id/ticket', to: 'pages#ticket', as: 'ticket'
 end
