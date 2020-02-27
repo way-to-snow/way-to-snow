@@ -23,6 +23,7 @@ gem 'geocoder'
 gem 'faker'
 gem 'smarter_csv'
 gem 'pg_search'
+gem "chartkick"
 
 group :development do
   gem 'web-console', '>= 3.3.0'
