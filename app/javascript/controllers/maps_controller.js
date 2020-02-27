@@ -29,26 +29,6 @@ export default class extends Controller {
       zoom: 4.5
     });
 
-    // console.log(this.map.scrollZoom);
-
-    // const zoomReading = mapElement.getZoom();
-    // console.log(mapElement);
-
-    // const zoomThreshold = 4;
-
-    // this.map.on('zoom', function() {
-    //   if (map.getZoom() > zoomThreshold) {
-    //     console.log('you broke the threshold');
-    //     // stateLegendEl.style.display = 'none';
-    //     // countyLegendEl.style.display = 'block';
-    //   } else {
-    //     console.log('not yet');
-    //     // stateLegendEl.style.display = 'block';
-    //     // countyLegendEl.style.display = 'none';
-    //   }
-    // });
-
-
     // Declare all the objects in the map
     const markers = JSON.parse(mapElement.dataset.markers);
 
@@ -78,6 +58,19 @@ export default class extends Controller {
     // Hiding mapbox logos and copyrights.
     mapBoxLogo.classList.add('invisible');
     mapBoxCopyright.classList.add('invisible');
+
+    // tracking user zoom level
+    const zoomThreshold = 7;
+
+    this.map.on('zoom', () => {
+      console.log(this.map.getZoom());
+      if (this.map.getZoom() > zoomThreshold) {
+        console.log("passed the threshold");
+      } else {
+        console.log('not yet');
+      }
+    });
+
   };
 
   placeMarkers(markers) {
