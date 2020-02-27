@@ -1,5 +1,5 @@
 <div id="map-container" data-controller="maps">
-  <div id="map" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  <div id="map" data-action="change->maps#zoom" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
   <div id="map-controls">
     <div class="button-holder">
       <div class="button" data-action="click->maps#filter" data-value="">All resorts</i></div>

@@ -7,7 +7,7 @@ export default class extends Controller {
   favorited = false;
 
   connect = () => {
-    this.favorited = this.outputTarget.dataset.favorited === "true";
+    this.favorited = this.heartTarget.dataset.favorited === "true";
     console.log(this.favorited);
     navigator.geolocation.getCurrentPosition((position) => {
       const start = [position.coords.longitude, position.coords.latitude];

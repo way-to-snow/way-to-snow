@@ -58,6 +58,19 @@ export default class extends Controller {
     // Hiding mapbox logos and copyrights.
     mapBoxLogo.classList.add('invisible');
     mapBoxCopyright.classList.add('invisible');
+
+    // tracking user zoom level
+    const zoomThreshold = 7;
+
+    this.map.on('zoom', () => {
+      console.log(this.map.getZoom());
+      if (this.map.getZoom() > zoomThreshold) {
+        console.log('Below zoom level 7');
+      } else {
+        console.log('Above zoom level 7');
+      }
+    });
+
   };
 
   placeMarkers(markers) {
@@ -90,17 +103,14 @@ export default class extends Controller {
 
   filter() {
     const value = event.target.dataset.value;
-    console.log(value);
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = () => {
-      if (xhr.readyState === 4) {
-        const markers = JSON.parse(xhr.responseText);
+    const url = `/resorts.json?${value}`;
+    fetch(url)
+      .then(response => response.json())
+      .then(markers => {
         this.placeMarkers(markers);
-      };
-    };
-    xhr.open('GET', `/resorts.json?${value}`);
-    xhr.send()
+      })
   };
+
 
 }
 
