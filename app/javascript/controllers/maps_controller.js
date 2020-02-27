@@ -29,6 +29,26 @@ export default class extends Controller {
       zoom: 4.5
     });
 
+    // console.log(this.map.scrollZoom);
+
+    // const zoomReading = mapElement.getZoom();
+    // console.log(mapElement);
+
+    // const zoomThreshold = 4;
+
+    // this.map.on('zoom', function() {
+    //   if (map.getZoom() > zoomThreshold) {
+    //     console.log('you broke the threshold');
+    //     // stateLegendEl.style.display = 'none';
+    //     // countyLegendEl.style.display = 'block';
+    //   } else {
+    //     console.log('not yet');
+    //     // stateLegendEl.style.display = 'block';
+    //     // countyLegendEl.style.display = 'none';
+    //   }
+    // });
+
+
     // Declare all the objects in the map
     const markers = JSON.parse(mapElement.dataset.markers);
 
