@@ -26,7 +26,7 @@ export default class extends Controller {
       center: [138.4, 38.0],
       // pitch: 60,
       // bearing: -45,
-      zoom: 4.5
+      zoom: 4.75
     });
 
     // Declare all the objects in the map
