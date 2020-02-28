@@ -1,95 +1,56 @@
-@import url(https://fonts.googleapis.com/css?family=Karla);
-// Specific CSS for your home-page
-#welcome-message {
+#img-container {
   display: flex;
-  flex-direction: column;
-}
-
-.holder {
-  display: flex;
-  background-image: asset-url("landing-min.png");
+  background: linear-gradient(
+                     rgba(0, 0, 0, .1),
+                     rgba(0, 0, 0, .1)),
+                     asset-url("snowboard.jpg");
   background-size: cover;
-  background-position: 0px -500px;
   background-repeat: no-repeat;
-  justify-content: flex-end;
-  align-items: center;
-  // width: 100vw;
   height: 100vh;
 }
 
 #welcome-box {
-  width: 450px;
-  padding: 80px 40px 80px;
-  border-radius: 3px;
-  // background-color: rgba(255, 255, 255, 0.3);
-  // background-color: rgba(161, 135, 112, 1);
-  box-shadow: 0 0 25px 5px rgba(0, 0, 0, 0.2);
-  background-repeat: repeat;
-  margin-right: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 60vw;
+}
+
+#logo {
+  text-align: center;
+  color: white;
+  font-size: 120px;
+  font-family: 'Covered By Your Grace';
+}
+
+#call-to-action {
+  display: flex;
+  align-items: center;
+}
+
+#tagline {
+  font-family: 'Karla';
+  font-size: 24px;
+  color: white;
+  margin-left: 12px;
 }
 
 #submit {
+  width: 100px;
   text-align: center;
   color: white;
   font-family: Karla;
-  font-size: 18px;
-  width: 85%;
+  font-size: 24px;
   padding: 15px;
-  box-sizing: border-box;
-  border: none;
-  border-radius: 3px;
-  display: block;
-  float: none;
-  clear: both;
-  background: rgba(61, 172, 54, 0.9);
-  color: white;
+  border: 1px solid white;
+  border-radius: 4px;
   cursor: pointer;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  margin: 0 auto;
 }
 
 #submit:hover {
-  background: rgba(46, 146, 40, 0.9);
+  background: white;
+  color: #2F84C5;
 }
 
-#input {
-
-}
-
-#tran input[type="text"],
-#tran input[type="submit"] {
-    font-family: Karla;
-    font-size: 18px;
-    width: 85%;
-    padding: 15px;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    border: none;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    display: block;
-    float: none;
-    clear: both;
-}
-#tran input[type="text"] {
-    background: white;
-    margin: 0 auto 10px;
-    border-bottom: 1px solid #e5e5e5;
-}
-#tran input[type="text"]:focus {
-    outline: none;
-}
-#tran input[type="submit"] {
-    background: rgba(61, 172, 54, 0.81);
-    color: white;
-    cursor: pointer;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    margin: 0 auto;
-}
-#tran input[type="submit"]:hover {
-    background: rgba(46, 146, 40, 0.81);
-}
-:focus::-webkit-input-placeholder,
-:focus::-webkit-input-placeholder {
-    text-indent: -999px
-}
