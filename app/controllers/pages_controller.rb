@@ -7,4 +7,8 @@ class PagesController < ApplicationController
   def ticket
     @resort = Resort.find(params[:id])
   end
+
+  def share
+    @resort = Resort.find(params[:id])
+  end
 end
