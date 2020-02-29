@@ -1,5 +1,6 @@
 #img-container {
   display: flex;
+  flex-direction: column;
   background: linear-gradient(
                      rgba(0, 0, 0, .1),
                      rgba(0, 0, 0, .1)),
@@ -7,6 +8,34 @@
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
+}
+
+#login-out-holder {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100px;
+
+}
+
+.login-out {
+  width: 100px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  color: white;
+  font-family: 'Karla';
+  font-size: 16px;
+  padding: 8px;
+  // border: 1px solid white;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 50px;
+}
+
+.login-out:hover {
+  background: white;
+  color: #2F84C5;
 }
 
 #welcome-box {
@@ -25,7 +54,7 @@
   font-family: 'Covered By Your Grace';
 }
 
-#call-to-action {
+#call-to-action-box {
   display: flex;
   align-items: center;
 }
@@ -41,7 +70,7 @@
   width: 100px;
   text-align: center;
   color: white;
-  font-family: Karla;
+  font-family: 'Karla';
   font-size: 24px;
   padding: 15px;
   border: 1px solid white;
