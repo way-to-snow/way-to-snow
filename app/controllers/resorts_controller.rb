@@ -39,5 +39,7 @@ class ResortsController < ApplicationController
 
   def show
     @resort = Resort.find(params[:id])
+    @question = Question.new
+    @answer = Answer.new
   end
 end

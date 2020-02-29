@@ -62,7 +62,6 @@
         <div class="resort-info-header"><h2>TICKETS</h2></div>
         <p>Adult: ¥<%= @resort.adult_price %></p>
         <p>Child: ¥<%= @resort.child_price %></p>
-        <p><%= link_to "Buy Ticket", ticket_path %> </p>
       </div>
       <div class="resort-info-card">
         <div class="resort-info-header"><h2>FACILITIES</h2></div>
@@ -91,4 +90,18 @@
       </div>
     </div>
   </div>
+
+  <div id="questions_answers">
+    <% if @resort.questions.blank? %>
+      <h5> Be the first to ask a questiion for <%= @resort.name %> </h5>
+      <%= render 'questions/question_form', resort: @resort, question: @question %>
+    <% else %>
+      <%= render 'resorts/q&a', resort: @resort, question: @question, answer: @answer %>
+    <% end %>
+  </div>
+
+  
+
+
+
 </div>

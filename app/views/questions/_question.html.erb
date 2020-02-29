@@ -1,0 +1,5 @@
+<% @resort.questions.each_with_index do |question, index| %>
+  
+    <%= render 'questions/questions-index', question: question, index: index, answer: @answer%>
+
+<% end %>
