@@ -40,8 +40,40 @@
   height: 21px;
 }
 
-#map-container {
-  // display: flex;
+#map-controls {
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+
+#map-buttons-holder {
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.map-button {
+  min-width: 80px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-family: 'Karla';
+  color: #333333;
+  border: 1px solid rgb(176,176,176);
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+.selected {
+  border: 1px solid #333333;
+  background-color: #f2f2f2;
+}
+
+.map-button:hover {
+  background-color: #f2f2f2;
+  color: #333333;
 }
 
 #map {
@@ -50,9 +82,9 @@
 }
 
 .resort-counter {
-  background-color: white;
   position: absolute;
   z-index: 1;
+  background-color: white;
   bottom: 200px;
   right: 10px;
   text-align: center;
