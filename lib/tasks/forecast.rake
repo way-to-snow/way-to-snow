@@ -1,4 +1,4 @@
-desc "Importing daily forecasts"
+# desc "Importing daily forecasts"
 task forecast: :environment do
   # All your magic here
   # Any valid Ruby code is allowed
@@ -11,7 +11,7 @@ task forecast: :environment do
 
     4.times do
       day = weather['list'][i]
-      forecast = Forecast.create(
+      Forecast.create(
         resort: resort,
         forecast_day: Time.at(day['dt']),
         max_temperature: day['temp']['max'],
@@ -20,8 +20,9 @@ task forecast: :environment do
         wind_direction: deg_to_compass(day['deg']),
         weather: day['weather'][0]['description'],
         snow_amount: day['snow'].nil? ? 0 : day['snow'],
-        rain: day['rain'].nil? ? 0 : day['rain']
-        )
+        rain: day['rain'].nil? ? 0 : day['rain'],
+        condition: ""
+      )
       i += 1
     end
   end
@@ -39,6 +40,19 @@ task forecast: :environment do
   Resort.all.each do |resort|
     puts "Creating four day forecasts for #{resort.name}"
     get_forecasts(resort)
+  end
+
+  Forecast.all.each do |forecast|
+    if forecast.wind_speed > 45 || forecast.rain.positive?
+      forecast.condition = "bad"
+    elsif forecast.snow_amount.round.zero?
+      forecast.condition = "average"
+    elsif forecast.snow_amount.positive? && forecast.snow_amount.round < 10
+      forecast.condition = "good"
+    else
+      forecast.condition = "great"
+    end
+    forecast.save
   end
 
   puts "Finished creating forecasts"

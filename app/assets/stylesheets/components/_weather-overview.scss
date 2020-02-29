@@ -1,15 +1,35 @@
-.great{
-  color: blue;
+.summary-card{
+  flex: 1 1 0px;
+  margin: 4px;
+  text-align: center;
+  color: white;
+  padding-top: 8px;
+  h1{
+    font-size: 16px;
+  }
+  h2{
+    color: black;
+    font-size: 26px;
+  }
 }
 
-.good{
-  color: green;
+#great{
+  background: #4169E1;
 }
 
-.average{
-  color: orange;
+#good{
+  background: #00FF7F;
 }
 
-.bad{
-  color: red;
+#average{
+  background: #ff9933;
+}
+
+#bad{
+  background: #FF4500;
+}
+
+.summary-items{
+  display: flex;
+  flex-grow: 1;
 }

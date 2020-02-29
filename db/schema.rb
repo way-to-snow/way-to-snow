@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_20_054428) do
+ActiveRecord::Schema.define(version: 2020_02_27_102515) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 2020_02_20_054428) do
     t.float "rain"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "condition"
     t.index ["resort_id"], name: "index_forecasts_on_resort_id"
   end
 
@@ -132,6 +133,7 @@ ActiveRecord::Schema.define(version: 2020_02_20_054428) do
     t.datetime "updated_at", precision: 6, null: false
     t.jsonb "report", default: "{}", null: false
     t.boolean "current"
+    t.string "condition"
     t.index ["resort_id"], name: "index_weather_reports_on_resort_id"
   end
 
