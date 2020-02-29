@@ -1,15 +1,17 @@
 <div id="map-container" data-controller="maps">
 
-  <div id="map-controls">
-    <div id="map-buttons-holder">
-      <div class="map-button" data-action="click->maps#filter click->maps#select" data-value="">All resorts</i></div>
-      <div class="map-button" data-action="click->maps#filter click->maps#select" data-value="favorites=true"><i class="fas fa-heart"></i>&nbsp&nbspFavorites</div>
-      <div class="map-button" data-action="click->maps#filter click->maps#select" data-value="new_snow=true"><i class="far fa-snowflake"></i>&nbsp&nbspFresh powder</div>
-      <div class="map-button" data-action="click->maps#filter click->maps#select" data-value="lots_snow=true"><i class="far fa-snowflake"></i>&nbsp&nbspDeep snow</div>
-    </div>
+  <div class="resort-counter">
+    <div>Showing</div>
+    <span data-target="maps.counter" id="resort-counter-number"></span>
+    <div>Resorts</div>
   </div>
 
-  <div class="resort-counter">Showing <span data-target="maps.counter" id="resort-counter-number"></span> resorts</div>
+  <div id="map-buttons-holder">
+    <div class="map-button" data-action="click->maps#filter click->maps#select" data-value="">All resorts</i></div>
+    <div class="map-button" data-action="click->maps#filter click->maps#select" data-value="new_snow=true"><i class="far fa-snowflake"></i>&nbsp&nbspFresh powder</div>
+    <div class="map-button" data-action="click->maps#filter click->maps#select" data-value="lots_snow=true"><i class="far fa-snowflake"></i>&nbsp&nbspDeep snow</div>
+    <div class="map-button" data-action="click->maps#filter click->maps#select" data-value="favorites=true"><i class="fas fa-heart"></i>&nbsp&nbspFavorites</div>
+  </div>
 
   <div id="map" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 </div>

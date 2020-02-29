@@ -15,6 +15,15 @@ export default class extends Controller {
   map = null;
   currentMarkers = [];
 
+  select() {
+    console.log("you clicked a button");
+    const buttons = document.getElementsByClassName('map-button');
+    Array.from(buttons).forEach(function (element) {
+            element.classList.remove('selected');
+          });
+    event.target.classList.add('selected');
+  };
+
   connect() {
     const mapElement = document.getElementById('map');
 
@@ -23,10 +32,10 @@ export default class extends Controller {
     this.map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/nskibiak/ck72q78sz1kf11iot6ya2iny0',
-      center: [138.4, 38.0],
+      center: [138.4, 38.5],
       // pitch: 60,
       // bearing: -45,
-      zoom: 4.75
+      zoom: 4.5
     });
 
     // Declare all the objects in the map
@@ -109,15 +118,6 @@ export default class extends Controller {
       .then(markers => {
         this.placeMarkers(markers);
       })
-  };
-
-  select() {
-    console.log("you clicked a button");
-    const buttons = document.getElementsByClassName('map-button');
-    Array.from(buttons).forEach(function (element) {
-            element.classList.remove('selected');
-          });
-    event.target.classList.add('selected');
   };
 
 }

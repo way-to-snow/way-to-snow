@@ -25,7 +25,7 @@ export default class extends Controller {
 
   favorite () {
     const resortId = event.target.dataset.value;
-    const url = `resorts/${resortId}/favorites${this.favorited ? '/delete' : ''}`;
+    const url = `/resorts/${resortId}/favorites${this.favorited ? '/delete' : ''}`;
     console.log(this.favorited);
     fetch(url)
         .then(response => response.json())
