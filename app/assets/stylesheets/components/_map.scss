@@ -39,6 +39,19 @@
   background-color: #357266;
 }
 
+.marker.great {
+  background-color: blue;
+}
+.marker.good {
+  background-color: green;
+}
+.marker.average {
+  background-color: orange;
+}
+.marker.bad {
+  background-color: red;
+}
+
 .marker:hover {
   width: 21px;
   height: 21px;
