@@ -44,16 +44,17 @@
   height: 21px;
 }
 
-#map-controls {
+#map-container {
   display: flex;
-  align-items: center;
-  height: 60px;
+  flex-direction: column;
 }
 
 #map-buttons-holder {
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 60px;
 }
 
 .map-button {
