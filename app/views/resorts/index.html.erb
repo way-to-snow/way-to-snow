@@ -1,19 +1,15 @@
 <div id="map-container" data-controller="maps">
-  <div id="map" data-action="change->maps#zoom" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-  <div id="map-controls">
-    <div class="button-holder">
-      <div class="button" data-action="click->maps#filter" data-value="">All resorts</i></div>
-      <div class="button" data-action="click->maps#filter" data-value="favorites=true">my fav <i class="fas fa-heart"></i></div>
-      <div class="button" data-action="click->maps#filter" data-value="new_snow=true">new <i class="far fa-snowflake"></i></div>
-      <div class="button" data-action="click->maps#filter" data-value="lots_snow=true">lots <i class="far fa-snowflake"></i></div>
-    </div>
-    <div class="resort-counter">Showing <span data-target="maps.counter" id="resort-counter-number"></span> resorts</div>
-  </div>
-</div>
 
-<!--   <div data-controller="slider">
-    <input type="range" name="travel-input" min="1" max="6" id="hours-input" value="6" data-action="change->slider#displayChoice">
-    <output name="travel-output" id="hours-output">6</output>
-    <label for="travel"> (hours) max travel time</label>
-    <div class="button" data-action="click->slider#getTravelTime">Filter by distance!</div>
-  </div> -->
+  <div id="map-controls">
+    <div id="map-buttons-holder">
+      <div class="map-button" data-action="click->maps#filter click->maps#select" data-value="">All resorts</i></div>
+      <div class="map-button" data-action="click->maps#filter click->maps#select" data-value="favorites=true"><i class="fas fa-heart"></i>&nbsp&nbspFavorites</div>
+      <div class="map-button" data-action="click->maps#filter click->maps#select" data-value="new_snow=true"><i class="far fa-snowflake"></i>&nbsp&nbspFresh powder</div>
+      <div class="map-button" data-action="click->maps#filter click->maps#select" data-value="lots_snow=true"><i class="far fa-snowflake"></i>&nbsp&nbspDeep snow</div>
+    </div>
+  </div>
+
+  <div class="resort-counter">Showing <span data-target="maps.counter" id="resort-counter-number"></span> resorts</div>
+
+  <div id="map" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+</div>
