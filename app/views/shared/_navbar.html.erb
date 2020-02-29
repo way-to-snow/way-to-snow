@@ -13,11 +13,11 @@
       <% if user_signed_in? %>
         <li class="nav-item active">
         <li class="nav-item">
-          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, style:"text-decoration:none", class: "link" %>
         </li>
       <% else %>
         <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <%= link_to "Login", new_user_session_path, style:"text-decoration:none", class: "link" %>
         </li>
       <% end %>
     </ul>

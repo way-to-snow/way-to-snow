@@ -21,3 +21,23 @@
   font-family: 'Covered By Your Grace';
   margin-left: 50px;
 }
+
+.link {
+  width: 80px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  color: #04507C;
+  font-family: 'Karla';
+  font-size: 12px;
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 50px;
+}
+
+.link:hover {
+  // border: 1px solid black;
+  color: white;
+  background-color: #04507C;
+}
