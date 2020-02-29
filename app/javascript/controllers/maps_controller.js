@@ -70,7 +70,7 @@ export default class extends Controller {
         console.log('Above zoom level 7');
       }
     });
-
+    console.log("inside controller");
   };
 
   placeMarkers(markers) {
@@ -119,7 +119,6 @@ export default class extends Controller {
           });
     event.target.classList.add('selected');
   };
-
 }
 
     // Setting map boundaries to markers

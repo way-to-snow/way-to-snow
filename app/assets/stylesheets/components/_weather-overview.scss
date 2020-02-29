@@ -8,28 +8,29 @@
     font-size: 16px;
   }
   h2{
-    color: black;
-    font-size: 26px;
+    font-size: 24px;
   }
 }
 
 #great{
-  background: #4169E1;
+  background: #45638E;
 }
 
 #good{
-  background: #00FF7F;
+  background: #239B98;
 }
 
 #average{
-  background: #ff9933;
+  background: #D87437;
 }
 
 #bad{
-  background: #FF4500;
+  background: #BA3737;
 }
 
 .summary-items{
   display: flex;
   flex-grow: 1;
 }
+
+
