@@ -43,9 +43,4 @@ class ResortsController < ApplicationController
     @answer = Answer.new
   end
 
-
-  #   Resort.all.select do |resort|
-  #     resort.weather_reports.order('date DESC').first.snow_change.positive?
-  #   end
-  # end
 end
