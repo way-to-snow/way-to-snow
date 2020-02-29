@@ -13,7 +13,7 @@
                      asset-url('mountains_sm.jpeg');
   background-size: cover;
   background-repeat: no-repeat;
-  height: 350px;
+  height: 300px;
   margin-top: 20px;
 }
 
@@ -72,8 +72,7 @@
 }
 
 .resort-info-body {
-  height: 200px;
-  // padding: 0px 20px;
+  min-height: 100px;
 }
 
 .weather{

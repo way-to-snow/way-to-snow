@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container col-9">
 
   <div class="resort-show-banner">
 
@@ -20,12 +20,16 @@
 
       <div class="resort-info-block">
         <div class="resort-info-header">ELEVATION</div>
-        <div class="resort-info-body"></div>
+        <div class="resort-info-body">
+          <%= render 'resorts/elevation', resort: @resort %>
+        </div>
       </div>
 
       <div class="resort-info-block">
         <div class="resort-info-header">TERRAIN</div>
-        <div class="resort-info-body"></div>
+        <div class="resort-info-body">
+          <%= render 'resorts/terrain', resort: @resort %>
+        </div>
       </div>
 
       <div class="resort-info-block">
@@ -66,46 +70,6 @@
 </div>
 
 
-  <div class="main-container">
-    <div class="resort-information">
-      <div class="resort-info-card">
-        <div class="resort-info-header" ><h2>ELEVATION</h2></div>
-        <div class="resort-info-body" >
-          <ul id="mountain">
-            <li class="top">
-              <div class="value"><%= @resort.top_elevation%> M</div>
-              <div class="label">Top</div>
-            </li>
-            <li class="drop">
-              <div class="value"><%= @resort.top_elevation - @resort.bottom_elevation %> M</div>
-              <div class="label">Drop</div>
-            </li>
-            <li class="bottom">
-              <div class="value"><%= @resort.bottom_elevation %> M</div>
-              <div class="label">Bottom</div>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="resort-info-card">
-        <div class="resort-info-header"><h2>TERRAIN</h2></div>
-        <table class="terrain-table">
-          <thead>
-            <tr>
-              <td scope="col" id="beg" width="<%= @resort.beginner %>%"><%= @resort.beginner %>%</td>
-              <td scope="col" id="int" width="<%= @resort.intermediate %>%"><%= @resort.intermediate %>%</td>
-              <td scope="col" id="adv" width="<%= @resort.advanced %>%"><%= @resort.advanced %>%</td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td id="beg-label">Beginner</td>
-              <td id="int-label">Intermediate</td>
-              <td id="adv-label">Advanced</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
       <div class="resort-info-card">
         <div class="resort-info-header"><h2>OVERVIEW</h2></div>
         <p><%= @resort.season_planned %></p>
