@@ -42,5 +42,4 @@ class ResortsController < ApplicationController
     @question = Question.new
     @answer = Answer.new
   end
-
 end
