@@ -79,7 +79,7 @@ export default class extends Controller {
         console.log('Above zoom level 7');
       }
     });
-
+    console.log("inside controller");
   };
 
   placeMarkers(markers) {
@@ -96,7 +96,8 @@ export default class extends Controller {
       const popup = new mapboxgl.Popup().setHTML(marker.infoWindow); // add this
       // Create a HTML element for your custom marker
       const element = document.createElement('div');
-      element.className = 'marker';
+      console.log(marker.condition);
+      element.className = `marker ${marker.condition}`;
       // element.style.backgroundImage = `url('${marker.image_url}')`;
       // element.style.backgroundSize = 'contain';
       // element.style.width = '15px';
@@ -120,6 +121,14 @@ export default class extends Controller {
       })
   };
 
+  select() {
+    console.log("you clicked a button");
+    const buttons = document.getElementsByClassName('map-button');
+    Array.from(buttons).forEach(function (element) {
+            element.classList.remove('selected');
+          });
+    event.target.classList.add('selected');
+  };
 }
 
     // Setting map boundaries to markers

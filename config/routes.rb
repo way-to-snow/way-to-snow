@@ -28,7 +28,8 @@ Rails.application.routes.draw do
   #   end
 
   devise_for :users
-  root to: 'pages#home'
+  root to: 'pages#home', as: 'home'
 
   get 'resorts/:id/ticket', to: 'pages#ticket', as: 'ticket'
+  get 'resorts/:id/share', to: 'pages#share', as: 'share'
 end
