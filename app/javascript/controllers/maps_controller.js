@@ -96,7 +96,8 @@ export default class extends Controller {
       const popup = new mapboxgl.Popup().setHTML(marker.infoWindow); // add this
       // Create a HTML element for your custom marker
       const element = document.createElement('div');
-      element.className = 'marker';
+      console.log(marker.condition);
+      element.className = `marker ${marker.condition}`;
       // element.style.backgroundImage = `url('${marker.image_url}')`;
       // element.style.backgroundSize = 'contain';
       // element.style.width = '15px';
