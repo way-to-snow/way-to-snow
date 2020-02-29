@@ -40,7 +40,13 @@
   width: 100px;
   display: flex;
   justify-content: space-around;
+  // align-items: center;
   margin-top: 20px;
+  // width: 100%;
+  height: 40px;
+  // background: linear-gradient(
+  //                    rgba(255, 255, 255, .5),
+  //                    rgba(255, 255, 255, .5)),
 }
 
 #share {
@@ -53,6 +59,7 @@
 
 .resort-info-block {
   display: flex;
+  flex-direction: column;
   margin: 20px 0px;
 }
 
@@ -64,11 +71,9 @@
   padding-left: 20px;
 }
 
-.resort-information{
-  display: flex;
-  flex-direction: column;
-  width: 550px;
-  margin: 20px;
+.resort-info-body {
+  height: 200px;
+  // padding: 0px 20px;
 }
 
 .weather{
