@@ -64,7 +64,7 @@
   <% resort.forecasts.each.with_index do |forecast, index| %>
     <div class="summary-card" id="<%= forecast.condition %>">
       <h1> <%= days[index] %> </h1>
-      <h2> <%= forecast.condition.capitalize %> </h2>
+      <h2> <%= forecast.condition %> </h2>
       <p>Snow: <%= forecast.snow_amount.round %>cm</p>
       <p>Rain: <%= forecast.rain.round %>cm</p>
       <p>Max: <%= forecast.max_temperature %>°C</p>
