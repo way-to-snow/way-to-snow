@@ -7,6 +7,18 @@
     <div class="resort-change">Snow Change: <%= (snow_change > 0) ? snow_change : "0" %> cm</div>
     <hr>
   </div>
+
+  <% day_after = (Time.now + 2.day).strftime("%A")%>
+  <% two_days_after = (Time.now + 3.day).strftime("%A")%>
+  <% days = ["Today", "Tomorrow", day_after, two_days_after ] %>
+  <div class="overview">
+    <h1>Riding Conditions:</h1>
+    <% resort.forecasts.each.with_index do |forecast, index| %>
+      <div id="<%= forecast.condition %>">
+        <p> <%= days[index] %>: <%= forecast.condition.capitalize %> </p>
+      </div>
+    <% end %>
+  </div>
   <% favorited = current_user.resorts.include?(resort) %>
   <div>
     <i data-target="popup.heart" class="fas fa-heart button-favorite <%= favorited ? 'red' : '' %>" id="heart" style="text-decoration:none" data-action="click->popup#favorite" data-value="<%= resort.id %>" data-favorited="<%= favorited %>"></i>
