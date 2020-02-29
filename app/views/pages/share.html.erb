@@ -1,0 +1,77 @@
+<div class="container col-8 mt-5">
+  <h1 class="mb-5">Tell your buddies about <%= @resort.name.titlecase %>!</h1>
+  <form>
+    <div class="form-group row">
+      <label for="text" class="col-4 col-form-label">Email</label>
+      <div class="col-8">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <i class="fa fa-address-card"></i>
+            </div>
+          </div>
+          <input id="text" name="text" type="text" class="form-control">
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-4">Checkboxes</label>
+      <div class="col-8">
+        <div class="custom-control custom-checkbox custom-control-inline">
+          <input name="checkbox" id="checkbox_0" type="checkbox" checked="checked" class="custom-control-input" value="rabbit">
+          <label for="checkbox_0" class="custom-control-label">Snowboarding</label>
+        </div>
+        <div class="custom-control custom-checkbox custom-control-inline">
+          <input name="checkbox" id="checkbox_1" type="checkbox" class="custom-control-input" value="duck">
+          <label for="checkbox_1" class="custom-control-label">Skiing</label>
+        </div>
+        <div class="custom-control custom-checkbox custom-control-inline">
+          <input name="checkbox" id="checkbox_2" type="checkbox" class="custom-control-input" value="fish">
+          <label for="checkbox_2" class="custom-control-label">Drinking</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-4">Start date:</label>
+      <div class="col-8">
+        <input type="date" id="start" name="trip-start"
+         value="2020-03-01"
+         min="2020-03-01" max="2020-03-29">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-4">End date:</label>
+      <div class="col-8">
+        <input type="date" id="start" name="trip-start"
+         value="2020-03-02"
+         min="2020-03-01" max="2020-03-29">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="textarea" class="col-4 col-form-label">Describe your plans</label>
+      <div class="col-8">
+        <textarea id="textarea" name="textarea" cols="40" rows="5" class="form-control"></textarea>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="offset-4 col-8">
+        <%= link_to "Send", home_path, style:"text-decoration:none", class: "btn btn-primary" %>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+
+
+<!--     <div class="custom-control custom-switch">
+      <input type="checkbox" class="custom-control-input" id="customSwitch1">
+      <label class="custom-control-label" for="customSwitch1">Snowboarding</label>
+    </div>
+    <div class="custom-control custom-switch">
+      <input type="checkbox" class="custom-control-input" id="customSwitch2">
+      <label class="custom-control-label" for="customSwitch1">Skiing</label>
+    </div> -->
