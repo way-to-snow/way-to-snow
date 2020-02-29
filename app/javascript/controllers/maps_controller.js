@@ -15,6 +15,15 @@ export default class extends Controller {
   map = null;
   currentMarkers = [];
 
+  select() {
+    console.log("you clicked a button");
+    const buttons = document.getElementsByClassName('map-button');
+    Array.from(buttons).forEach(function (element) {
+            element.classList.remove('selected');
+          });
+    event.target.classList.add('selected');
+  };
+
   connect() {
     const mapElement = document.getElementById('map');
 
@@ -23,7 +32,7 @@ export default class extends Controller {
     this.map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/nskibiak/ck72q78sz1kf11iot6ya2iny0',
-      center: [138.4, 38.0],
+      center: [138.4, 38.5],
       // pitch: 60,
       // bearing: -45,
       zoom: 4.5
@@ -58,6 +67,19 @@ export default class extends Controller {
     // Hiding mapbox logos and copyrights.
     mapBoxLogo.classList.add('invisible');
     mapBoxCopyright.classList.add('invisible');
+
+    // tracking user zoom level
+    const zoomThreshold = 7;
+
+    this.map.on('zoom', () => {
+      console.log(this.map.getZoom());
+      if (this.map.getZoom() > zoomThreshold) {
+        console.log('Below zoom level 7');
+      } else {
+        console.log('Above zoom level 7');
+      }
+    });
+
   };
 
   placeMarkers(markers) {
@@ -90,16 +112,12 @@ export default class extends Controller {
 
   filter() {
     const value = event.target.dataset.value;
-    console.log(value);
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = () => {
-      if (xhr.readyState === 4) {
-        const markers = JSON.parse(xhr.responseText);
+    const url = `/resorts.json?${value}`;
+    fetch(url)
+      .then(response => response.json())
+      .then(markers => {
         this.placeMarkers(markers);
-      };
-    };
-    xhr.open('GET', `/resorts.json?${value}`);
-    xhr.send()
+      })
   };
 
 }

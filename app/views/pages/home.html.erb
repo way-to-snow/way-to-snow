@@ -1,11 +1,20 @@
-<div class="holder">
-  <div id="welcome-box">
-   <form id="tran">
-    <input type="text" placeholder="email address">
-    <%= link_to "Sign Up", new_user_registration_path, style:"text-decoration:none", id: "submit" %>
-    <hr>
-    <%= link_to "Find Some Snow!", resorts_path, style:"text-decoration:none", id: "submit" %>
-   </form>
+<div id="img-container">
+
+  <div id="login-out-holder">
+    <% if user_signed_in? %>
+      <%= link_to "Log out", destroy_user_session_path, method: :delete, style:"text-decoration:none", class: "login-out" %>
+    <% else %>
+      <%= link_to "Login", new_user_session_path, style:"text-decoration:none", class: "login-out" %>
+    <% end %>
   </div>
+
+  <div id="welcome-box">
+    <div id="logo-home">Way to Snow</div>
+    <div id="call-to-action-box">
+      <%= link_to "Click", resorts_path, style:"text-decoration:none", id: "submit" %>
+      <div id="tagline">to find the perfect powder...</div>
+    </div>
+  </div>
+
 </div>
 

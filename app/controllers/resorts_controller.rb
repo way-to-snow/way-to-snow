@@ -24,10 +24,12 @@ class ResortsController < ApplicationController
 
   def map_maker(resorts)
     resorts.map do |resort|
+      snow_depth = WeatherReport.where("resort_id = ? AND current = ?", resort, true)[0].snow_depth
+      snow_change = WeatherReport.where("resort_id = ? AND current = ?", resort, true)[0].snow_change
       {
         lat: resort.latitude,
         lng: resort.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { resort: resort }, formats: [:html])
+        infoWindow: render_to_string(partial: "info_window", locals: { resort: resort, snow_depth: snow_depth, snow_change: snow_change }, formats: [:html])
         # uncomment below to add a custom image
         # image_url: helpers.asset_url('marker.svg')
       }

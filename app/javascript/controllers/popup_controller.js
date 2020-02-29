@@ -7,7 +7,7 @@ export default class extends Controller {
   favorited = false;
 
   connect = () => {
-    this.favorited = this.outputTarget.dataset.favorited === "true";
+    this.favorited = this.heartTarget.dataset.favorited === "true";
     console.log(this.favorited);
     navigator.geolocation.getCurrentPosition((position) => {
       const start = [position.coords.longitude, position.coords.latitude];
@@ -25,7 +25,7 @@ export default class extends Controller {
 
   favorite () {
     const resortId = event.target.dataset.value;
-    const url = `resorts/${resortId}/favorites${this.favorited ? '/delete' : ''}`;
+    const url = `/resorts/${resortId}/favorites${this.favorited ? '/delete' : ''}`;
     console.log(this.favorited);
     fetch(url)
         .then(response => response.json())

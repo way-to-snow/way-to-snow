@@ -10,6 +10,10 @@
 <% rain_day_after = resort.forecasts[2].rain %>
 <% wind_day_after  = resort.forecasts[2].wind_speed %>
 
+<% snowfall_two_days_after = resort.forecasts[3].snow_amount %>
+<% rain_two_days_after = resort.forecasts[3].rain %>
+<% wind_two_days_after  = resort.forecasts[3].wind_speed %>
+
 
 <% def conditions(snowfall, rain, wind) %>
   <% if rain > 0 || wind > 45 %>
@@ -20,24 +24,53 @@
     <% if wind > 45 %>
       <p>It will be windy</p>
     <% end %>
-  <% elsif snowfall == 0 %>
+  <% elsif snowfall.round == 0 %>
     <div class="average">Average conditions</div>
-    <p>No new snow forecast</p>
-  <% elsif snowfall >0 && snowfall < 10  %>
+    <p>Snow: 0cm</p>
+  <% elsif snowfall.round >0 && snowfall.round < 10  %>
     <div class="good">Good conditions</div>
-    <p>The forecast is for <%= snowfall.round %>cm of snowfall</p>
+    <p>Snow: <%= snowfall.round %>cm</p>
   <% else %>
     <div class="great">Great conditions</div>
-    <p>The forecast is for <%= snowfall.round %>cm of snowfall</p>
+    <p>Snow: <%= snowfall.round %>cm</p>
   <% end %>
 <% end %>
 
-Today:
-<% conditions(snowfall_today, rain_today, wind_today) %>
-Tomorrow:
-<% conditions(snowfall_tomorrow, rain_tomorrow, wind_tomorrow) %>
-<%= (Time.now + 2.day).strftime("%A")%>:
-<% conditions(snowfall_day_after, rain_day_after, wind_day_after) %>
+<!-- <div class="summary-items">
+  <div class="summary">
+  Today
+  <% conditions(snowfall_today, rain_today, wind_today) %>
+  </div>
+  <div class="summary">
+  Tomorrow
+  <% conditions(snowfall_tomorrow, rain_tomorrow, wind_tomorrow) %>
+  </div>
+  <div class="summary">
+  <%= (Time.now + 2.day).strftime("%A")%>
+  <% conditions(snowfall_day_after, rain_day_after, wind_day_after) %>
+  </div>
+  <div class="summary">
+  <%= (Time.now + 3.day).strftime("%A")%>
+  <% conditions(snowfall_two_days_after, rain_two_days_after, wind_two_days_after) %>
+  </div>
+</div> -->
+
+<% day_after = (Time.now + 2.day).strftime("%A")%>
+<% two_days_after = (Time.now + 3.day).strftime("%A")%>
+<% days = ["Today", "Tomorrow", day_after, two_days_after ] %>
 
 
+<div class="summary-items">
+  <% resort.forecasts.each.with_index do |forecast, index| %>
+    <div class="summary-card" id="<%= forecast.condition %>">
+      <h1> <%= days[index] %> </h1>
+      <h2> <%= forecast.condition.capitalize %> </h2>
+      <p>Snow: <%= forecast.snow_amount.round %>cm</p>
+      <p>Rain: <%= forecast.rain.round %>cm</p>
+      <p>Max: <%= forecast.max_temperature %>°C</p>
+      <p>Min: <%= forecast.min_temperature %>°C</p>
+      <p>Wind: <%= forecast.wind_speed %>km/h</p>
+    </div>
+  <% end %>
+</div>
 

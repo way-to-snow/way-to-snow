@@ -1,6 +1,9 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  border-bottom: 1px solid #d3d3d3;
+  position: sticky;
+  top: 0px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +12,32 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+#logo {
+  text-align: center;
+  color: #04507C;
+  font-size: 24px;
+  font-family: 'Covered By Your Grace';
+  margin-left: 50px;
+}
+
+.link {
+  width: 80px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  color: #04507C;
+  font-family: 'Karla';
+  font-size: 12px;
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 50px;
+}
+
+.link:hover {
+  // border: 1px solid black;
+  color: white;
+  background-color: #04507C;
 }
