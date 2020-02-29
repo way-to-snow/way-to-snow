@@ -8,7 +8,7 @@ class QuestionsController < ApplicationController
         if @question.save
           respond_to do |format|
             format.html { redirect_to resort_path(@resort)}
-            format.js
+            format.js 
           end
         else
           respond_to do |format|

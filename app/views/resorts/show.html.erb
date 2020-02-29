@@ -82,12 +82,14 @@
     </div>
   </div>
 
-  <% if @resort.questions.blank? %>
-    Be the first to ask a questiion for <%= @resort.name %>
-    <%= render 'questions/question_form', resort: @resort, question: @question %>
-  <% else %>
-    <%= render 'resorts/q&a', resort: @resort, question: @question, answer: @answer %>
-  <% end %>
+  <div id="questions_answers">
+    <% if @resort.questions.blank? %>
+      <h5> Be the first to ask a questiion for <%= @resort.name %> </h5>
+      <%= render 'questions/question_form', resort: @resort, question: @question %>
+    <% else %>
+      <%= render 'resorts/q&a', resort: @resort, question: @question, answer: @answer %>
+    <% end %>
+  </div>
 
   
 

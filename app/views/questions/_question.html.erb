@@ -1,20 +1,5 @@
 <% @resort.questions.each_with_index do |question, index| %>
-  <div id="question">
+  
     <%= render 'questions/questions-index', question: question, index: index, answer: @answer%>
 
-    <div id="collapse-<%= question.id %>" class="collapse" data-parent="#question">
-      <div class="card-body">
-        <div id="answers">
-          <% if question.answers.blank? %>
-              <p> No answers for this question yet </p>
-          <% else %>
-            <% question.answers.each_with_index do |answer, index| %>
-            <%= render 'questions/answers', answer: answer, index: index %> 
-            <% end %>
-          <% end %>
-          <%= render 'questions/answer_form', question: question, answer: @answer %>
-        </div>
-      </div>
-    </div>
-  </div>  
 <% end %>

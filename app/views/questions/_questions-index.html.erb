@@ -1,9 +1,22 @@
-<div class="card-header p-2" id="headingOne">
-    <h5 class="mb-0">
-        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse-<%= question.id %>" >
-          <div data-question-id="<%= question.id %>">
-            <p><%= index+1 %>)  <%= question.question %> </p>
-          </div>
-        </button>
-      </h5>
+<div class="card-header p-2" id="data-question-<%= question.id %>">
+
+  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#data-<%= question.id %>" >
+    <p><%= index+1 %>)  <%= question.question %> </p>        
+  </button>
+
+  <div id="data-<%= question.id %>" class="collapse" data-parent="#data-question-<%= question.id %>">
+    
+    <div  class="card-body p-4" id="answers">
+      <% if question.answers.blank? %>
+          <p id="no_answer"> No answers for this question yet </p>
+      <% else %>
+        <% question.answers.each_with_index do |answer, index| %>
+        <%= render 'questions/answers', answer: answer, index: index %> 
+        <% end %>
+      <% end %>
+    </div>
+    <%= render 'questions/answer_form', question: question, answer: Answer.new %>
+  
+  </div>
+
 </div>
