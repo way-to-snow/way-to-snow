@@ -1,17 +1,51 @@
 <div class="container">
-  <div class="resort-header">
-    <h1><%= @resort.name.upcase %></h1>
-    <p><%= @resort.name_ja %></p>
-    <div class="icons">
+
+  <div class="resort-show-banner">
+
+    <div class="resort-names">
+      <div class="resort-name"><%= @resort.name.titlecase %></div>
+      <div class="resort-name-ja"><%= @resort.name_ja %></div>
+    </div>
+
+    <div class="icon-holder">
       <% favorited = current_user.resorts.include?(@resort) %>
-      <div>
-        <i data-controller="popup" data-target="popup.heart" class="fas fa-heart button-favorite <%= favorited ? 'red' : '' %>" id="heart" style="text-decoration:none" data-action="click->popup#favorite" data-value="<%= @resort.id %>" data-favorited="<%= favorited %>"></i>
+      <div><i data-controller="popup" data-target="popup.heart" class="fas fa-heart button-favorite <%= favorited ? 'red' : '' %>" id="heart" style="text-decoration:none" data-action="click->popup#favorite" data-value="<%= @resort.id %>" data-favorited="<%= favorited %>"></i></div>
+      <div id="share"><%= link_to "<i class='fas fa-share-alt'></i>".html_safe, share_path, id: "share" %></div>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col">
+
+      <div class="resort-info-block">
+        <div class="resort-info-header">ELEVATION</div>
+        <div class="resort-info-body"></div>
       </div>
-      <div id="share">
-        <%= link_to "<i class='fas fa-share-alt'></i>".html_safe, share_path %>
+
+    </div>
+
+    <div class="col">
+      <div class="resort-info-block">
+        <div class="resort-info-header">WEATHER</div>
+        <div class="resort-info-body"></div>
       </div>
     </div>
   </div>
+
+  <div class="resort-show-info">
+
+    <div class="resort-show-info-left">
+    </div>
+
+    <div class="resort-show-info-right">
+    </div>
+<!-- End of container -->
+  </div>
+<!-- End of container -->
+</div>
+
+
   <div class="main-container">
     <div class="resort-information">
       <div class="resort-info-card">
@@ -91,4 +125,3 @@
       </div>
     </div>
   </div>
-</div>
