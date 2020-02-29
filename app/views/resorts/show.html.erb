@@ -82,7 +82,14 @@
     </div>
   </div>
 
-  <%= render 'q&a' %>
+  <% if @resort.questions.blank? %>
+    Be the first to ask a questiion for <%= @resort.name %>
+    <%= render 'questions/question_form', resort: @resort, question: @question %>
+  <% else %>
+    <%= render 'resorts/q&a', resort: @resort, question: @question, answer: @answer %>
+  <% end %>
+
+  
 
 
 

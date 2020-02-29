@@ -1,6 +1,6 @@
-<%= simple_form_for([ resort, question ]) do |form| %>
+<%= simple_form_for([ resort, question ], remote: true) do |form| %>
   <%= form.input :question, as: :text %>
-  <%= form.button :submit %> 
+  <%= form.button :submit, class: "btn btn-primary"  %> 
 <% end %>
 
 <% if flash[:alert] %>

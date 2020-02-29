@@ -1,4 +1,20 @@
-newQuestion = "<p> <%= @question.content %> </p>"
 
-questions = document.getElementById('questions')
-questions.insertAdjacentHTML('beforeend', newQuestion)
+
+function refreshForm(innerHTML) {
+  const newQuestionForm = document.getElementById('new_question');
+  newQuestionForm.innerHTML = innerHTML;
+}
+
+
+function addQuestion(questionHTML) {
+  const questions = document.getElementById('question');
+  questions.insertAdjacentHTML('beforeend', questionHTML);
+}
+
+<% if @question.errors.any? %>
+  refreshForm('<%= j render "questions/question_form", resort: @resort, question: @question %>');
+<% else %>
+
+  
+  refreshForm('<%= j render "questions/question_form", resort: @resort, question: Question.new %>');
+<% end %>

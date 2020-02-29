@@ -1,0 +1,13 @@
+
+function refreshAnswerForm(innerHTML) {
+  const newAnswerForm = document.getElementById('new_answer');
+  newAnswerForm.innerHTML = innerHTML;
+}
+
+
+<% if @answer.errors.any? %>
+  refreshAnswerForm('<%= j render "questions/answer_form", question: @question, answer: @answer %>');
+<% else %>
+  
+  refreshAnswerForm('<%= j render "questions/answer_form", question: @question, answer: Answer.new %>');
+<% end %>
