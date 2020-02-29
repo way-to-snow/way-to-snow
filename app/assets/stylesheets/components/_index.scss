@@ -9,27 +9,3 @@
 @import 'weather-overview';
 @import 'resort-info-card';
 @import 'slider';
-
-.holder {
-  display: flex;
-}
-
-#image-holder {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-}
-
-#banner-image {
-  position: absolute;
-  width: 100vw;
-  object-fit: cover;
-  top: -60%;
-}
-
-#message {
-  position: absolute;
-  bottom: 10%;
-  left: 5%;
-}
