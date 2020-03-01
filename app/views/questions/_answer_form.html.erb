@@ -1,0 +1,9 @@
+<%= simple_form_for([ question, answer ], remote: true) do |form| %>
+  <%= form.input :answer, as: :text %>
+  <%= form.button :submit, class: "btn btn-primary" %>
+<% end %>
+
+<% if flash[:alert] %>
+  <div class="alert"><%= flash[:alert] %></div>
+<% end %>
+

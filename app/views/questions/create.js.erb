@@ -1,0 +1,26 @@
+
+
+function refreshForm(innerHTML) {
+  const newQuestionForm = document.getElementById('new_question');
+  newQuestionForm.innerHTML = innerHTML;
+}
+
+
+function addQuestion(questionHTML) {
+  const questions = document.getElementById('questions_answers');
+  questions.insertAdjacentHTML('beforeend', questionHTML);
+}
+
+function changeTitle(titleHTML) {
+  const title = document.querySelector('h5');
+  title.innerHTML = "";
+  title.insertAdjacentHTML('beforeend', titleHTML );
+}
+
+<% if @question.errors.any? %>
+  refreshForm('<%= j render "questions/question_form", resort: @resort, question: @question %>');
+<% else %>
+  addQuestion('<%= j render "questions/questions-index", question: @question, index: @question.resort.questions.length-1, answer: Answer.new, id: Question.last.id %>');
+  refreshForm('<%= j render "questions/question_form", resort: @resort, question: Question.new %>');
+  changeTitle('Following are <%= @question.resort.questions.count %> nos of questions for <%= @question.resort.name %>:')
+<% end %>
