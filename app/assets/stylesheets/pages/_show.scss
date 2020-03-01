@@ -2,38 +2,90 @@
   display: flex;
 }
 
-.resort-information{
+.resort-show-banner {
+  display: flex;
+  // flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: linear-gradient(
+                     rgba(0, 0, 0, .1),
+                     rgba(0, 0, 0, .1)),
+                     asset-url('mountains_sm.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 300px;
+  margin-top: 20px;
+}
+
+.resort-names {
   display: flex;
   flex-direction: column;
-  width: 550px;
-  margin: 20px;
+  align-items: center;
+  margin-top: 20px;
 }
 
-.weather{
-  margin: 20px;
-  flex-grow: 2;
+.resort-name {
+  color: white;
+  font-size: 60px;
+  font-family: 'Covered By Your Grace';
 }
 
-.resort-header {
-  background-image: asset-url('show_header.jpeg');
+.resort-name-ja {
+  color: white;
+  font-size: 30px;
+  // font-family: 'Covered By Your Grace';
+}
+
+.space-holder{
+  width: 50px;
+  height: 300px;
+}
+
+.icon-holder{
+  display: flex;
+  flex-direction: column;
+  font-size: 24px;
+  width: 50px;
+  height: 300px;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 20px;
+  background: linear-gradient(
+     rgba(255, 255, 255, .25),
+     rgba(255, 255, 255, .25)),
+}
+
+#share {
+  color: white;
+}
+
+#share:hover {
+  color: #04507C;
+}
+
+.resort-info-block {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0px;
+}
+
+.resort-info-header {
+  background-color: #04507C;
+  width: 100%;
+  font-size: 14px;
+  font-family: 'Karla';
+  padding-left: 20px;
+}
+
+.resort-info-body {
+  // display: flex;
+  // justify-content: space-around;
+  // align-items: center;
+  min-height: 200px;
 }
 
 #mountain {
   background-image: asset-url('mountain.png');
-}
-
-.icons{
-  position: absolute;
-  top: 73px;
-  left: 1218px;
-}
-
-.fa-share-alt{
-  color: white;
-}
-
-.fa-share-alt:hover{
-  color: grey;
 }
 
 

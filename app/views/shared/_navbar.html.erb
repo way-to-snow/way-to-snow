@@ -3,23 +3,13 @@
     <div id="logo">Way to Snow</div>
     <% end %>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
-        <li class="nav-item active">
-        <li class="nav-item">
-          <%= link_to "Log out", destroy_user_session_path, method: :delete, style:"text-decoration:none", class: "link" %>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, style:"text-decoration:none", class: "link" %>
-        </li>
-      <% end %>
-    </ul>
+  <div class="links-holder">
+    <%= link_to "Resort Map", resorts_path, style:"text-decoration:none", class: "link" %>
+    <% if user_signed_in? %>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete, style:"text-decoration:none", class: "link" %>
+    <% else %>
+        <%= link_to "Login", new_user_session_path, style:"text-decoration:none", class: "link" %>
+    <% end %>
   </div>
+
 </div>
