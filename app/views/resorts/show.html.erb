@@ -17,7 +17,7 @@
 
   </div>
 
-<!-- This bootstrap row contains everything below the banner image -->
+<!-- This is the first bootstrap row contains everything below the banner image -->
 
   <div class="row">
 
@@ -46,6 +46,7 @@
           <p>Prefecture: <%= @resort.prefecture %></p>
           <p>Town: <%= @resort.town %></p>
         </div>
+      </div>
 
       <div class="resort-info-block">
         <div class="resort-info-header">TICKETS</div>
@@ -64,11 +65,14 @@
         </div>
       </div>
 
+<!-- This is the end of the left column -->
+
     </div>
 
 <!-- This is the right side of the show page -->
 
     <div class="col" id="show-right-side">
+
       <div class="resort-info-block">
         <div class="resort-info-header">WEATHER</div>
         <div class="resort-info-body">
@@ -82,27 +86,43 @@
           <%= render 'resorts/forecast_table', resort: @resort %>
         </div>
       </div>
+
+<!-- This is the end of the right column -->
     </div>
 
-<!-- This is the end of the bootstrap row -->
+<!-- This is the end of the first bootstrap row -->
   </div>
 
+<!-- This is the Q&A on its own bootstrap row and in one column -->
+
   <div class="row">
-    <div class="resort-info-block">
-      <div class="resort-info-header">Q&A</div>
-      <div class="resort-info-body">
-        <div id="questions_answers">
-          <% if @resort.questions.blank? %>
-            <h5> Be the first to ask a questiion for <%= @resort.name %> </h5>
-            <%= render 'questions/question_form', resort: @resort, question: @question %>
-          <% else %>
-            <%= render 'resorts/q&a', resort: @resort, question: @question, answer: @answer %>
-          <% end %>
+
+    <div class="col">
+
+      <div class="resort-info-block">
+        <div class="resort-info-header">Q&A</div>
+        <div class="resort-info-body">
+          <div id="questions_answers">
+            <% if @resort.questions.blank? %>
+              <h5> Be the first to ask a questiion for <%= @resort.name %> </h5>
+              <%= render 'questions/question_form', resort: @resort, question: @question %>
+            <% else %>
+              <%= render 'resorts/q&a', resort: @resort, question: @question, answer: @answer %>
+            <% end %>
+          </div>
         </div>
       </div>
+
     </div>
+  </div>
+
+<!-- This is the end of the Q&A -->
 
 <!-- End of container -->
 
 </div>
+
+
+
+
 
