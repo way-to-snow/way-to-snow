@@ -1,0 +1,43 @@
+#map-slider-holder {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 425px;
+  height: 60px;
+  transition: all .5s ease;
+  position: absolute;
+  z-index: 1;
+  top: 122px;
+  left: calc(50% - 225px);
+  background-color: rgba(175,197,212,0.9);
+  border-radius: 0px 0px 4px 4px;
+  border: 1px solid #d3d3d3;
+}
+
+#slider {
+  width: 310px;
+}
+
+.range {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.day-labels {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  width: 400px;
+}
+
+.day {
+  width: 100px;
+  font-size: 12px;
+  font-family: 'Karla';
+  color: #04507C;
+  text-align: center;
+} .active {
+  color: red;
+}

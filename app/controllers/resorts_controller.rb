@@ -29,7 +29,7 @@ class ResortsController < ApplicationController
       {
         lat: resort.latitude,
         lng: resort.longitude,
-        condition: resort.condition,
+        conditions: resort.conditions,
         infoWindow: render_to_string(partial: "info_window", locals: { resort: resort, snow_depth: snow_depth, snow_change: snow_change }, formats: [:html])
         # uncomment below to add a custom image
         # image_url: helpers.asset_url('marker.svg')

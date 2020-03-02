@@ -10,21 +10,13 @@ import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ "counter" ]
+  static targets = [ "counter", "slider" ]
 
   map = null;
   currentMarkers = [];
 
-  select() {
-    console.log("you clicked a button");
-    const buttons = document.getElementsByClassName('map-button');
-    Array.from(buttons).forEach(function (element) {
-            element.classList.remove('selected');
-          });
-    event.target.classList.add('selected');
-  };
-
   connect() {
+
     const mapElement = document.getElementById('map');
 
     // Get map data from API and fill div
@@ -33,75 +25,29 @@ export default class extends Controller {
       container: 'map',
       style: 'mapbox://styles/nskibiak/ck72q78sz1kf11iot6ya2iny0',
       center: [138.4, 38.5],
-      // pitch: 60,
-      // bearing: -45,
       zoom: 4.5
     });
 
     // Declare all the objects in the map
     const markers = JSON.parse(mapElement.dataset.markers);
 
-    const searchBar = new MapboxGeocoder({
-      accessToken: mapboxgl.accessToken,
-      mapboxgl: mapboxgl
-    });
+    this.placeMarkers(markers, 0);
+    this.finalMapSetUp();
 
-    const navControls = new mapboxgl.NavigationControl()
-
-    const geoLocateButton = new mapboxgl.GeolocateControl({
-        positionOptions: {enableHighAccuracy: true},
-        trackUserLocation: true
-      });
-
-    const mapBoxLogo = document.querySelector("#map > div.mapboxgl-control-container > div.mapboxgl-ctrl-bottom-left > div > a");
-
-    const mapBoxCopyright = document.querySelector("#map > div.mapboxgl-control-container > div.mapboxgl-ctrl-bottom-right");
-
-    this.placeMarkers(markers);
-
-    // Add controls to the map
-    this.map.addControl(searchBar);
-    this.map.addControl(navControls);
-    this.map.addControl(geoLocateButton);
-
-    // Hiding mapbox logos and copyrights.
-    mapBoxLogo.classList.add('invisible');
-    mapBoxCopyright.classList.add('invisible');
-
-    // tracking user zoom level
-    const zoomThreshold = 7;
-
-    this.map.on('zoom', () => {
-      console.log(this.map.getZoom());
-      if (this.map.getZoom() > zoomThreshold) {
-        console.log('Below zoom level 7');
-      } else {
-        console.log('Above zoom level 7');
-      }
-    });
-    console.log("inside controller");
   };
 
-  placeMarkers(markers) {
-    // first clear any existing markers
+  placeMarkers(markers, day) {
+
+    // Clear any existing markers
     this.currentMarkers.forEach((marker) => {
       marker.remove();
     });
 
-    // update resort counter # displayed
-    this.counterTarget.textContent = `${markers.length}`;
-
     // Placing new markers on the map
     this.currentMarkers = markers.map((marker) => {
-      const popup = new mapboxgl.Popup().setHTML(marker.infoWindow); // add this
-      // Create a HTML element for your custom marker
+      const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
       const element = document.createElement('div');
-      console.log(marker.condition);
-      element.className = `marker ${marker.condition}`;
-      // element.style.backgroundImage = `url('${marker.image_url}')`;
-      // element.style.backgroundSize = 'contain';
-      // element.style.width = '15px';
-      // element.style.height = '15px';
+      element.className = `marker ${marker.conditions[day]}`;
 
       // Pass the element as an argument to the new marker
       return new mapboxgl.Marker(element)
@@ -109,6 +55,10 @@ export default class extends Controller {
         .setPopup(popup) // add this
         .addTo(this.map);
     });
+
+    // update resort counter
+    this.counterTarget.textContent = `${markers.length}`;
+
   };
 
   filter() {
@@ -117,22 +67,96 @@ export default class extends Controller {
     fetch(url)
       .then(response => response.json())
       .then(markers => {
-        this.placeMarkers(markers);
+        this.placeMarkers(markers, 0);
       })
   };
 
   select() {
     console.log("you clicked a button");
+    const controls = document.getElementById('map-slider-holder');
+    controls.style.display = "none";
     const buttons = document.getElementsByClassName('map-button');
     Array.from(buttons).forEach(function (element) {
             element.classList.remove('selected');
           });
     event.target.classList.add('selected');
   };
-}
 
-    // Setting map boundaries to markers
-    // const bounds = new mapboxgl.LngLatBounds();
-    // markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
-    // this.map.fitBounds(bounds, { padding: 150, maxZoom: 15, duration: 100 });
+  displayDay () {
+    const slider = event.target;
+    const day = slider.value;
+    console.log(slider.value);
+    const mapElement = document.getElementById('map');
+    const markers = JSON.parse(mapElement.dataset.markers);
+    this.placeMarkers(markers, day);
+    const days = document.getElementsByClassName('day');
+    Array.from(days).forEach(function (element) {
+            element.classList.remove('active');
+          });
+    const redDay = days[day]
+    redDay.classList.add('active');
+  };
+
+  timeMachine () {
+    const buttons = document.getElementsByClassName('map-button');
+    const otherButtons = Array.from(buttons)
+    otherButtons.slice(0, 4).forEach(function (element) {
+            element.classList.remove('selected');
+          });
+    event.target.classList.toggle('selected');
+    const controls = document.getElementById('map-slider-holder');
+    controls.style.display == "flex" ? controls.style.display = "none" : controls.style.display = "flex";
+  };
+
+  finalMapSetUp () {
+    // Add controls to the map
+    const searchBar = new MapboxGeocoder({
+      accessToken: mapboxgl.accessToken,
+      mapboxgl: mapboxgl
+    });
+    this.map.addControl(searchBar);
+
+    const navControls = new mapboxgl.NavigationControl()
+    this.map.addControl(navControls);
+
+    const geoLocateButton = new mapboxgl.GeolocateControl({
+        positionOptions: {enableHighAccuracy: true},
+        trackUserLocation: true
+      });
+    this.map.addControl(geoLocateButton);
+
+    // Hiding mapbox logos and copyrights.
+    const mapBoxLogo = document.querySelector("#map > div.mapboxgl-control-container > div.mapboxgl-ctrl-bottom-left > div > a");
+    const mapBoxCopyright = document.querySelector("#map > div.mapboxgl-control-container > div.mapboxgl-ctrl-bottom-right");
+    mapBoxLogo.classList.add('invisible');
+    mapBoxCopyright.classList.add('invisible');
+  };
+
+};
+
+
+
+
+
+
+
+
+
+  //   // tracking user zoom level
+  //   const zoomThreshold = 7;
+
+  //   this.map.on('zoom', () => {
+  //     console.log(this.map.getZoom());
+  //     if (this.map.getZoom() > zoomThreshold) {
+  //       console.log('Below zoom level 7');
+  //     } else {
+  //       console.log('Above zoom level 7');
+  //     }
+  //   });
+  //   console.log("inside controller");
+  // };
+
+
+
+
 
