@@ -1,0 +1,60 @@
+#mountain {
+  background-image: asset-url('mountain.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  ul{
+  overflow: hidden;
+  height: 180px;
+  // background-repeat: no-repeat;
+  //
+  background-position: 5%;
+  }
+}
+
+// .resort-info-body ul{
+//   overflow: hidden;
+//   height: 180px;
+//   background-repeat: no-repeat;
+//   background-size: contain;
+//   background-position: 5%;
+// }
+
+.resort-info-body li{
+  list-style-type: none;
+  // position: absolute;
+  text-align: left;
+  margin-bottom: 35px;
+}
+
+.resort-info-body .top{
+  color: #black;
+  right: 0;
+  top: 4px;
+}
+
+.resort-info-body .drop{
+  color: #black;
+  right: 0;
+  top: 4px;
+}
+
+.resort-info-body .bottom{
+  color: #black;
+  right: 0;
+  top: 4px;
+}
+
+.resort-info-body .value{
+  font-size: 16px;
+  font-weight: 500;
+  height: 18px;
+  // border-bottom: 2px dotted #e4e4e4;
+}
+
+.resort-info-body .label{
+  font-size: 10px;
+  font-weight: 400;
+  height: 14px;
+  line-height: 14px;
+  text-transform: uppercase;
+}

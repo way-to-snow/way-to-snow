@@ -84,8 +84,18 @@
   min-height: 200px;
 }
 
-#mountain {
-  background-image: asset-url('mountain.png');
+.elevation-lifts{
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+  margin: 20px 0px;
 }
 
+.resort-elevation-block{
+  flex-grow: 1;
+}
+
+.resort-lifts-block{
+  flex-grow: 1;
+}
 

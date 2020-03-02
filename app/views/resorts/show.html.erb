@@ -17,6 +17,12 @@
 
   </div>
 
+  <div class="resort-info-block">
+    <div class="resort-info-body">
+        <%= render 'resorts/forecast_overview', resort: @resort %>
+    </div>
+  </div>
+
 <!-- This is the first bootstrap row contains everything below the banner image -->
 
   <div class="row">
@@ -24,11 +30,18 @@
 <!-- This is the left side of the show page -->
 
     <div class="col" id="show-left-side">
+      <div class="elevation-lifts">
+        <div class="resort-elevation-block">
+          <div class="resort-info-header">ELEVATION</div>
+          <div class="resort-info-body">
+            <%= render 'resorts/elevation', resort: @resort %>
+          </div>
+        </div>
 
-      <div class="resort-info-block">
-        <div class="resort-info-header">ELEVATION</div>
-        <div class="resort-info-body">
-          <%= render 'resorts/elevation', resort: @resort %>
+        <div class="resort-lifts-block">
+          <div class="resort-info-header">LIFTS</div>
+          <div class="resort-info-body">
+          </div>
         </div>
       </div>
 
@@ -45,6 +58,9 @@
           <p><%= @resort.season_planned %></p>
           <p>Prefecture: <%= @resort.prefecture %></p>
           <p>Town: <%= @resort.town %></p>
+          <p>Courses: <%= @resort.courses %></p>
+          <p>Courses: <%= @resort.longest_course %></p>
+          <p>Snowboarders: <%= @resort.percent_snowboards %></p>
         </div>
       </div>
 
@@ -73,12 +89,7 @@
 
     <div class="col" id="show-right-side">
 
-      <div class="resort-info-block">
-        <div class="resort-info-header">WEATHER</div>
-        <div class="resort-info-body">
-            <%= render 'resorts/forecast_overview', resort: @resort %>
-        </div>
-      </div>
+
 
       <div class="resort-info-block">
         <div class="resort-info-header">WEATHER DATA</div>
