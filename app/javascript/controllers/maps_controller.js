@@ -32,7 +32,7 @@ export default class extends Controller {
     const markers = JSON.parse(mapElement.dataset.markers);
 
     this.placeMarkers(markers, 0);
-    this.setUpMap();
+    this.finalMapSetUp();
 
   };
 
@@ -95,29 +95,31 @@ export default class extends Controller {
     redDay.classList.add('active');
   };
 
-  setUpMap () {
+  timeMachine () {
+    const controls = document.getElementById('map-slider-holder');
+    controls.style.display == "flex" ? controls.style.display = "none" : controls.style.display = "flex";
+  };
+
+  finalMapSetUp () {
+    // Add controls to the map
     const searchBar = new MapboxGeocoder({
       accessToken: mapboxgl.accessToken,
       mapboxgl: mapboxgl
     });
+    this.map.addControl(searchBar);
 
     const navControls = new mapboxgl.NavigationControl()
+    this.map.addControl(navControls);
 
     const geoLocateButton = new mapboxgl.GeolocateControl({
         positionOptions: {enableHighAccuracy: true},
         trackUserLocation: true
       });
-
-    const mapBoxLogo = document.querySelector("#map > div.mapboxgl-control-container > div.mapboxgl-ctrl-bottom-left > div > a");
-
-    const mapBoxCopyright = document.querySelector("#map > div.mapboxgl-control-container > div.mapboxgl-ctrl-bottom-right");
-
-    // Add controls to the map
-    this.map.addControl(searchBar);
-    this.map.addControl(navControls);
     this.map.addControl(geoLocateButton);
 
     // Hiding mapbox logos and copyrights.
+    const mapBoxLogo = document.querySelector("#map > div.mapboxgl-control-container > div.mapboxgl-ctrl-bottom-left > div > a");
+    const mapBoxCopyright = document.querySelector("#map > div.mapboxgl-control-container > div.mapboxgl-ctrl-bottom-right");
     mapBoxLogo.classList.add('invisible');
     mapBoxCopyright.classList.add('invisible');
   };
