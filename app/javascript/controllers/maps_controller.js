@@ -10,10 +10,66 @@ import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ "counter" ]
+  static targets = [ "counter", "slider" ]
 
   map = null;
   currentMarkers = [];
+
+  connect() {
+
+    const mapElement = document.getElementById('map');
+
+    // Get map data from API and fill div
+    mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
+    this.map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/nskibiak/ck72q78sz1kf11iot6ya2iny0',
+      center: [138.4, 38.5],
+      zoom: 4.5
+    });
+
+    // Declare all the objects in the map
+    const markers = JSON.parse(mapElement.dataset.markers);
+
+    this.placeMarkers(markers, 0);
+    this.setUpMap();
+
+  };
+
+  placeMarkers(markers, day) {
+
+    // Clear any existing markers
+    this.currentMarkers.forEach((marker) => {
+      marker.remove();
+    });
+
+    // Placing new markers on the map
+    this.currentMarkers = markers.map((marker) => {
+      const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
+      const element = document.createElement('div');
+      element.className = `marker ${marker.conditions[day]}`;
+
+      // Pass the element as an argument to the new marker
+      return new mapboxgl.Marker(element)
+        .setLngLat([ marker.lng, marker.lat ])
+        .setPopup(popup) // add this
+        .addTo(this.map);
+    });
+
+    // update resort counter
+    this.counterTarget.textContent = `${markers.length}`;
+
+  };
+
+  filter() {
+    const value = event.target.dataset.value;
+    const url = `/resorts.json?${value}`;
+    fetch(url)
+      .then(response => response.json())
+      .then(markers => {
+        this.placeMarkers(markers, 0);
+      })
+  };
 
   select() {
     console.log("you clicked a button");
@@ -24,23 +80,22 @@ export default class extends Controller {
     event.target.classList.add('selected');
   };
 
-  connect() {
+  displayDay () {
+    const slider = event.target;
+    const day = slider.value;
+    console.log(slider.value);
     const mapElement = document.getElementById('map');
-
-    // Get map data from API and fill div
-    mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
-    this.map = new mapboxgl.Map({
-      container: 'map',
-      style: 'mapbox://styles/nskibiak/ck72q78sz1kf11iot6ya2iny0',
-      center: [138.4, 38.5],
-      // pitch: 60,
-      // bearing: -45,
-      zoom: 4.5
-    });
-
-    // Declare all the objects in the map
     const markers = JSON.parse(mapElement.dataset.markers);
+    this.placeMarkers(markers, day);
+    const days = document.getElementsByClassName('day');
+    Array.from(days).forEach(function (element) {
+            element.classList.remove('active');
+          });
+    const redDay = days[day]
+    redDay.classList.add('active');
+  };
 
+  setUpMap () {
     const searchBar = new MapboxGeocoder({
       accessToken: mapboxgl.accessToken,
       mapboxgl: mapboxgl
@@ -57,8 +112,6 @@ export default class extends Controller {
 
     const mapBoxCopyright = document.querySelector("#map > div.mapboxgl-control-container > div.mapboxgl-ctrl-bottom-right");
 
-    this.placeMarkers(markers);
-
     // Add controls to the map
     this.map.addControl(searchBar);
     this.map.addControl(navControls);
@@ -67,72 +120,33 @@ export default class extends Controller {
     // Hiding mapbox logos and copyrights.
     mapBoxLogo.classList.add('invisible');
     mapBoxCopyright.classList.add('invisible');
-
-    // tracking user zoom level
-    const zoomThreshold = 7;
-
-    this.map.on('zoom', () => {
-      console.log(this.map.getZoom());
-      if (this.map.getZoom() > zoomThreshold) {
-        console.log('Below zoom level 7');
-      } else {
-        console.log('Above zoom level 7');
-      }
-    });
-    console.log("inside controller");
   };
 
-  placeMarkers(markers) {
-    // first clear any existing markers
-    this.currentMarkers.forEach((marker) => {
-      marker.remove();
-    });
+};
 
-    // update resort counter # displayed
-    this.counterTarget.textContent = `${markers.length}`;
 
-    // Placing new markers on the map
-    this.currentMarkers = markers.map((marker) => {
-      const popup = new mapboxgl.Popup().setHTML(marker.infoWindow); // add this
-      // Create a HTML element for your custom marker
-      const element = document.createElement('div');
-      console.log(marker.condition);
-      element.className = `marker ${marker.condition}`;
-      // element.style.backgroundImage = `url('${marker.image_url}')`;
-      // element.style.backgroundSize = 'contain';
-      // element.style.width = '15px';
-      // element.style.height = '15px';
 
-      // Pass the element as an argument to the new marker
-      return new mapboxgl.Marker(element)
-        .setLngLat([ marker.lng, marker.lat ])
-        .setPopup(popup) // add this
-        .addTo(this.map);
-    });
-  };
 
-  filter() {
-    const value = event.target.dataset.value;
-    const url = `/resorts.json?${value}`;
-    fetch(url)
-      .then(response => response.json())
-      .then(markers => {
-        this.placeMarkers(markers);
-      })
-  };
 
-  select() {
-    console.log("you clicked a button");
-    const buttons = document.getElementsByClassName('map-button');
-    Array.from(buttons).forEach(function (element) {
-            element.classList.remove('selected');
-          });
-    event.target.classList.add('selected');
-  };
-}
 
-    // Setting map boundaries to markers
-    // const bounds = new mapboxgl.LngLatBounds();
-    // markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
-    // this.map.fitBounds(bounds, { padding: 150, maxZoom: 15, duration: 100 });
+
+
+
+  //   // tracking user zoom level
+  //   const zoomThreshold = 7;
+
+  //   this.map.on('zoom', () => {
+  //     console.log(this.map.getZoom());
+  //     if (this.map.getZoom() > zoomThreshold) {
+  //       console.log('Below zoom level 7');
+  //     } else {
+  //       console.log('Above zoom level 7');
+  //     }
+  //   });
+  //   console.log("inside controller");
+  // };
+
+
+
+
 
