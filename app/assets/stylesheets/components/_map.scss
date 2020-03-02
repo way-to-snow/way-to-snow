@@ -40,16 +40,16 @@
 }
 
 .marker.great {
-  background-color: blue;
+  background-color: #489C98;
 }
 .marker.good {
-  background-color: green;
+  background-color: #44638E;
 }
 .marker.average {
-  background-color: orange;
+  background-color: #44638E;
 }
 .marker.bad {
-  background-color: red;
+  background-color: #BA3636;
 }
 
 .marker:hover {
@@ -69,6 +69,7 @@
   justify-content: center;
   align-items: center;
   height: 60px;
+  border-bottom: 1px solid #d3d3d3;
 }
 
 .map-button {
@@ -108,14 +109,13 @@
   position: absolute;
   z-index: 1;
   background-color: white;
-  top: 200px;
-  left: 50px;
+  top: 250px;
+  left: 100px;
   text-align: center;
   font-size: 12px;
-  font-weight: bold;
   padding: 8px;
   border-radius: 4px;
-  font-family: 'Open Sans';
+  font-family: 'Karla';
   color: #333333;
   width: 120px;
   height: 120px;
@@ -126,5 +126,40 @@
 #resort-counter-number {
   color: red;
   font-size: 36px;
+  font-weight: bold;
+}
+
+
+.condition-key {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 1;
+  background-color: white;
+  top: 400px;
+  left: 100px;
+  text-align: center;
+  font-size: 12px;
+  padding: 8px;
+  border-radius: 4px;
+  font-family: 'Karla';
+  color: #333333;
+  width: 120px;
+  height: 120px;
+  // align-items: center;
+  justify-content: center;
+}
+
+.conditions-holder {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-around;
+}
+
+.condition-line {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
 }
 
