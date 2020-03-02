@@ -73,6 +73,8 @@ export default class extends Controller {
 
   select() {
     console.log("you clicked a button");
+    const controls = document.getElementById('map-slider-holder');
+    controls.style.display = "none";
     const buttons = document.getElementsByClassName('map-button');
     Array.from(buttons).forEach(function (element) {
             element.classList.remove('selected');
@@ -96,6 +98,12 @@ export default class extends Controller {
   };
 
   timeMachine () {
+    const buttons = document.getElementsByClassName('map-button');
+    const otherButtons = Array.from(buttons)
+    otherButtons.slice(0, 4).forEach(function (element) {
+            element.classList.remove('selected');
+          });
+    event.target.classList.toggle('selected');
     const controls = document.getElementById('map-slider-holder');
     controls.style.display == "flex" ? controls.style.display = "none" : controls.style.display = "flex";
   };
