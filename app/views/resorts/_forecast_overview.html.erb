@@ -65,8 +65,8 @@
       <h1> <%= days[index].upcase %> </h1>
       <h2> <%= forecast.condition.to_s.upcase %> </h2>
     <div id="<%= forecast.condition %>-body">
-      <p><i class="fas fa-snowflake"></i> <b> <%= forecast.snow_amount.round %></b> cm</p>
-      <p><i class="fas fa-cloud-rain"></i> <%= forecast.rain.round %> cm</p>
+      <p><i class="fas fa-snowflake"></i> <b> <%= forecast.snow_amount.round %></b><small> cm</small></p>
+      <p><i class="fas fa-cloud-rain"></i> <%= forecast.rain.round %><small> cm</small></p>
     </div>
     </div>
   <% end %>

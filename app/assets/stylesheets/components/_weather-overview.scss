@@ -4,21 +4,25 @@
   margin: 4px;
   text-align: center;
   color: white;
-  padding-top: 8px;
-  border-radius: 4px;
+  padding-top: 14px;
+  border-radius: 5px;
   letter-spacing: 1px;
   h1{
-    font-size: 12px;
+    font-size: 10px;
     letter-spacing: 2px;
   }
   h2{
-    font-size: 24px;
+    font-size: 18px;
+    padding-bottom: 8px;
+  }
+  small{
+    font-size: 11px;
   }
   p{
     margin: 2px;
   }
   b{
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 
