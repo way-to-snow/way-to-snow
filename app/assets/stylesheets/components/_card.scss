@@ -1,3 +1,5 @@
+// Styling for summary cards on show page
+
 .summary-card{
   overflow: hidden;
   flex: 1 1 0px;
@@ -65,9 +67,45 @@
   padding-top: 8px;
   padding-bottom: 8px;
 }
-.summary-items{
+
+.forecast-condition-footer{
   display: flex;
-  flex-grow: 1;
+  justify-content: center;
 }
 
+.line{
+  background-color: white;
+  width: 2px;
+  padding-top: 8px;
+  margin-right: 8px;
+  margin-left: 8px;
+  border-radius: 1px;
+}
 
+// Styling for info cards on show page
+.resort-summary-card {
+  border-radius: 5px;
+  align-items: center;
+  text-align: center;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  justify-content: space-around;
+  border: 1px solid $blue;
+  color: $blue;
+  h1{
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+  h2{
+    font-size: 18px;
+  }
+  small{
+    font-size: 11px;
+  }
+  p{
+    margin: 2px;
+  }
+  b{
+    font-size: 18px;
+  }
+}
