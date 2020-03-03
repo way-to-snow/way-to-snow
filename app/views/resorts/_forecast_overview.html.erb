@@ -59,16 +59,29 @@
 <% days = ["Today", "Tomorrow", day_after, two_days_after ] %>
 
 
-<div class="summary-items">
-  <% resort.forecasts.each.with_index do |forecast, index| %>
-    <div class="summary-card" id="<%= forecast.condition %>">
-      <h1> <%= days[index].upcase %> </h1>
-      <h2> <%= forecast.condition.to_s.upcase %> </h2>
-    <div id="<%= forecast.condition %>-body">
+
+<% resort.forecasts.each.with_index do |forecast, index| %>
+  <div class="summary-card" id="<%= forecast.condition %>">
+    <h1> <%= days[index].upcase %> </h1>
+    <h2> <%= forecast.condition.to_s.upcase %> </h2>
+  <div id="<%= forecast.condition %>-body">
+    <div class="forecast-condition-header">
       <p><i class="fas fa-snowflake"></i> <b> <%= forecast.snow_amount.round %></b><small> cm</small></p>
       <p><i class="fas fa-cloud-rain"></i> <%= forecast.rain.round %><small> cm</small></p>
     </div>
+    <div class="forecast-condition-footer">
+      <div class="temperature">
+        <p><i class="fas fa-temperature-low"></i> <%= forecast.min_temperature %><small> °C </small></p>
+        <p><i class="fas fa-temperature-high"></i> <%= forecast.max_temperature %><small> °C</small></p>
+      </div>
+      <div class="line">
+      </div>
+      <div class="wind">
+        <p><i class="fas fa-wind"></i> <%= forecast.wind_speed %><small> km/h</small></p>
+        <p><i class="far fa-compass"></i></i> <%= forecast.wind_direction %></p>
+      </div>
     </div>
-  <% end %>
-</div>
+  </div>
+  </div>
+<% end %>
 

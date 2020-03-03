@@ -27,27 +27,27 @@
 .terrain-table{
   width: 400px;
   margin: 0 auto;
-  margin-top: 8px;
+  margin-top: 16px;
   margin-bottom: 8px;
-  color: #12B5EA;
+  color: $blue;
   text-transform: uppercase;
   font-size: 14px;
 }
 
 .terrain-table #beg{
-  background-color: #3D4FFF;
+  background-color: #44638E;
   text-align: center;
   color: white;
 }
 
 .terrain-table #int{
-  background-color: #FF4B4B;
+  background-color: #BA3737;
   text-align: center;
   color: white;
 }
 
 .terrain-table #adv{
-  background-color: #00121e;
+  background-color: #57595b;
   text-align: center;
   color: white;
 }

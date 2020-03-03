@@ -67,35 +67,27 @@
   display: flex;
   flex-direction: column;
   margin: 20px 0px;
+  color: $blue;
+  a{
+    color: $blue;
+    text-decoration: none;
+  }
 }
 
 .resort-info-header {
-  background-color: #04507C;
   width: 100%;
   font-size: 14px;
   font-family: 'Karla';
   padding-left: 20px;
+  background: $blue;
+  color: white;
+  padding: 8px;
 }
 
 .resort-info-body {
+  padding: 8px;
   // display: flex;
   // justify-content: space-around;
   // align-items: center;
-  min-height: 200px;
+  // min-height: 200px;
 }
-
-.elevation-lifts{
-  display: flex;
-  justify-content: space-between;
-  flex-grow: 1;
-  margin: 20px 0px;
-}
-
-.resort-elevation-block{
-  flex-grow: 1;
-}
-
-.resort-lifts-block{
-  flex-grow: 1;
-}
-
