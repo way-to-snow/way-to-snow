@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   end
 
-  
+
   resources :questions, only: [] do
     resources :answers, only: [:create]
   end
@@ -32,4 +32,5 @@ Rails.application.routes.draw do
 
   get 'resorts/:id/ticket', to: 'pages#ticket', as: 'ticket'
   get 'resorts/:id/share', to: 'pages#share', as: 'share'
+  get 'resorts/:id/itinerary', to: 'pages#itinerary', as: 'itinerary'
 end
