@@ -1,0 +1,53 @@
+.mapboxgl-popup {
+  display: flex;
+  flex-direction: column;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  // height: 200px;
+  width: 450px;
+  color: $blue;
+  a{
+    text-decoration: none;
+  }
+  h1{
+    font-size: 16px;
+  }
+}
+
+.popup-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.popup-header .resort-name{
+  font-weight: bold;
+  // text-align: left;
+}
+
+.popup-header .resort-address{
+  font-style: italic;
+  // text-align: left;
+}
+
+.overview h1{
+  font-size: 12px;
+}
+
+.popup-conditions{
+  display: flex;
+  justify-content: space-around;
+}
+
+.like{
+  position: absolute;
+  left: 5;
+  top: 5;
+  font-size: 20px;
+}
+
+.popup-header h1{
+  font-family: 'Covered By Your Grace';
+  font-size: 24px;
+}

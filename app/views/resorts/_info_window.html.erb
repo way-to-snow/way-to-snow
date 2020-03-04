@@ -1,38 +1,40 @@
-<div data-controller="popup">
-  <div class="popup-header">
-    <hr>
-    <div class="resort-name"><%= resort.name %></div>
-    <div class="resort-address"><%= resort.town %>, <%= resort.prefecture %></div>
-    <div class="resort-snow">Snow Depth: <%= snow_depth %> cm</div>
-    <div class="resort-change">Snow Change: <%= (snow_change > 0) ? snow_change : "0" %> cm</div>
-    <hr>
-  </div>
 
-  <% day_after = (Time.now + 2.day).strftime("%A")%>
-  <% two_days_after = (Time.now + 3.day).strftime("%A")%>
-  <% days = ["Today", "Tomorrow", day_after, two_days_after ] %>
-  <div class="overview">
-    <h1>Riding Conditions:</h1>
-    <% resort.forecasts.each.with_index do |forecast, index| %>
-      <div id="<%= forecast.condition %>">
-        <p> <%= days[index] %>: <%= forecast.condition.capitalize %> </p>
+<%= link_to resort_path(resort) do %>
+  <div data-controller="popup" >
+    <div class="like">
+      <% favorited = current_user.resorts.include?(resort) %>
+      <div>
+        <i data-target="popup.heart" class="fas fa-heart button-favorite <%= favorited ? 'red' : '' %>" id="heart" style="text-decoration:none" data-action="click->popup#favorite" data-value="<%= resort.id %>" data-favorited="<%= favorited %>"></i>
       </div>
-    <% end %>
+    </div>
+    <div class="popup-header">
+      <h1><%= resort.name.upcase %></h1>
+      <div class="resort-address"><%= resort.town %>, <%= resort.prefecture %></div>
+      <div class="resort-snow">Snow Depth: <%= snow_depth %> cm</div>
+    </div>
+<!--     <div>
+      <p>Travel time: <span data-target="popup.output" data-value="<%= resort.longitude %>, <%= resort.latitude %>"></span></p>
+    </div> -->
+
+    <% day_after = (Time.now + 2.day).strftime("%A")%>
+    <% two_days_after = (Time.now + 3.day).strftime("%A")%>
+    <% days = ["Today", "Tomorrow", day_after, two_days_after ] %>
+
+
+    <div class="summary-items">
+      <% resort.forecasts.each.with_index do |forecast, index| %>
+        <div class="summary-card" id="<%= forecast.condition %>">
+          <h4> <%= days[index].upcase %> </h4>
+        <div id="<%= forecast.condition %>-body">
+          <div class="forecast-condition-footer">
+            <p class="bigger"> <%= forecast.condition.to_s.upcase %> </p>
+          </div>
+        </div>
+        </div>
+      <% end %>
+    </div>
   </div>
-  <% favorited = current_user.resorts.include?(resort) %>
-  <div>
-    <i data-target="popup.heart" class="fas fa-heart button-favorite <%= favorited ? 'red' : '' %>" id="heart" style="text-decoration:none" data-action="click->popup#favorite" data-value="<%= resort.id %>" data-favorited="<%= favorited %>"></i>
-  </div>
-  <div>
-    <p><span data-target="popup.count"><%= resort.favorites.count %></span> users like this resort!</p>
-  </div>
-  <div class="my-1">
-    <%= link_to 'Check it out!', resort_path(resort), style: 'text-decoration:none'%>
-  </div>
-  <div>
-    <p>Travel time: <span data-target="popup.output" data-value="<%= resort.longitude %>, <%= resort.latitude %>"></span></p>
-  </div>
-</div>
+<% end %>
 
 
     <%# if current_user.resorts.include?(resort) %>
