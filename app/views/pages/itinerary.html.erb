@@ -1,1 +1,17 @@
-itinerary.html.erb
+<div data-controller="itinerary" id="itinerary-map" data-action="google-maps-callback@window->itinerary#initMap" data-markers="<%= @resort.to_json %>"></div>
+<div class='btn btn-primary' data-controller="google" data-markers="<%= @resort.to_json %>" data-action="click->itinerary#directions">Click</div>
+
+<script>
+
+  window.dispatchMapsEvent = function(...args) {
+    const event = document.createEvent("Events")
+    event.initEvent("google-maps-callback", true, true)
+    event.args = args
+    window.dispatchEvent(event)
+  }
+
+</script>
+
+<script async defer
+    src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAvYk6rLue_93T4MfOYePoMSiE1ye68ye4&callback=dispatchMapsEvent'>
+    </script>
