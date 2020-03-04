@@ -11,4 +11,8 @@ class PagesController < ApplicationController
   def share
     @resort = Resort.find(params[:id])
   end
+
+  def itinerary
+    @resort = Resort.find(params[:id])
+  end
 end
