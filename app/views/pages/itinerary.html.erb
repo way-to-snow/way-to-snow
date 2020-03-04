@@ -1,5 +1,7 @@
-<div data-controller="itinerary" id="itinerary-map" data-action="google-maps-callback@window->itinerary#initMap" data-markers="<%= @resort.to_json %>"></div>
-<div class='btn btn-primary' data-controller="google" data-markers="<%= @resort.to_json %>" data-action="click->itinerary#directions">Click</div>
+<div data-controller="itinerary">
+  <div id="itinerary-map" data-controller="itinerary" data-action="google-maps-callback@window->itinerary#initMap" data-markers="<%= @resort.to_json %>"></div>
+  <div class='btn btn-primary' data-markers="<%= @resort.to_json %>" data-action="click->itinerary#googleLink">Click</div>
+</div>
 
 <script>
 
