@@ -17,11 +17,12 @@
 
   </div>
 
-  <div class="resort-info-block">
-    <div class="resort-info-body">
-        <%= render 'resorts/forecast_overview', resort: @resort %>
-    </div>
-  </div>
+<!-- Displaying the weather overview cards, good, bad etc. -->
+<div class="summary-items">
+  <%= render 'resorts/forecast_overview', resort: @resort %>
+</div>
+
+
 
 <!-- This is the first bootstrap row contains everything below the banner image -->
 
@@ -30,18 +31,19 @@
 <!-- This is the left side of the show page -->
 
     <div class="col" id="show-left-side">
-      <div class="elevation-lifts">
-        <div class="resort-elevation-block">
-          <div class="resort-info-header">ELEVATION</div>
-          <div class="resort-info-body">
-            <%= render 'resorts/elevation', resort: @resort %>
+      <div class="resort-info-block">
+        <div class="resort-info-header">OVERVIEW</div>
+        <div class="resort-info-body">
+          <div class="resort-info-items">
+            <%= render 'resorts/resort_overview', resort: @resort %>
           </div>
         </div>
+      </div>
 
-        <div class="resort-lifts-block">
-          <div class="resort-info-header">LIFTS</div>
-          <div class="resort-info-body">
-          </div>
+      <div class="resort-info-block">
+        <div class="resort-info-header">ELEVATION</div>
+        <div class="resort-info-body">
+          <%= render 'resorts/elevation', resort: @resort %>
         </div>
       </div>
 
@@ -52,32 +54,27 @@
         </div>
       </div>
 
-      <div class="resort-info-block">
-        <div class="resort-info-header">OVERVIEW</div>
-        <div class="resort-info-body">
-          <p><%= @resort.season_planned %></p>
-          <p>Prefecture: <%= @resort.prefecture %></p>
-          <p>Town: <%= @resort.town %></p>
-          <p>Courses: <%= @resort.courses %></p>
-          <p>Courses: <%= @resort.longest_course %></p>
-          <p>Snowboarders: <%= @resort.percent_snowboards %></p>
-        </div>
-      </div>
 
       <div class="resort-info-block">
         <div class="resort-info-header">TICKETS</div>
         <div class="resort-info-body">
           <p>Adult: ¥<%= @resort.adult_price %></p>
           <p>Child: ¥<%= @resort.child_price %></p>
-          <%= link_to "Buy Ticket", ticket_path, style:"text-decoration:none", class: 'map-button' %>
         </div>
       </div>
 
       <div class="resort-info-block">
         <div class="resort-info-header">FACILITIES</div>
         <div class="resort-info-body">
-          <%= @resort.ski_school ? "Ski school available" : "No ski school available"  %>
-          <%= @resort.sb_school ? "Snowboarding school available" : "No snowboarding school available" %>
+          <% if @resort.ski_school %>
+            <p><i class="fas fa-skiing"></i> Ski School</p>
+          <% end %>
+          <% if @resort.sb_school %>
+            <p><i class="fas fa-snowboarding"></i> Snowboard School</p>
+          <% end %>
+          <% if @resort.child_care %>
+            <p><i class="fas fa-child"></i> Child Care</p>
+          <% end %>
         </div>
       </div>
 
@@ -89,14 +86,24 @@
 
     <div class="col" id="show-right-side">
 
-
-
       <div class="resort-info-block">
-        <div class="resort-info-header">WEATHER DATA</div>
-        <div class="resort-info-body">
-          <%= render 'resorts/forecast_table', resort: @resort %>
+        <div class="resort-info-header">RESORT INFORMATION</div>
+          <div class="resort-info-body">
+          <p>Prefecture: <%= @resort.prefecture %></p>
+          <p>Town: <%= @resort.town %></p>
+          <p><%= link_to "Official site", "#{@resort.url}", target: :_blank  %> <i class="fas fa-external-link-alt"></i></p>
+          <div class="resort-info-body">
+          </div>
         </div>
       </div>
+
+
+<!--       <div class="resort-info-block">
+        <div class="resort-info-header">WEATHER DATA</div>
+        <div class="resort-info-body">
+          <%#= render 'resorts/forecast_table', resort: @resort %>
+        </div>
+      </div> -->
 
 <!-- This is the end of the right column -->
     </div>
@@ -115,7 +122,7 @@
         <div class="resort-info-body">
           <div id="questions_answers">
             <% if @resort.questions.blank? %>
-              <h5> Be the first to ask a questiion for <%= @resort.name %> </h5>
+              <h5> Be the first to ask a question for <%= @resort.name %> </h5>
               <%= render 'questions/question_form', resort: @resort, question: @question %>
             <% else %>
               <%= render 'resorts/q&a', resort: @resort, question: @question, answer: @answer %>

@@ -1,0 +1,142 @@
+// Styling for summary cards on show page
+
+.summary-card{
+  overflow: hidden;
+  flex: 1 1 0px;
+  margin: 4px;
+  text-align: center;
+  color: white;
+  padding-top: 14px;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  h1, h4{
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+  h2{
+    font-size: 18px;
+    padding-bottom: 8px;
+  }
+  small{
+    font-size: 11px;
+  }
+  p{
+    margin: 2px;
+  }
+  b{
+    font-size: 18px;
+  }
+}
+
+.bigger{
+  font-size: 16px;
+}
+
+#great{
+  background: #45638E;
+}
+
+#great-body{
+  background: #234056;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+#good{
+  background: #239B98;
+}
+
+#good-body{
+  background: #1C7C79;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+#average{
+  background: #D87437;
+}
+
+#average-body{
+  background: #BF5515;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+#bad{
+  background: #BA3737;
+}
+
+#bad-body{
+  background: #982121;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.forecast-condition-footer{
+  display: flex;
+  justify-content: center;
+}
+
+.line{
+  background-color: white;
+  width: 2px;
+  padding-top: 8px;
+  margin-right: 8px;
+  margin-left: 8px;
+  border-radius: 1px;
+}
+
+// Styling for info cards on show page
+.resort-summary-card {
+  border-radius: 5px;
+  align-items: center;
+  text-align: center;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  justify-content: space-around;
+  border: 1px solid $blue;
+  color: $blue;
+  h1{
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+  h2{
+    font-size: 18px;
+  }
+  small{
+    font-size: 11px;
+  }
+  p{
+    margin: 2px;
+  }
+  b{
+    font-size: 18px;
+  }
+}
+
+// Styling for cards on map popup
+// .popup-summary-card {
+//   border-radius: 5px;
+//   align-items: center;
+//   text-align: center;
+//   padding-top: 4px;
+//   // padding-bottom: 14px;
+//   justify-content: space-around;
+//   color: white;
+//   h1{
+//     font-size: 80px;
+//     letter-spacing: 2px;
+//   }
+//   h2{
+//     font-size: 18px;
+//   }
+//   small{
+//     font-size: 11px;
+//   }
+//   p{
+//     margin: 2px;
+//   }
+//   b{
+//     font-size: 18px;
+//   }
+// }

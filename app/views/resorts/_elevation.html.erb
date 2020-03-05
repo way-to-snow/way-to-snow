@@ -1,4 +1,4 @@
-<ul id="mountain">
+<!-- <ul id="mountain">
   <li class="top">
     <div class="value"><%= @resort.top_elevation%> M</div>
     <div class="label">Top</div>
@@ -11,4 +11,21 @@
     <div class="value"><%= @resort.bottom_elevation %> M</div>
     <div class="label">Bottom</div>
   </li>
-</ul>
+</ul> -->
+
+<div class="resort-info-items">
+  <div class="resort-summary-card">
+    <h1>TOP</h1>
+    <h2><%= @resort.top_elevation %>m</h2>
+  </div>
+
+  <div class="resort-summary-card">
+    <h1>BOTTOM</h1>
+    <h2><%= @resort.bottom_elevation %>m</h2>
+  </div>
+
+  <div class="resort-summary-card">
+    <h1>DROP</h1>
+    <h2><%= @resort.top_elevation - @resort.bottom_elevation %>m</h2>
+  </div>
+</div>
