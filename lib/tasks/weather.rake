@@ -11,6 +11,7 @@ def weather_report(resort)
   snow = doc.css('div.resort-option-box-main td')[1].text.split(' ')
   snow.count == 7 && snow[0] != '---' ? depth = snow[0].gsub(/[^0-9,-]/, '').to_i : depth = 0
   snow.count == 7 && snow[0] != '---' ? change = snow[1].gsub(/[^0-9,-]/, '').to_i : change = 0
+  snowing_today = weather['list'][0].include?('snow')
 
   weather_report = WeatherReport.create(
     resort: resort,
@@ -18,7 +19,8 @@ def weather_report(resort)
     snow_change: change,
     date: Time.at(weather['list'][0]['dt']),
     report: weather,
-    current: true
+    current: true,
+    snow_fall: snowing_today
   )
 end
 
