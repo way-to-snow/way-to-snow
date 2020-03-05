@@ -1,6 +1,8 @@
-<div class="container" data-controller="itinerary">
+<div class="container col-9" data-controller="itinerary">
   <div id="itinerary-map" data-controller="itinerary" data-action="google-maps-callback@window->itinerary#initMap" data-markers="<%= @resort.to_json %>"></div>
-  <div class='btn btn-primary' data-markers="<%= @resort.to_json %>" data-action="click->itinerary#googleLink">Click</div>
+  <div id="map-buttons-holder">
+    <div class='map-button' data-markers="<%= @resort.to_json %>" data-action="click->itinerary#googleLink">Prefer the train?</div>
+  </div>
 </div>
 
 <script>
