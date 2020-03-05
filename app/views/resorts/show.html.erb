@@ -7,6 +7,9 @@
     <div class="resort-names">
       <div class="resort-name"><%= @resort.name.titlecase %></div>
       <div class="resort-name-ja"><%= @resort.name_ja %></div>
+      <p>Prefecture: <%= @resort.prefecture %></p>
+      <p>Town: <%= @resort.town %></p>
+      <p><%= link_to "Official site", "#{@resort.url}", target: :_blank  %> <i class="fas fa-external-link-alt"></i></p>
     </div>
 
     <div class="icon-holder">
@@ -87,12 +90,9 @@
     <div class="col" id="show-right-side">
 
       <div class="resort-info-block">
-        <div class="resort-info-header">RESORT INFORMATION</div>
+        <div class="resort-info-header">GETTING THERE</div>
           <div class="resort-info-body">
-          <p>Prefecture: <%= @resort.prefecture %></p>
-          <p>Town: <%= @resort.town %></p>
-          <p><%= link_to "Official site", "#{@resort.url}", target: :_blank  %> <i class="fas fa-external-link-alt"></i></p>
-          <div class="resort-info-body">
+          <%= render 'resorts/directions', resort: @resort %>
           </div>
         </div>
       </div>
@@ -115,7 +115,7 @@
 
   <div class="row">
 
-    <div class="col">
+    <div class="container col-9">
 
       <div class="resort-info-block">
         <div class="resort-info-header">Q&A</div>
