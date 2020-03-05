@@ -1,0 +1,42 @@
+#itinerary-map-holder {
+  display: flex;
+}
+
+#itinerary-map {
+  width: 500px;
+  height: 500px;
+  // margin-right: 400px;
+}
+
+#right-panel {
+  font-family: 'Roboto','sans-serif';
+  line-height: 20px;
+  padding: 0px 10px;
+  height: 500px;
+  float: right;
+  width: 500px;
+  overflow: auto;
+}
+
+#right-panel select, #right-panel input {
+  font-size: 12px;
+}
+
+#right-panel select {
+  width: 90%;
+}
+
+#right-panel i {
+  font-size: 12px;
+}
+
+@media print {
+  #itinerary-map {
+    height: 500px;
+    margin: 0;
+  }
+  #right-panel {
+    float: none;
+    width: auto;
+  }
+}

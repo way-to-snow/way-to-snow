@@ -1,0 +1,27 @@
+<div class="container col-9" data-controller="itinerary">
+<p id="travel-time">Travel time: <span></span></p>
+  <div id="itinerary-map-holder">
+    <div id="itinerary-map" data-controller="itinerary" data-action="google-maps-callback@window->itinerary#initMap" data-markers="<%= @resort.to_json %>"></div>
+    <div id="right-panel"></div>
+  </div>
+  <div id="map-buttons-holder">
+    <div class='map-button' data-markers="<%= @resort.to_json %>" data-action="click->itinerary#googleLink">Prefer the train?</div>
+  </div>
+
+
+</div>
+
+<script>
+
+  window.dispatchMapsEvent = function(...args) {
+    const event = document.createEvent("Events")
+    event.initEvent("google-maps-callback", true, true)
+    event.args = args
+    window.dispatchEvent(event)
+  }
+
+</script>
+
+<script async defer
+    src='https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_SERVER_KEY'] %>&callback=dispatchMapsEvent'>
+    </script>

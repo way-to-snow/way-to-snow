@@ -9,18 +9,19 @@
   <div class="condition-key">
     <div><strong>Conditions</strong></div>
     <div class="conditions-holder">
-      <div class="condition-line"><div class="marker great"></div>&nbsp&nbspGreat</div>
-      <div class="condition-line"><div class="marker good"></div>&nbsp&nbspGood</div>
-      <div class="condition-line"><div class="marker bad"></div>&nbsp&nbspBad</div>
+      <div class="condition-line"><div class="marker great" style="pointer-events:none"></div>&nbsp&nbspGreat</div>
+      <div class="condition-line"><div class="marker good" style="pointer-events:none"></div>&nbsp&nbspGood</div>
+      <div class="condition-line"><div class="marker average" style="pointer-events:none"></div>&nbsp&nbspAverage</div>
+      <div class="condition-line"><div class="marker bad" style="pointer-events:none"></div>&nbsp&nbspBad</div>
     </div>
   </div>
 
   <div id="map-buttons-holder">
-    <div class="map-button" data-action="click->maps#filter click->maps#select" data-value="">All resorts</i></div>
+    <div class="map-button selected" data-action="click->maps#filter click->maps#select" data-value="">All resorts</i></div>
     <div class="map-button" data-action="click->maps#filter click->maps#select" data-value="new_snow=true"><i class="far fa-snowflake"></i>&nbsp&nbspFresh powder</div>
     <div class="map-button" data-action="click->maps#filter click->maps#select" data-value="lots_snow=true"><i class="far fa-snowflake"></i>&nbsp&nbspDeep snow</div>
     <div class="map-button" data-action="click->maps#filter click->maps#select" data-value="favorites=true"><i class="fas fa-heart"></i>&nbsp&nbspFavorites</div>
-    <div class="map-button" data-action="click->maps#timeMachine" data-value="favorites=true" id="time-machine-button"><i class="fas fa-clock"></i>&nbsp&nbspTime machine</div>
+    <div class="map-button" data-action="click->maps#timeMachine" data-value="favorites=true" id="time-machine-button"><i class="fas fa-clock"></i>&nbsp&nbspForecasts</div>
   </div>
 
 
