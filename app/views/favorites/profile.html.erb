@@ -1,0 +1,57 @@
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="col-12 col-md-8  col-lg-6">
+    	 <div class="well profile">           
+                <div class="col-xs-12 col-sm-8 col-lg-offset-3">
+                    <p><strong>Name: </strong> <%= current_user.first_name %></p>
+                    <p><strong>About: </strong> <%= current_user.about %> </p>
+                    <p><strong>Hobbies: </strong> Skiing, Snowboarding, Out with friends, Listen to music, Draw and Learn new things.</p>
+                    <p><strong>Favorite Resorts: </strong>
+                        <% current_user.resorts.each_with_index do |resort, index|%>
+                            <ol><%= index+1 %>:<%= resort.name %></ol>
+                        <% end %>
+                    </p>
+                    <p><strong>Skill Level: </strong>
+                        <span class="tags">Pro </span> 
+                    </p>
+                </div>             
+                <div class="col-xs-12 col-sm-4 text-center">
+                    <figure>
+                        <img class="avatar-large" src="https://previews.123rf.com/images/kesu87/kesu871709/kesu87170900106/85183883-active-man-snowboarder-riding-on-slope-snowboarding-closeup-.jpg" alt="" class="img-circle img-responsive">
+                        <figcaption class="ratings">
+                            <p>Ratings
+                            <a href="#">
+                                <span class="fa fa-star"></span>
+                            </a>
+                            <a href="#">
+                                <span class="fa fa-star"></span>
+                            </a>
+                            <a href="#">
+                                <span class="fa fa-star"></span>
+                            </a>
+                            <a href="#">
+                                <span class="fa fa-star"></span>
+                            </a>
+                            <a href="#">
+                                 <span class="fa fa-star-o"></span>
+                            </a> 
+                            </p>
+                        </figcaption>
+                    </figure>
+                </div>
+                       
+            <div class="col-xs-12 divider text-center">
+                <div class="col-xs-12 col-sm-4 emphasis">
+                    <h2><strong> 20,7K </strong></h2>                    
+                    <p><small>Followers</small></p>
+                    <button class="btn btn-success btn-block"><span class="fa fa-plus-circle"></span> Follow </button>
+                </div>
+                <div class="col-xs-12 col-sm-4 emphasis">
+                    <h2><strong>245</strong></h2>                    
+                    <p><small>Following</small></p>                    
+                </div>
+            </div>
+    	 </div>                 
+		</div>
+	</div>
+</div>
