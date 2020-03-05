@@ -1,6 +1,6 @@
 <%= simple_form_for([ question, answer ], remote: true) do |form| %>
   <%= form.input :answer, as: :text %>
-  <%= form.button :submit, class: "btn btn-primary" %>
+  <%= form.button :submit, 'Answer Question', class: "map-button" %>
 <% end %>
 
 <% if flash[:alert] %>

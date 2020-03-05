@@ -122,7 +122,7 @@
         <div class="resort-info-body">
           <div id="questions_answers">
             <% if @resort.questions.blank? %>
-              <h5> Be the first to ask a questiion for <%= @resort.name %> </h5>
+              <h5> Be the first to ask a question for <%= @resort.name %> </h5>
               <%= render 'questions/question_form', resort: @resort, question: @question %>
             <% else %>
               <%= render 'resorts/q&a', resort: @resort, question: @question, answer: @answer %>
