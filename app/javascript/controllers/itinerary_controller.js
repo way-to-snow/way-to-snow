@@ -21,6 +21,7 @@ export default class extends Controller {
       center: {lat: 35.7, lng: 139.73}
     });
     directionsRenderer.setMap(this.map);
+    directionsRenderer.setPanel(document.getElementById('right-panel'));
     this.calculateAndDisplayRoute(directionsService, directionsRenderer);
   }
 
