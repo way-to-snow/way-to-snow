@@ -7,9 +7,6 @@
     <div class="resort-names">
       <div class="resort-name"><%= @resort.name.titlecase %></div>
       <div class="resort-name-ja"><%= @resort.name_ja %></div>
-      <p>Prefecture: <%= @resort.prefecture %></p>
-      <p>Town: <%= @resort.town %></p>
-      <p><%= link_to "Official site", "#{@resort.url}", target: :_blank  %> <i class="fas fa-external-link-alt"></i></p>
     </div>
 
     <div class="icon-holder">
@@ -19,6 +16,12 @@
     </div>
 
   </div>
+
+    <div style="padding: 4px 0px; display: flex; justify-content: center; align-items: center; font-size: 10px; color: #4A4A4A">
+      <%= @resort.town %>,&nbsp<%= @resort.prefecture %>&nbsp|&nbsp
+      <%= @resort.phone_number %>&nbsp|&nbsp
+      <%= link_to "Official site&nbsp<i class='fas fa-external-link-alt'>".html_safe, "#{@resort.url}", target: :_blank, style: "text-decoration:none"  %></i>
+    </div>
 
 <!-- Displaying the weather overview cards, good, bad etc. -->
 <div class="summary-items">
@@ -59,10 +62,9 @@
 
 
       <div class="resort-info-block">
-        <div class="resort-info-header">TICKETS</div>
+        <div class="resort-info-header">TICKET PRICES</div>
         <div class="resort-info-body">
-          <p>Adult: ¥<%= @resort.adult_price %></p>
-          <p>Child: ¥<%= @resort.child_price %></p>
+          <%= render 'resorts/ticket_prices', resort: @resort %>
         </div>
       </div>
 
@@ -115,7 +117,7 @@
 
   <div class="row">
 
-    <div class="container col-9">
+    <div class="container col-6">
 
       <div class="resort-info-block">
         <div class="resort-info-header">Q&A</div>
