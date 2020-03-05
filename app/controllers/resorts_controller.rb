@@ -12,6 +12,8 @@ class ResortsController < ApplicationController
       @resorts = Resort.joins(:weather_reports).where('weather_reports.snow_depth > ? AND current = ?', 99, true)
     elsif params[:favorites].present?
       @user.favorites.any? ? @resorts = @user.resorts : @resorts = Resort.all
+    elsif params[:snowboards].present?
+      @resorts = Resort.where('sb_school = ?', false)
     else
       @resorts = Resort.all
     end
