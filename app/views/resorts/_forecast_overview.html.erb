@@ -45,11 +45,11 @@
   <% conditions(snowfall_tomorrow, rain_tomorrow, wind_tomorrow) %>
   </div>
   <div class="summary">
-  <%= (Time.now + 2.day).strftime("%A")%>
+  <%#= (Time.now + 2.day).strftime("%A")%>
   <% conditions(snowfall_day_after, rain_day_after, wind_day_after) %>
   </div>
   <div class="summary">
-  <%= (Time.now + 3.day).strftime("%A")%>
+  <%#= (Time.now + 3.day).strftime("%A")%>
   <% conditions(snowfall_two_days_after, rain_two_days_after, wind_two_days_after) %>
   </div>
 </div> -->
@@ -57,8 +57,6 @@
 <% day_after = (Time.now + 2.day).strftime("%A")%>
 <% two_days_after = (Time.now + 3.day).strftime("%A")%>
 <% days = ["Today", "Tomorrow", day_after, two_days_after ] %>
-
-
 
 <% resort.forecasts.each.with_index do |forecast, index| %>
   <div class="summary-card" id="<%= forecast.condition %>">
@@ -69,19 +67,16 @@
       <p><i class="fas fa-snowflake"></i> <b> <%= forecast.snow_amount.round %></b><small> cm</small></p>
       <p><i class="fas fa-cloud-rain"></i> <%= forecast.rain.round %><small> cm</small></p>
     </div>
-    <div class="forecast-condition-footer">
-      <div class="temperature">
-        <p><small>min</small><i class="fas fa-temperature-low"></i> <%= forecast.min_temperature %><small> °C </small></p>
-        <p><small>max</small><i class="fas fa-temperature-high"></i> <%= forecast.max_temperature %><small> °C</small></p>
+    <div class="forecast-condition-footer mt-2" style="display: flex; flex-direction: column; font-size: 10px">
+      <div style="display: flex; justify-content: center; justify-content: space-evenly">
+        <div style="width: 60px"><%= forecast.max_temperature %>&#176; max <i class="fas fa-temperature-high"></i></div>
+        <div style="width: 60px"><i class="fas fa-wind"></i> <%= forecast.wind_speed %> km/h</div>
       </div>
-      <div class="line">
-      </div>
-      <div class="wind">
-        <p><i class="fas fa-wind"></i> <%= forecast.wind_speed %><small> km/h</small></p>
-        <p><i class="far fa-compass"></i></i> <%= forecast.wind_direction %></p>
+      <div style="display: flex; justify-content: center; justify-content: space-evenly">
+        <div style="width: 60px"><%= forecast.min_temperature %>&#176; min <i class="fas fa-temperature-low"></i></div>
+        <div style="width: 60px"><i class="far fa-compass"></i></i> <%= forecast.wind_direction %></div>
       </div>
     </div>
   </div>
   </div>
 <% end %>
-
