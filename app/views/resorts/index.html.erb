@@ -29,11 +29,10 @@
     <div class="range">
       <input data-target="maps.slider" data-action="change->maps#displayDay" type="range" min="0" max="3" steps="1" value="0" id='slider'>
       <div class="day-labels">
-        <% daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] %>
         <div class="day active">Today</div>
-        <div class="day"><%= daysOfWeek[(Time.now.wday + 1 )] %></div>
-        <div class="day"><%= daysOfWeek[(Time.now.wday + 2 )] %></div>
-        <div class="day"><%= daysOfWeek[(Time.now.wday + 3 )] %></div>
+        <div class="day"><%= (Time.now + 1.day).strftime("%A") %></div>
+        <div class="day"><%= (Time.now + 2.day).strftime("%A") %></div>
+        <div class="day"><%= (Time.now + 3.day).strftime("%A") %></div>
       </div>
     </div>
   </div>

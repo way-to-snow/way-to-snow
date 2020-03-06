@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_27_102515) do
+ActiveRecord::Schema.define(version: 2020_03_05_123851) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -134,6 +134,7 @@ ActiveRecord::Schema.define(version: 2020_02_27_102515) do
     t.jsonb "report", default: "{}", null: false
     t.boolean "current"
     t.string "condition"
+    t.boolean "snow_fall"
     t.index ["resort_id"], name: "index_weather_reports_on_resort_id"
   end
 
