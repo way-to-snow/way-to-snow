@@ -54,13 +54,6 @@
       </div>
 
       <div class="resort-info-block">
-        <div class="resort-info-header">TERRAIN</div>
-        <div class="resort-info-body">
-          <%= render 'resorts/terrain', resort: @resort %>
-        </div>
-      </div>
-
-      <div class="resort-info-block">
         <div class="resort-info-header">TICKET PRICES</div>
         <div class="resort-info-body">
           <%= render 'resorts/ticket_prices', resort: @resort %>
@@ -83,6 +76,13 @@
 <!-- This is the right side of the show page -->
 
     <div class="col" id="show-right-side">
+
+      <div class="resort-info-block">
+        <div class="resort-info-header">TERRAIN</div>
+        <div class="resort-info-body">
+          <%= render 'resorts/terrain', resort: @resort %>
+        </div>
+      </div>
 
       <div class="resort-info-block">
         <div class="resort-info-header">GETTING THERE</div>
