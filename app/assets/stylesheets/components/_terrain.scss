@@ -1,46 +1,28 @@
-// #base {
-//   background: red;
-//   display: inline-block;
-//   height: 55px;
-//   // margin-left: 20px;
-//   margin-top: 55px;
-//   position: relative;
-//   width: 100px;
-// }
-// #base:before {
-//   border-bottom: 35px solid red;
-//   border-left: 50px solid transparent;
-//   border-right: 50px solid transparent;
-//   content: "";
-//   height: 0;
-//   left: 0;
-//   position: absolute;
-//   top: -35px;
-//   width: 0;
-// }
-
-.terrain-holder{
+.terrain-holder {
   display: flex;
   align-items: flex-end;
   font-family: 'Roboto';
   font-size: 10px;
-  // font-weight: 500;
   letter-spacing: 2px;
   color: #4A4A4A;
 }
-.terrain-box{
+
+.terrain-box {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 25px;
   text-align: center;
-} #beginner {
+}
+
+#beginner {
   background: green;
-  // clip-path: polygon(100% 0, 0% 100%, 100% 100%);
-} #intermediate {
-  // clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+}
+
+#intermediate {
   background: blue;
-} #advanced {
-  // clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+}
+
+#advanced {
   background: black;
 }
