@@ -39,6 +39,9 @@
     <div class="col" id="show-left-side">
       <div class="resort-info-block">
         <div class="resort-info-header">OVERVIEW</div>
+        <div style="font-size: 12px; color: #4A4A4A; margin: 20px 20px 0px 20px; ">
+          <%= @resort.name %> in <%= @resort.town %>, <%= @resort.prefecture %> prefecture has a planned season from <%= @resort.season_planned.gsub('Planned season: ','') %>.
+        </div>
         <div class="resort-info-body">
           <div class="resort-info-items">
             <%= render 'resorts/resort_overview', resort: @resort %>

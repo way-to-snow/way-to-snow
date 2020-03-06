@@ -2,7 +2,6 @@
 
 <div style="display: flex; flex-direction: column; margin-top: 10px; margin-bottom: 26px">
   <div class="terrain-holder">
-
     <div class="terrain-box" style="width: <%= (width * (@resort.beginner.to_f / 100)).round %>px; font-weight: 500;"><%= @resort.beginner if @resort.beginner > 0 %><%= '%' if @resort.beginner > 0 %></div>
     <div class="terrain-box" style="width: <%= (width * (@resort.intermediate.to_f / 100)).round %>px; font-weight: 500;"><%= @resort.intermediate if @resort.intermediate > 0 %><%= '%' if @resort.intermediate > 0 %></div>
     <div class="terrain-box" style="width: <%= (width * (@resort.advanced.to_f / 100)).round %>px; font-weight: 500;"><%= @resort.advanced if @resort.advanced > 0 %><%= '%' if @resort.advanced > 0 %></div>
