@@ -1,8 +1,8 @@
-<table class="terrain-table">
+<!-- <table class="terrain-table">
   <thead>
     <tr>
-      <td scope="col" id="beg" width="<%= @resort.beginner %>%"><%= @resort.beginner %>%</td>
-      <td scope="col" id="int" width="<%= @resort.intermediate %>%"><%= @resort.intermediate %>%</td>
+      <td scope="col" id="beg" width="<%= @resort.beginner %>%" height="50px"><%= @resort.beginner %>%</td>
+      <td scope="col" id="int" width="<%= @resort.intermediate %>%" height="20px"><%= @resort.intermediate %>%</td>
       <td scope="col" id="adv" width="<%= @resort.advanced %>%"><%= @resort.advanced %>%</td>
     </tr>
   </thead>
@@ -15,19 +15,40 @@
   </tbody>
 </table>
 
-<!-- <div class="resort-info-items" >
-  <div class="resort-summary-card" id="beginner">
-    <h3>Beginner</h3>
-    <p><%= @resort.beginner %></p>
-  </div>
+#68B1FB
+#7ABEDE
+#8CCCBF
+#A489D4 -->
+<% width = 400 %>
 
-  <div class="resort-summary-card" id="intermediate">
-    <h3>Intermediate</h3>
-    <p><%= @resort.intermediate %></p>
+<div style="display: flex; flex-direction: column">
+  <div class="terrain-holder">
+    <div class="terrain-box" style="width: <%= (width * (@resort.beginner.to_f / 100)).round %>px; font-weight: 500;"><%= (@resort.beginner) %>%</div>
+    <div class="terrain-box" style="width: <%= (width * (@resort.intermediate.to_f / 100)).round %>px; font-weight: 500;"><%= (@resort.intermediate) %>%</div>
+    <div class="terrain-box" style="width: <%= (width * (@resort.advanced.to_f / 100)).round %>px; font-weight: 500;"><%= (@resort.advanced) %>%</div>
   </div>
+  <div class="terrain-holder">
+    <div class="terrain-box" id="beginner" style="width: <%= (width * (@resort.beginner.to_f / 100)).round %>px"></div>
+    <div class="terrain-box" id="intermediate" style="width: <%= (width * (@resort.intermediate.to_f / 100)).round %>px"></div>
+    <div class="terrain-box" id="advanced" style="width: <%= (width * (@resort.advanced.to_f / 100)).round %>px"></div>
+  </div>
+  <div class="terrain-holder">
+    <div class="terrain-box" style="width: <%= (width * (@resort.beginner.to_f / 100)).round %>px">BEGINNER</div>
+    <div class="terrain-box" style="width: <%= (width * (@resort.intermediate.to_f / 100)).round %>px">INTERMEDIATE</div>
+    <div class="terrain-box" style="width: <%= (width * (@resort.advanced.to_f / 100)).round %>px">ADVANCED</div>
+  </div>
+</div>
 
-  <div class="resort-summary-card" id="advanced">
-    <h3>Advanced</h3>
-    <p><%= @resort.advanced %></p>
+<!--   <div id="middle" width="<%= @resort.intermediate %>px">
+    <div id="middle-top"></div>
+    <div id="middle-bottom"></div>
   </div>
-</div> -->
+  <div id="end" width="<%= @resort.advanced %>px">
+    <div id="end-top"></div>
+    <div id="end-middle"></div>
+    <div id="end-bottom"></div>
+  </div>
+  <div id="end"></div> -->
+<!-- <div id="base"></div>
+<div id="base"></div>
+ -->
