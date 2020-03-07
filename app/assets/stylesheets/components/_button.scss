@@ -10,3 +10,28 @@
 .red {
   color: red;
 }
+
+.itinerary-button {
+  width: 300px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 16px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-family: 'Karla';
+  color: white;
+  // border: 1px solid gray;
+  background-color: $blue;
+  cursor: pointer;
+  padding: 10px 30px;
+}
+
+.itinerary-button a{
+  text-decoration: none;
+}
+
+.itinerary-button:hover {
+  background-color: $card-blue;
+  text-decoration: none;
+  color: white;
+}
