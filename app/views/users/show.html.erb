@@ -33,19 +33,7 @@
                 <p><strong>Name: </strong> <%= current_user.first_name %></p>
                 <p><strong>About: </strong> <%= current_user.about %> </p>
                 <p><strong>Hobbies: </strong> Skiing, Snowboarding, Out with friends, Listen to music, Draw and Learn new things.</p>
-                <p><strong>Skill Level: </strong>
-                    <span class="tags">Pro </span> 
-                </p>
-                <div class="row divider text-center">
-                  <div class="col-xs-12 col-sm-4 emphasis">
-                      <h2><strong> 1,245 </strong></h2>                    
-                      <p><small>Followers</small></p>                      
-                  </div>
-                  <div class="col-xs-12 col-sm-4 emphasis">
-                      <h2><strong>245</strong></h2>                    
-                      <p><small>Following</small></p>                    
-                  </div>
-                </div>  
+
                 <p class="resort-info-header mt-1">FAVORITE RESORTS 
                   <% @favorites.each do |favorite| %>
                     <%= link_to resort_path(favorite.resort), style:"text-decoration:none" do %>
