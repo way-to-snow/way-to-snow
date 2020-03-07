@@ -1,10 +1,11 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ ]
+  static targets = [ 'travelers' ]
 
   map = null;
   start = null;
+  distance = null;
 
   connect() {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -45,6 +46,9 @@ export default class extends Controller {
           window.geo = response;
           if (status === 'OK') {
             directionsRenderer.setDirections(response);
+            var kmDisplay = document.getElementById('km-display');
+            this.distance = `${geo.routes[0].legs[0].distance.text}`;
+            kmDisplay.textContent = this.distance;
           } else {
             window.alert('Directions request failed due to ' + status);
           }
@@ -58,4 +62,40 @@ export default class extends Controller {
     window.location.href = url;
   };
 
+  formatNumber(num) {
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+  }
+
+  changeInput() {
+    var kmDisplay = document.getElementById('km-display');
+    var distanceStr = kmDisplay.textContent.slice(0, -2).replace(",", "");
+    var distanceNum = parseInt(distanceStr);
+    var fuelCostDisplay = document.getElementById('km-cost');
+    var fuelCost = (distanceNum * 31);
+    var fuelCostStr = this.formatNumber(fuelCost);
+
+    var price = parseFloat(document.getElementById('resort-price').textContent);
+    var travelers = document.getElementById('travelers');
+    var days = document.getElementById('days');
+    var liftCost = (price * (travelers.value * days.value));
+    var liftCostStr = this.formatNumber(liftCost);
+
+    var travelDisplay = document.getElementById('travelers-display');
+    var travelDisplayTotal = document.getElementById('travelers-display-total');
+
+    var grandTotal = (liftCost + fuelCost);
+    var grandTotalStr = this.formatNumber(grandTotal);
+    var perPersonCost = ( Math.round(grandTotal / travelers.value) );
+    var perPersonCostStr = this.formatNumber(perPersonCost);
+
+    var grandTotalDisplay = document.getElementById('grand-total-cost');
+    var perPersonCostDisplay = document.getElementById('per-person-cost');
+
+    ((travelers.value + days.value) > 1) ? travelDisplay.textContent = `${travelers.value * days.value}` : travelDisplay.textContent = "";
+    travelDisplayTotal.textContent = `${liftCostStr}`;
+    fuelCostDisplay.textContent = `${fuelCostStr}`;
+    grandTotalDisplay.textContent = `${grandTotalStr}`;
+    perPersonCostDisplay.textContent = `${perPersonCostStr}`;
+
+  };
 }
