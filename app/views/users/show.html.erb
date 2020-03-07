@@ -3,7 +3,7 @@ You made it <%= @user.email %>!
 
 <ul>
 <% @favorites.each do |favorite| %>
-  <li><%= favorite.resort.name %></li>
+  <li><%= link_to resort_path(favorite.resort) do %><%= favorite.resort.name %><% end %></li>
 <% end %>
 </ul>
 </div>
