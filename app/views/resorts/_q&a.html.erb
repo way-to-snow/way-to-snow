@@ -1,6 +1,6 @@
 
   <h5><%= pluralize @resort.questions.count, "question" %> for <%= @resort.name %>: </h5>
-  <%= render 'questions/question_form', resort: @resort, question: @question %>
+  <%#= render 'questions/question_form', resort: @resort, question: @question %>
   <div id="questions">
     <%= render 'questions/question', resort: @resort, question: @question, answer: @answer %>
   </div>

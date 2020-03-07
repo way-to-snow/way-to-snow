@@ -125,6 +125,7 @@
               <%= render 'questions/question_form', resort: @resort, question: @question %>
             <% else %>
               <%= render 'resorts/q&a', resort: @resort, question: @question, answer: @answer %>
+              <%= render 'questions/question_form', resort: @resort, question: @question %>
             <% end %>
           </div>
         </div>
