@@ -41,6 +41,7 @@ export default class extends Controller {
         },
         function(response, status) {
           console.log(response);
+          window.geo = response;
           if (status === 'OK') {
             directionsRenderer.setDirections(response);
           } else {

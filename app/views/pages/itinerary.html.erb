@@ -8,7 +8,72 @@
     <div class='map-button' data-markers="<%= @resort.to_json %>" data-action="click->itinerary#googleLink">Prefer the train?</div>
   </div>
 
-
+  <div class="driving-cost">
+    <h5>Calculate driving cost</h5>
+    <form>
+      <div class="form-group">
+        <label class="col-4">How many travelers:</label>
+        <select name="travelers">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="col-4">How many days:</label>
+        <select name="travelers">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+        </select>
+      </div>
+    </form>
+  </div>
+  <div class="costs-table">
+    <table class = "table">
+      <tbody>
+        <tr class ="category">
+          <td>Lift ticket</td>
+          <td>¥<%= @resort.adult_price %></td>
+          <td>*</td>
+          <td>1</td>
+          <td>=</td>
+          <td>¥2000</td>
+        </tr>
+        <tr>
+          <td>Fuel</td>
+          <td>¥2000</td>
+          <td>/</td>
+          <td>1</td>
+          <td>=</td>
+          <td>¥2000</td>
+        </tr>
+        <tr>
+          <td>Toll roads</td>
+          <td>¥2000</td>
+          <td>/</td>
+          <td>1</td>
+          <td>=</td>
+          <td>¥2000</td>
+        </tr>
+        <tr>
+          <td>Price per person</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>=</td>
+          <td>¥2000</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 <script>
@@ -25,3 +90,6 @@
 <script async defer
     src='https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_SERVER_KEY'] %>&callback=dispatchMapsEvent'>
     </script>
+
+
+
