@@ -12,7 +12,6 @@ Rails.application.routes.draw do
     resources :answers, only: [:create]
   end
 
-
   # resources :questions do
   #   member do
   #     post "answers", to: "answers#create"
@@ -37,6 +36,5 @@ Rails.application.routes.draw do
   get 'resorts/:id/ticket', to: 'pages#ticket', as: 'ticket'
   get 'resorts/:id/share', to: 'pages#share', as: 'share'
   get 'resorts/:id/itinerary', to: 'pages#itinerary', as: 'itinerary'
-  get '/profile', to: 'favorites#profile', as: 'profile'
 
 end
