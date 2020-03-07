@@ -7,8 +7,65 @@
   <div id="map-buttons-holder">
     <div class='map-button' data-markers="<%= @resort.to_json %>" data-action="click->itinerary#googleLink">Prefer the train?</div>
   </div>
-
-
+  <div class="driving-cost">
+    <h5>Calculate trip cost</h5>
+    <form>
+      <div class="form-group">
+        <label class="col-4">How many travelers:</label>
+        <input type="text" id="travelers" data-action="change->itinerary#changeInput" placeholder="#">
+      </div>
+      <div class="form-group">
+        <label class="col-4">How many days:</label>
+        <input type="text" id="days" data-action="change->itinerary#changeInput" placeholder="#">
+      </div>
+    </form>
+  </div>
+  <div class="costs-table">
+    <table class = "table">
+      <tbody>
+        <tr class ="category">
+          <td>Lift ticket</td>
+          <td>¥<span id="resort-price"><%= @resort.adult_price %></span></td>
+          <td>*</td>
+          <td><span id="travelers-display"></span></td>
+          <td>=</td>
+          <td>¥<span id="travelers-display-total"></span></td>
+        </tr>
+        <tr>
+          <td>Fuel and tolls</td>
+          <td>(avg. ¥31 per km)</td>
+          <td>*</td>
+          <td><span id="km-display"></span></td>
+          <td>=</td>
+          <td>¥<span id="km-cost"></span></td>
+        </tr>
+<!--         <tr>
+          <td>Toll roads</td>
+          <td>¥24.6 per km</td>
+          <td>/</td>
+          <td><span id="km-display2"></span></td>
+          <td>=</td>
+          <td>¥<span id="km-toll-cost"></span></td>
+        </tr> -->
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><strong>Grand Total</strong></td>
+          <td>=</td>
+          <td>¥<span id="grand-total-cost"></span></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>(approx. per person)</td>
+          <td>=</td>
+          <td>¥<span id="per-person-cost"></span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 <script>
@@ -25,3 +82,6 @@
 <script async defer
     src='https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_SERVER_KEY'] %>&callback=dispatchMapsEvent'>
     </script>
+
+
+
