@@ -7,32 +7,16 @@
   <div id="map-buttons-holder">
     <div class='map-button' data-markers="<%= @resort.to_json %>" data-action="click->itinerary#googleLink">Prefer the train?</div>
   </div>
-
   <div class="driving-cost">
-    <h5>Calculate driving cost</h5>
+    <h5>Calculate trip cost</h5>
     <form>
       <div class="form-group">
         <label class="col-4">How many travelers:</label>
-        <select name="travelers">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-        </select>
+        <input type="text" id="travelers" data-action="change->itinerary#changeInput" placeholder="#">
       </div>
       <div class="form-group">
         <label class="col-4">How many days:</label>
-        <select name="travelers">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-        </select>
+        <input type="text" id="days" data-action="change->itinerary#changeInput" placeholder="#">
       </div>
     </form>
   </div>
@@ -41,35 +25,43 @@
       <tbody>
         <tr class ="category">
           <td>Lift ticket</td>
-          <td>¥<%= @resort.adult_price %></td>
+          <td>¥<span id="resort-price"><%= @resort.adult_price %></span></td>
           <td>*</td>
-          <td>1</td>
+          <td><span id="travelers-display"></span></td>
           <td>=</td>
-          <td>¥2000</td>
+          <td>¥<span id="travelers-display-total"></span></td>
         </tr>
         <tr>
-          <td>Fuel</td>
-          <td>¥2000</td>
-          <td>/</td>
-          <td>1</td>
+          <td>Fuel and tolls</td>
+          <td>(avg. ¥31 per km)</td>
+          <td>*</td>
+          <td><span id="km-display"></span></td>
           <td>=</td>
-          <td>¥2000</td>
+          <td>¥<span id="km-cost"></span></td>
         </tr>
-        <tr>
+<!--         <tr>
           <td>Toll roads</td>
-          <td>¥2000</td>
+          <td>¥24.6 per km</td>
           <td>/</td>
-          <td>1</td>
+          <td><span id="km-display2"></span></td>
           <td>=</td>
-          <td>¥2000</td>
+          <td>¥<span id="km-toll-cost"></span></td>
+        </tr> -->
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><strong>Grand Total</strong></td>
+          <td>=</td>
+          <td>¥<span id="grand-total-cost"></span></td>
         </tr>
         <tr>
-          <td>Price per person</td>
           <td></td>
           <td></td>
           <td></td>
+          <td>(approx. per person)</td>
           <td>=</td>
-          <td>¥2000</td>
+          <td>¥<span id="per-person-cost"></span></td>
         </tr>
       </tbody>
     </table>
