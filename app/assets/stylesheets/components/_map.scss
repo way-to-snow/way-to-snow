@@ -23,6 +23,36 @@
   background-color:  #BA3737;
 }
 
+// PASTEL SPECTRUM OPTION
+
+// .marker.great {
+//   background-color: #A489D4;
+// }
+// .marker.good {
+//   background-color: #8CCCBF;
+// }
+// .marker.average {
+//   background-color: #7ABEDE;
+// }
+// .marker.bad {
+//   background-color: #68B1FB;
+// }
+
+// MONOCHROMATIC SPECTRUM OPTION
+
+// .marker.great {
+//   background-color: #304E81;
+// }
+// .marker.good {
+//   background-color: #3D85C0;
+// }
+// .marker.average {
+//   background-color: #81BADC;
+// }
+// .marker.bad {
+//   background-color: #CEE1F1;
+// }
+
 .marker:hover {
   width: 21px;
   height: 21px;
@@ -100,7 +130,6 @@
   font-size: 36px;
   font-weight: bold;
 }
-
 
 .condition-key {
   display: flex;

@@ -7,9 +7,6 @@
     <div class="resort-names">
       <div class="resort-name"><%= @resort.name.titlecase %></div>
       <div class="resort-name-ja"><%= @resort.name_ja %></div>
-      <p>Prefecture: <%= @resort.prefecture %></p>
-      <p>Town: <%= @resort.town %></p>
-      <p><%= link_to "Official site", "#{@resort.url}", target: :_blank  %> <i class="fas fa-external-link-alt"></i></p>
     </div>
 
     <div class="icon-holder">
@@ -20,12 +17,16 @@
 
   </div>
 
+    <div style="padding: 4px 0px; display: flex; justify-content: center; align-items: center; font-size: 10px; color: #4A4A4A">
+      <%= @resort.town %>,&nbsp<%= @resort.prefecture %>&nbsp|&nbsp
+      <%= @resort.phone_number %>&nbsp|&nbsp
+      <%= link_to "Official site&nbsp<i class='fas fa-external-link-alt'></i>".html_safe, "#{@resort.url}", target: :_blank, style: "text-decoration:none"  %>
+    </div>
+
 <!-- Displaying the weather overview cards, good, bad etc. -->
 <div class="summary-items">
   <%= render 'resorts/forecast_overview', resort: @resort %>
 </div>
-
-
 
 <!-- This is the first bootstrap row contains everything below the banner image -->
 
@@ -36,6 +37,9 @@
     <div class="col" id="show-left-side">
       <div class="resort-info-block">
         <div class="resort-info-header">OVERVIEW</div>
+        <div style="font-size: 12px; color: #4A4A4A; margin: 20px 20px 0px 20px; ">
+          <%= @resort.name %> resort in <%= @resort.town %>, <%= @resort.prefecture %> prefecture has a planned season from <%= @resort.season_planned.gsub('Planned season: ','') %>.
+        </div>
         <div class="resort-info-body">
           <div class="resort-info-items">
             <%= render 'resorts/resort_overview', resort: @resort %>
@@ -51,34 +55,22 @@
       </div>
 
       <div class="resort-info-block">
-        <div class="resort-info-header">TERRAIN</div>
-        <div class="resort-info-body">
-          <%= render 'resorts/terrain', resort: @resort %>
+        <div class="resort-info-header">TICKET PRICES</div>
+        <div style="font-size: 12px; color: #4A4A4A; margin: 20px 20px 0px 20px; ">
+          There are special discounts available. Please check the <%= link_to "resort website", "#{@resort.url}", style: "text-decoration:none" %> for specific price information.
         </div>
-      </div>
-
-
-      <div class="resort-info-block">
-        <div class="resort-info-header">TICKETS</div>
         <div class="resort-info-body">
-          <p>Adult: ¥<%= @resort.adult_price %></p>
-          <p>Child: ¥<%= @resort.child_price %></p>
+          <%= render 'resorts/ticket_prices', resort: @resort %>
         </div>
       </div>
 
       <div class="resort-info-block">
         <div class="resort-info-header">FACILITIES</div>
-        <div class="resort-info-body">
-          <% if @resort.ski_school %>
-            <p><i class="fas fa-skiing"></i> Ski School</p>
-          <% end %>
-          <% if @resort.sb_school %>
-            <p><i class="fas fa-snowboarding"></i> Snowboard School</p>
-          <% end %>
-          <% if @resort.child_care %>
-            <p><i class="fas fa-child"></i> Child Care</p>
-          <% end %>
-        </div>
+          <div class="resort-info-body">
+            <div class="resort-info-items">
+            <%= render 'resorts/facilities', resort: @resort %>
+            </div>
+          </div>
       </div>
 
 <!-- This is the end of the left column -->
@@ -90,8 +82,15 @@
     <div class="col" id="show-right-side">
 
       <div class="resort-info-block">
+        <div class="resort-info-header">TERRAIN DIFFICULTY</div>
+        <div class="resort-info-body">
+          <%= render 'resorts/terrain', resort: @resort %>
+        </div>
+      </div>
+
+      <div class="resort-info-block">
         <div class="resort-info-header">GETTING THERE</div>
-          <div class="resort-info-body">
+          <div class="resort-info-body" style="padding: 20px">
           <%= render 'resorts/directions', resort: @resort %>
           </div>
         </div>
@@ -126,6 +125,7 @@
               <%= render 'questions/question_form', resort: @resort, question: @question %>
             <% else %>
               <%= render 'resorts/q&a', resort: @resort, question: @question, answer: @answer %>
+              <%= render 'questions/question_form', resort: @resort, question: @question %>
             <% end %>
           </div>
         </div>

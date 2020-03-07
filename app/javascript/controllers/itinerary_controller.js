@@ -18,7 +18,8 @@ export default class extends Controller {
     var directionsRenderer = new google.maps.DirectionsRenderer();
     this.map = new google.maps.Map(document.getElementById('itinerary-map'), {
       zoom: 7,
-      center: {lat: 35.7, lng: 139.73}
+      center: {lat: 35.7, lng: 139.73},
+      disableDefaultUI: true
     });
     directionsRenderer.setMap(this.map);
     directionsRenderer.setPanel(document.getElementById('right-panel'));

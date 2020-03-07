@@ -7,6 +7,7 @@
     <%= link_to "My Profile", profile_path, style:"text-decoration:none", class: "link" %>
     <%= link_to "Resort Map", resorts_path, style:"text-decoration:none", class: "link" %>
     <% if user_signed_in? %>
+    <%= link_to "User Profile", user_path(current_user), style:"text-decoration:none", class: "link" %>
         <%= link_to "Log out", destroy_user_session_path, method: :delete, style:"text-decoration:none", class: "link" %>
     <% else %>
         <%= link_to "Login", new_user_session_path, style:"text-decoration:none", class: "link" %>
