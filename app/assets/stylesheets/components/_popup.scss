@@ -17,7 +17,10 @@
 
 .popup-header {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8px;
+  // flex-direction: column;
 }
 
 .popup-header .resort-name{
@@ -37,14 +40,7 @@
   justify-content: space-around;
 }
 
-.like{
-  position: absolute;
-  left: 5;
-  top: 5;
-  font-size: 20px;
-}
-
 .popup-header h1{
   font-family: 'Covered By Your Grace';
-  font-size: 24px;
+  font-size: 32px;
 }

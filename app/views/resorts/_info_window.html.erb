@@ -1,18 +1,19 @@
 
-  <div data-controller="popup" >
-    <div class="like" style="border: 1px solid black">
-      <% favorited = current_user.resorts.include?(@resort) %>
-      <div><i data-controller="popup" data-target="popup.heart" class="fas fa-heart button-favorite <%= favorited ? 'red' : '' %>" id="heart" style="text-decoration:none" data-action="click->popup#favorite" data-value="<%= resort.id %>" data-favorited="<%= favorited %>"></i></div>
-    </div>
-    <div class="popup-header">
-      <h1><%= resort.name.titlecase %></h1>
-      <div class="resort-address"><%= resort.town %>, <%= resort.prefecture %></div>
-      <div class="resort-snow">Snow Depth: <%= snow_depth %> cm</div>
-    </div>
 
-<!--     <div>
-      <p>Travel time: <span data-target="popup.output" data-value="<%= resort.longitude %>, <%= resort.latitude %>"></span></p>
-    </div> -->
+  <div class="popup-header">
+    <h1><%= resort.name.titlecase %></h1>
+    <div data-controller="popup" >
+      <% favorited = current_user.resorts.include?(@resort) %>
+      <div style="font-size: 20px; margin-left: 16px; margin-bottom: 8px;"><i data-controller="popup" data-target="popup.heart" class="fas fa-heart button-favorite <%= favorited ? 'red' : '' %>" id="heart" style="text-decoration:none" data-action="click->popup#favorite" data-value="<%= resort.id %>" data-favorited="<%= favorited %>"></i></div>
+    </div>
+  </div>
+
+    <div style="padding: 4px 0px; display: flex; justify-content: center; align-items: center; font-size: 12px; color: #4A4A4A">
+      <div style="margin-right: 10px"><%= resort.town %>,&nbsp<%= resort.prefecture %></div>
+      <div>&nbsp|&nbsp</div>
+      <div style="margin-left: 10px;"><strong><%= snow_depth %></strong>&nbspcm of snow</div>
+<!--       Travel time: <span data-target="popup.output" data-value="<%= resort.longitude %>, <%= resort.latitude %>"></span> -->
+    </div>
 
     <% day_after = (Time.now + 2.day).strftime("%A")%>
     <% two_days_after = (Time.now + 3.day).strftime("%A")%>
