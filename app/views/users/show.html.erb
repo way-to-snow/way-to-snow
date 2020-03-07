@@ -1,9 +1,16 @@
-<div class="container col-9">
-You made it <%= @user.email %>!
+<div class="container col-6 my-5">
 
-<ul>
-<% @favorites.each do |favorite| %>
-  <li><%= link_to resort_path(favorite.resort) do %><%= favorite.resort.name %><% end %></li>
-<% end %>
-</ul>
+  <div class="resort-info-header">MY INFO</div>
+
+  <div class="resort-info-header mt-5">MY FAVORITE RESORTS</div>
+  <ul id="profile-favorites">
+    <% @favorites.each do |favorite| %>
+      <%= link_to resort_path(favorite.resort), style:"text-decoration:none" do %>
+        <li><%= favorite.resort.name %></li>
+      <% end %>
+    <% end %>
+  </ul>
+
+  <div class="resort-info-header mt-5">MY QUESTIONS</div>
+
 </div>
