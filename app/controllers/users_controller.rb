@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def show
   @user = User.find(params[:id])
-  @resorts = @user.favorites
+  @favorites = @user.favorites
   end
 end
