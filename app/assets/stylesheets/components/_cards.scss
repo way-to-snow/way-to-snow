@@ -5,6 +5,17 @@
   margin-top: 16px;
 }
 
+.summary-items-popup{
+  display: flex;
+  flex-grow: 1;
+  margin: 16px 8px 0px 8px;
+  padding: 4px;
+  border-radius: 5px;
+  border: 1px solid #A0A0A0;
+  // background-color: #F7F7F7;
+}
+
+
 // layout styling for resort info cards on show page
 .resort-info-items{
   display: grid;
