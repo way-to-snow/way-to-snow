@@ -7,8 +7,9 @@ class ResortsController < ApplicationController
 
   def index
     if params[:new_snow].present?
+      # OLD SNOW-JAPAN METHOD
       # @resorts = Resort.joins(:weather_reports).where('weather_reports.snow_change > ? AND current = ?', 0, true)
-      @resort = Resort.joins(:weather_reports).where(current: true).where('report->list->[0]->snow exists')
+      @resorts = Resort.joins(:weather_reports).where('weather_reports.snow_fall = ? AND current = ?', true, true)
     elsif params[:lots_snow].present?
       @resorts = Resort.joins(:weather_reports).where('weather_reports.snow_depth > ? AND current = ?', 99, true)
     elsif params[:favorites].present?
