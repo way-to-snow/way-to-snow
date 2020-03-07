@@ -1,0 +1,28 @@
+.terrain-holder {
+  display: flex;
+  align-items: flex-end;
+  font-family: 'Roboto';
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #4A4A4A;
+}
+
+.terrain-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25px;
+  text-align: center;
+}
+
+#beginner {
+  background: green;
+}
+
+#intermediate {
+  background: blue;
+}
+
+#advanced {
+  background: black;
+}

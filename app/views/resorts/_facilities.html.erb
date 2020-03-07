@@ -1,0 +1,18 @@
+<div class="resort-summary-card">
+  <h1 style="color:#4A4A4A"><i class="fas fa-skiing fa-2x"></i></h1>
+  <h1 style="color:#4A4A4A">Ski School</h1>
+  <h2><%= @resort.ski_school ? '<i class="fas fa-check"></i>'.html_safe : '<i class="fas fa-times red"></i>'.html_safe %></h2>
+</div>
+
+<div class="resort-summary-card">
+  <h1 style="color:#4A4A4A"><i class="fas fa-snowboarding fa-2x"></i></h1>
+  <h1 style="color:#4A4A4A">Snowboard School</h1>
+  <h2><%= @resort.sb_school ? '<i class="fas fa-check"></i>'.html_safe : '<i class="fas fa-times red"></i>'.html_safe %></h2>
+</div>
+
+<div class="resort-summary-card">
+  <h1 style="color:#4A4A4A"><i class="fas fa-child fa-2x"></i></h1>
+  <h1 style="color:#4A4A4A">Child Care</h1>
+  <h2><%= @resort.child_care ? '<i class="fas fa-check"></i>'.html_safe : '<i class="fas fa-times red"></i>'.html_safe %></h2>
+</div>
+

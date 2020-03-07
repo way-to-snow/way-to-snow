@@ -13,7 +13,7 @@
                      asset-url('mountains_sm.jpeg');
   background-size: cover;
   background-repeat: no-repeat;
-  height: 300px;
+  height: 250px;
   margin-top: 20px;
 }
 
@@ -66,7 +66,7 @@
 .resort-info-block {
   display: flex;
   flex-direction: column;
-  margin: 20px 0px;
+  margin-top: 20px;
   color: $blue;
   a{
     color: $blue;
@@ -78,16 +78,15 @@
   width: 100%;
   font-size: 14px;
   font-family: 'Karla';
-  padding-left: 20px;
   background: $blue;
   color: white;
-  padding: 8px;
+  padding: 8px 8px 8px 16px;
 }
 
 .resort-info-body {
   padding: 8px;
-  // display: flex;
-  // justify-content: space-around;
+  display: flex;
+  justify-content: center;
   // align-items: center;
   // min-height: 200px;
 }
