@@ -47,8 +47,14 @@ export default class extends Controller {
     this.currentMarkers = markers.map((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
       const element = document.createElement('div');
-      element.className = `marker ${marker.conditions[day]}`;
+      let condition  = marker.conditions[day]
+      if(condition !== "bad" && marker.snowDepth < 50) {
+        condition = "bad"
+      }
 
+      console.log("place", condition)
+      element.className = `marker ${condition}`;
+      // Resort.conditons returns an array like this --> ["great", "bad", "average", "bad"]
       // Pass the element as an argument to the new marker
       return new mapboxgl.Marker(element)
         .setLngLat([ marker.lng, marker.lat ])
