@@ -1,90 +1,31 @@
-<div class="container col-9" data-controller="itinerary">
-<p id="travel-time">Travel time: <span></span></p>
-  <div id="itinerary-map-holder">
-    <div id="itinerary-map" data-controller="itinerary" data-action="google-maps-callback@window->itinerary#initMap" data-markers="<%= @resort.to_json %>"></div>
-    <div id="right-panel"></div>
-  </div>
-  <div id="map-buttons-holder">
-    <div class='map-button' data-markers="<%= @resort.to_json %>" data-action="click->itinerary#googleLink">Prefer the train?</div>
-  </div>
-    <div class="resort-info-header">CALCULATE TRIP COST</div>
-  <div class="driving-cost">
+<div class="container col-8" data-controller="itinerary">
 
-    <form>
-      <div class="row">
-        <div class="col">
-          <input type="text" class="form-control" id="travelers" data-action="change->itinerary#changeInput" placeholder="Number of travellers">
-        </div>
-        <div class="col">
-          <input type="text" class="form-control" id="days" data-action="change->itinerary#changeInput" placeholder="Number of days">
+  <div class="resort-info-header mt-4 mb-3">DETAILED DIRECTIONS</div>
+    <div style="display: flex; justify-content: center">
+      <div class='map-button mb-3' style="width:300px"; data-markers="<%= @resort.to_json %>" data-action="click->itinerary#googleLink">Prefer the train?</div>
+    </div>
+    <div id="itinerary-map-holder">
+      <div id="itinerary-map" data-controller="itinerary" data-action="google-maps-callback@window->itinerary#initMap" data-markers="<%= @resort.to_json %>"></div>
+      <div id="right-panel"></div>
+    </div>
+
+  <div class="resort-info-header mt-4">CALCULATE TRIP COST</div>
+    <%= render 'pages/itinerary_calc', resort: @resort %>
+
+  <div class="resort-info-header">SEND ITINERARY</div>
+    <div style="display: flex; justify-content: center">
+      <div class="col-8">
+        <div class="send-form">
+          <form>
+            <div class="form-group">
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            </div>
+              <div class="send-itinerary"><%= link_to "SEND", resort_path, class:"itinerary-button" %></div>
+          </form>
         </div>
       </div>
-    </form>
-  </div>
-  <div class="costs-table">
-    <table class = "table">
-      <colgroup>
-        <col style="width:80px">
-        <col style="width:100px">
-        <col style="width:10px">
-        <col style="width:130px">
-        <col style="width:10px">
-        <col style="width:80px">
-      </colgroup>
-      <tbody>
-        <tr class ="category">
-          <td>Lift ticket</td>
-          <td>¥<span id="resort-price"><%= @resort.adult_price %></span></td>
-          <td>*</td>
-          <td><span id="travelers-display"></span></td>
-          <td>=</td>
-          <td>¥<span id="travelers-display-total"></span></td>
-        </tr>
-        <tr>
-          <td>Fuel and tolls</td>
-          <td>(avg. ¥31 per km)</td>
-          <td>*</td>
-          <td><span id="km-display"></span></td>
-          <td>=</td>
-          <td>¥<span id="km-cost"></span></td>
-        </tr>
-<!--         <tr>
-          <td>Toll roads</td>
-          <td>¥24.6 per km</td>
-          <td>/</td>
-          <td><span id="km-display2"></span></td>
-          <td>=</td>
-          <td>¥<span id="km-toll-cost"></span></td>
-        </tr> -->
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td><strong>Grand Total</strong></td>
-          <td>=</td>
-          <td>¥<span id="grand-total-cost"></span></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>(approx. per person)</td>
-          <td>=</td>
-          <td>¥<span id="per-person-cost"></span></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-    <div class="resort-info-header">SEND ITINERARY</div>
-    <div class="send-form">
-    <!-- </div> -->
-    <form>
-      <div class="form-group">
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-      </div>
-        <div class="send-itinerary"><%= link_to "SEND", resort_path, class:"itinerary-button" %></div>
-    </form>
-  </div>
+    </div>
+
 </div>
 
 <script>
