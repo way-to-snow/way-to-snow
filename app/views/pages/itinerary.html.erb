@@ -4,9 +4,11 @@
     <div style="display: flex; justify-content: center">
       <div class='map-button mb-3' style="width:300px"; data-markers="<%= @resort.to_json %>" data-action="click->itinerary#googleLink">Prefer the train?</div>
     </div>
-    <div id="itinerary-map-holder">
-      <div id="itinerary-map" data-controller="itinerary" data-action="google-maps-callback@window->itinerary#initMap" data-markers="<%= @resort.to_json %>"></div>
-      <div id="right-panel"></div>
+    <div style="display: flex; justify-content: center">
+      <div id="itinerary-map-holder" style="width: 90%">
+        <div id="itinerary-map" data-controller="itinerary" data-action="google-maps-callback@window->itinerary#initMap" data-markers="<%= @resort.to_json %>"></div>
+        <div id="right-panel"></div>
+      </div>
     </div>
 
   <div class="resort-info-header mt-4">CALCULATE TRIP COST</div>
