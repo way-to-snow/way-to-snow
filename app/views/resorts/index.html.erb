@@ -18,24 +18,73 @@
 
   <div id="map-buttons-holder">
     <div class="map-button selected" data-action="click->maps#filter click->maps#select" data-value="">All resorts</i></div>
-    <div class="map-button" data-action="click->maps#filter click->maps#select" data-value="new_snow=true"><i class="far fa-snowflake"></i>&nbsp&nbspFresh powder</div>
-    <div class="map-button" data-action="click->maps#filter click->maps#select" data-value="lots_snow=true"><i class="far fa-snowflake"></i>&nbsp&nbspDeep snow</div>
-    <div class="map-button" data-action="click->maps#filter click->maps#select" data-value="favorites=true"><i class="fas fa-heart"></i>&nbsp&nbspFavorites</div>
-    <div class="map-button" data-action="click->maps#timeMachine" data-value="favorites=true" id="time-machine-button"><i class="fas fa-clock"></i>&nbsp&nbspForecasts</div>
+    <div class="map-button" data-action="click->maps#filter click->maps#select" data-value="best=true"><%= '<i class="far fa-snowflake"></i>&nbsp&nbspToday`s Best'.html_safe %> </div>
+<!--     <div class="map-button" data-action="click->maps#filter click->maps#select" data-value="new_snow=true"><i class="far fa-snowflake"></i>&nbsp&nbspFresh powder</div>
+    <div class="map-button" data-action="click->maps#filter click->maps#select" data-value="lots_snow=true"><i class="far fa-snowflake"></i>&nbsp&nbspDeep snow</div> -->
+    <div class="map-button" data-action="click->maps#filter click->maps#select" data-value="favorites=true"><%= '<i class="fas fa-heart"></i>&nbsp&nbspFavorites'.html_safe %> </div>
+    <div class="map-button" data-action="click->maps#exposeSlider click->maps#filter" id="time-machine-button"><%= '<i class="fas fa-filter"></i>&nbsp&nbspFilters'.html_safe %> </div>
   </div>
 
 
   <div id="map-slider-holder">
-    <div class="range">
-      <input data-target="maps.slider" data-action="change->maps#displayDay" type="range" min="0" max="3" steps="1" value="0" id='slider'>
-      <div class="day-labels">
-        <div class="day active">Today</div>
-        <div class="day"><%= (Time.now + 1.day).strftime("%A") %></div>
-        <div class="day"><%= (Time.now + 2.day).strftime("%A") %></div>
-        <div class="day"><%= (Time.now + 3.day).strftime("%A") %></div>
+    <div id="map-slider-holder-inside">
+
+      <div class="range">
+        <input data-target="maps.slider" data-action="change->maps#changeDay" type="range" min="0" max="3" steps="1" value="0" id='slider'>
+        <div class="day-labels">
+          <div class="day active">Today</div>
+          <div class="day"><%= (Time.now + 1.day).strftime("%A") %></div>
+          <div class="day"><%= (Time.now + 2.day).strftime("%A") %></div>
+          <div class="day"><%= (Time.now + 3.day).strftime("%A") %></div>
+        </div>
       </div>
+
+      <div class="form-check form-check-inline" id="form-check-row">
+        <div>
+          <input class="form-check-input" data-action="change->maps#newFilter" type="checkbox" value="average" id="averageCheck">
+          <label class="form-check-label" for="averageCheck">Decent</label>
+        </div>
+        <div>
+          <input class="form-check-input" data-action="change->maps#newFilter" type="checkbox" value="good" id="goodCheck">
+          <label class="form-check-label" for="goodCheck">Fresh Snow</label>
+        </div>
+        <div>
+          <input class="form-check-input" data-action="change->maps#newFilter" type="checkbox" value="great" id="greatCheck">
+          <label class="form-check-label" for="greatCheck">Deep Powder</label>
+        </div>
+      </div>
+
     </div>
   </div>
 
   <div id="map" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+<!--
+<form>
+  <div class="form-group">
+    <div class="form-group">
+      <label for="formControlRange">Example Range input</label>
+      <input type="range" min="0" max="3" steps="1" value="0" class="form-control-range" id="formControlRange">
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" value="great" id="defaultCheck1">
+      <label class="form-check-label" for="defaultCheck1">
+        Great
+      </label>
+      <input class="form-check-input" type="checkbox" value="good" id="defaultCheck2">
+      <label class="form-check-label" for="defaultCheck1">
+        Good
+      </label>
+      <input class="form-check-input" type="checkbox" value="average" id="defaultCheck3">
+      <label class="form-check-label" for="defaultCheck1">
+        Average
+      </label>
+      <input class="form-check-input" type="checkbox" value="bad" id="defaultCheck4">
+      <label class="form-check-label" for="defaultCheck1">
+        Bad
+      </label>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary" data-action="click->maps#newFilter">Submit</button>
+</form> -->
+
 </div>

@@ -7,9 +7,7 @@ task forecast: :environment do
     api_response = open("https://api.openweathermap.org/data/2.5/forecast/daily?lat=#{resort.latitude}&lon=#{resort.longitude}&appid=#{ENV['OPENWEATHER_API_KEY']}&units=metric").read
     weather = JSON.parse(api_response)
 
-    i = 0
-
-    4.times do
+    (0..3).map do |i|
       day = weather['list'][i]
       Forecast.create(
         resort: resort,
@@ -23,7 +21,6 @@ task forecast: :environment do
         rain: day['rain'].nil? ? 0 : day['rain'],
         condition: ""
       )
-      i += 1
     end
   end
 
@@ -39,22 +36,22 @@ task forecast: :environment do
 
   Resort.all.each do |resort|
     puts "Creating four day forecasts for #{resort.name}"
-    get_forecasts(resort)
-  end
+    forecasts = get_forecasts(resort)
+    snow_depth = resort.weather_reports.last.snow_depth
 
-  Forecast.all.each do |forecast|
-    if forecast.wind_speed > 45 || forecast.rain.positive?
-      forecast.condition = "bad"
-    elsif forecast.snow_amount.round.zero?
-      forecast.condition = "average"
-    elsif forecast.snow_amount.positive? && forecast.snow_amount.round < 10
-      forecast.condition = "good"
-    else
-      forecast.condition = "great"
+    forecasts.each do |forecast|
+      if forecast.wind_speed > 45 || forecast.rain.positive? || snow_depth < 49
+        forecast.condition = "bad"
+      elsif forecast.snow_amount.round.zero? && (50..99).include?(snow_depth)
+        forecast.condition = "average"
+      elsif (1..10).include?(forecast.snow_amount.ceil) && (50..99).include?(snow_depth)
+        forecast.condition = "good"
+      else
+        forecast.condition = "great"
+      end
+      forecast.save
     end
-    forecast.save
   end
-
   puts "Finished creating forecasts"
 
 end

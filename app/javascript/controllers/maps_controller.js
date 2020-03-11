@@ -14,6 +14,7 @@ export default class extends Controller {
 
   map = null;
   currentMarkers = [];
+  resortCounter = 0;
 
   connect() {
 
@@ -31,24 +32,29 @@ export default class extends Controller {
     // Declare all the objects in the map
     const markers = JSON.parse(mapElement.dataset.markers);
 
-    this.placeMarkers(markers, 0);
+    this.placeMarkers(markers, 0, ['great', 'good', 'average', 'bad']);
     this.finalMapSetUp();
 
   };
 
-  placeMarkers(markers, day) {
-
+  placeMarkers(markers, day, conditions) {
+// you're getting 0,1,2,3 -- but you also want an array of conditions...
     // Clear any existing markers
     this.currentMarkers.forEach((marker) => {
       marker.remove();
     });
 
+    this.resortCounter = 0;
+
     // Placing new markers on the map
     this.currentMarkers = markers.map((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
       const element = document.createElement('div');
-      element.className = `marker ${marker.conditions[day]}`;
-
+      const dailyCondition = marker.conditions[day];
+      const visibility = conditions.includes(dailyCondition) ? '' : 'invisible'
+      element.className = `marker ${dailyCondition} ${visibility}`;
+      if (visibility == "") { this.resortCounter += 1 };
+      // Resort.conditons returns an array like this --> ["great", "bad", "average", "bad"]
       // Pass the element as an argument to the new marker
       return new mapboxgl.Marker(element)
         .setLngLat([ marker.lng, marker.lat ])
@@ -57,7 +63,7 @@ export default class extends Controller {
     });
 
     // update resort counter
-    this.counterTarget.textContent = `${markers.length}`;
+    this.counterTarget.textContent = `${this.resortCounter}`;
 
   };
 
@@ -67,7 +73,7 @@ export default class extends Controller {
     fetch(url)
       .then(response => response.json())
       .then(markers => {
-        this.placeMarkers(markers, 0);
+        this.placeMarkers(markers, 0, ['great', 'good', 'average', 'bad']);
       })
   };
 
@@ -76,28 +82,47 @@ export default class extends Controller {
     const controls = document.getElementById('map-slider-holder');
     controls.style.display = "none";
     const buttons = document.getElementsByClassName('map-button');
+    this.resetSlider();
     Array.from(buttons).forEach(function (element) {
             element.classList.remove('selected');
           });
     event.target.classList.add('selected');
   };
 
-  displayDay () {
+  resetSlider() {
+    const slider = document.getElementById('slider');
+    slider.value = 0;
+    const daysOnSlider = document.getElementsByClassName('day');
+    Array.from(daysOnSlider).forEach(function (element) {
+            element.classList.remove('active');
+          });
+    daysOnSlider[0].classList.add('active');
+    const checkBoxes = document.getElementsByClassName('form-check-input');
+    for(var i=0; i<checkBoxes.length; i++){
+      checkBoxes[i].checked=false;
+    };
+  }
+
+  changeDay () {
     const slider = event.target;
     const day = slider.value;
     console.log(slider.value);
     const mapElement = document.getElementById('map');
     const markers = JSON.parse(mapElement.dataset.markers);
-    this.placeMarkers(markers, day);
-    const days = document.getElementsByClassName('day');
-    Array.from(days).forEach(function (element) {
+    this.placeMarkers(markers, day, ['great', 'good', 'average', 'bad']);
+    const dayRange = document.getElementsByClassName('day');
+    Array.from(dayRange).forEach(function (element) {
             element.classList.remove('active');
           });
-    const redDay = days[day]
-    redDay.classList.add('active');
+    const selectedDay = dayRange[day]
+    selectedDay.classList.add('active');
+    var checkBoxes = document.getElementsByClassName('form-check-input');
+    for(var i=0; i<checkBoxes.length; i++){
+      checkBoxes[i].checked = false;
+    };
   };
 
-  timeMachine () {
+  exposeSlider () {
     const buttons = document.getElementsByClassName('map-button');
     const otherButtons = Array.from(buttons)
     otherButtons.slice(0, 4).forEach(function (element) {
@@ -132,31 +157,20 @@ export default class extends Controller {
     mapBoxCopyright.classList.add('invisible');
   };
 
+  newFilter () {
+    const checkBoxes = document.getElementsByClassName('form-check-input');
+    var selectedConditions = [];
+    for(var i=0; i<checkBoxes.length; i++){
+      if(checkBoxes[i].type=='checkbox' && checkBoxes[i].checked==true)
+        selectedConditions.push(checkBoxes[i].value);
+    };
+    const selectedDay = document.getElementById('slider').value;
+    const mapElement = document.getElementById('map');
+    const markers = JSON.parse(mapElement.dataset.markers);
+    this.placeMarkers(markers, selectedDay, selectedConditions);
+  }
+
 };
-
-
-
-
-
-
-
-
-
-  //   // tracking user zoom level
-  //   const zoomThreshold = 7;
-
-  //   this.map.on('zoom', () => {
-  //     console.log(this.map.getZoom());
-  //     if (this.map.getZoom() > zoomThreshold) {
-  //       console.log('Below zoom level 7');
-  //     } else {
-  //       console.log('Above zoom level 7');
-  //     }
-  //   });
-  //   console.log("inside controller");
-  // };
-
-
 
 
 
