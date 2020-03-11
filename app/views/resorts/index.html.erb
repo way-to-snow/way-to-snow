@@ -1,18 +1,34 @@
 <div id="map-container" data-controller="maps">
+  <div class="sidebar">
+    <div class="resort-counter">
+      <span data-target="maps.counter" id="resort-counter-number"></span>
+      <strong>Resorts Shown</strong>
+    </div>
 
-  <div class="resort-counter">
-    <div>Showing</div>
-    <span data-target="maps.counter" id="resort-counter-number"></span>
-    <div>Resorts</div>
-  </div>
-
-  <div class="condition-key">
-    <div><strong>Conditions</strong></div>
-    <div class="conditions-holder">
-      <div class="condition-line"><div class="marker great" style="pointer-events:none"></div>&nbsp&nbspGreat</div>
-      <div class="condition-line"><div class="marker good" style="pointer-events:none"></div>&nbsp&nbspGood</div>
-      <div class="condition-line"><div class="marker average" style="pointer-events:none"></div>&nbsp&nbspAverage</div>
-      <div class="condition-line"><div class="marker bad" style="pointer-events:none"></div>&nbsp&nbspBad</div>
+    <div class="condition-key">
+      <strong>Conditions</strong>
+      <!-- <div class="conditions-holder"> -->
+        <div class="condition-line">
+          <div class="condition-key-marker great" style="pointer-events:none"></div>
+            <h2>Powder Day</h2>
+            <small>Over 10cm of snow</small>
+        </div>
+        <div class="condition-line">
+          <div class="condition-key-marker good" style="pointer-events:none"></div>
+          <h2 >Fresh Snow</h2>
+          <small>Up to 10 cm of new snow</small>
+        </div>
+        <div class="condition-line">
+          <div class="condition-key-marker average" style="pointer-events:none"></div>
+          <h2>Decent</h2>
+          <small>No new snow</small>
+        </div>
+        <div class="condition-line" id="last" >
+          <div class="condition-key-marker bad" style="pointer-events:none"></div>
+          <h2 >Bad Conditions</h2>
+          <small>Either raining or not enough snow</small>
+        </div>
+      <!-- </div> -->
     </div>
   </div>
 

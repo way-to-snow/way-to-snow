@@ -1,4 +1,14 @@
-
+<% def change_condition_name(condition) %>
+  <% if condition == "bad" %>
+    <% "BAD" %>
+  <% elsif condition == "average" %>
+    <%= "DECENT" %>
+  <% elsif condition == "good" %>
+    <%= "FRESH SNOW" %>
+  <% else %>
+    <%= "POWDER DAY" %>
+  <% end %>
+<% end %>
 
   <div class="popup-header">
     <h1><%= resort.name.titlecase %></h1>
@@ -27,7 +37,7 @@
           <h4> <%= days[index].upcase %> </h4>
           <div id="<%= forecast.condition %>-body">
           <div class="forecast-condition-footer">
-            <div style="font-size: 12px"> <%= forecast.condition.to_s.upcase %> </div>
+            <div style="font-size: 11px"> <%= change_condition_name(forecast.condition) %> </div>
           </div>
         </div>
         </div>

@@ -1,48 +1,23 @@
-<% snowfall_today = resort.forecasts[0].snow_amount %>
-<% rain_today = resort.forecasts[0].rain %>
-<% wind_today  = resort.forecasts[0].wind_speed  %>
-
-<% snowfall_tomorrow = resort.forecasts[1].snow_amount %>
-<% rain_tomorrow = resort.forecasts[1].rain %>
-<% wind_tomorrow  = resort.forecasts[1].wind_speed  %>
-
-<% snowfall_day_after = resort.forecasts[2].snow_amount %>
-<% rain_day_after = resort.forecasts[2].rain %>
-<% wind_day_after  = resort.forecasts[2].wind_speed %>
-
-<% snowfall_two_days_after = resort.forecasts[3].snow_amount %>
-<% rain_two_days_after = resort.forecasts[3].rain %>
-<% wind_two_days_after  = resort.forecasts[3].wind_speed %>
-
-<% def conditions(snowfall, rain, wind) %>
-  <% if rain > 0 || wind > 45 %>
-    <div class="bad">Bad conditions</div>
-    <% if rain.round > 0 %>
-      <p>It will rain <%= rain.round %>cm</p>
-    <% end %>
-    <% if wind > 45 %>
-      <p>It will be windy</p>
-    <% end %>
-  <% elsif snowfall.round == 0 %>
-    <div class="average">Average conditions</div>
-    <p>Snow: 0cm</p>
-  <% elsif snowfall.round >0 && snowfall.round < 10  %>
-    <div class="good">Good conditions</div>
-    <p>Snow: <%= snowfall.round %>cm</p>
-  <% else %>
-    <div class="great">Great conditions</div>
-    <p>Snow: <%= snowfall.round %>cm</p>
-  <% end %>
-<% end %>
-
 <% day_after = (Time.now + 2.day).strftime("%A")%>
 <% two_days_after = (Time.now + 3.day).strftime("%A")%>
 <% days = ["Today", "Tomorrow", day_after, two_days_after ] %>
 
+<% def change_condition_name(condition) %>
+  <% if condition == "bad" %>
+    <% "BAD" %>
+  <% elsif condition == "average" %>
+    <%= "DECENT" %>
+  <% elsif condition == "good" %>
+    <%= "FRESH SNOW" %>
+  <% else %>
+    <%= "POWDER DAY" %>
+  <% end %>
+<% end %>
+
 <% resort.forecasts.each.with_index do |forecast, index| %>
   <div class="summary-card" id="<%= forecast.condition %>">
     <h1> <%= days[index].upcase %> </h1>
-    <h2> <%= forecast.condition.to_s.upcase %> </h2>
+    <h2> <%= change_condition_name(forecast.condition) %> </h2>
   <div id="<%= forecast.condition %>-body">
     <div class="forecast-condition-header">
       <p><i class="fas fa-snowflake"></i> <b> <%= forecast.snow_amount.round %></b><small> cm</small></p>
@@ -61,3 +36,4 @@
   </div>
   </div>
 <% end %>
+
