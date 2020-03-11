@@ -42,7 +42,7 @@ task forecast: :environment do
     forecasts.each do |forecast|
       if forecast.wind_speed > 45 || forecast.rain.positive? || snow_depth < 49
         forecast.condition = "bad"
-      elsif forecast.snow_amount.ceil > 10 && snow_depth >= 100
+      elsif forecast.snow_amount.ceil > 10
         forecast.condition = "great"
       elsif (1..10).include?(forecast.snow_amount.ceil) && (50..99).include?(snow_depth)
         forecast.condition = "good"
