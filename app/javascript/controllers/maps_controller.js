@@ -73,7 +73,7 @@ export default class extends Controller {
     fetch(url)
       .then(response => response.json())
       .then(markers => {
-        this.placeMarkers(markers, 0);
+        this.placeMarkers(markers, 0, ['great', 'good', 'average', 'bad']);
       })
   };
 
@@ -82,11 +82,26 @@ export default class extends Controller {
     const controls = document.getElementById('map-slider-holder');
     controls.style.display = "none";
     const buttons = document.getElementsByClassName('map-button');
+    this.resetSlider();
     Array.from(buttons).forEach(function (element) {
             element.classList.remove('selected');
           });
     event.target.classList.add('selected');
   };
+
+  resetSlider() {
+    const slider = document.getElementById('slider');
+    slider.value = 0;
+    const daysOnSlider = document.getElementsByClassName('day');
+    Array.from(daysOnSlider).forEach(function (element) {
+            element.classList.remove('active');
+          });
+    daysOnSlider[0].classList.add('active');
+    const checkBoxes = document.getElementsByClassName('form-check-input');
+    for(var i=0; i<checkBoxes.length; i++){
+      checkBoxes[i].checked=false;
+    };
+  }
 
   changeDay () {
     const slider = event.target;
@@ -155,41 +170,7 @@ export default class extends Controller {
     this.placeMarkers(markers, selectedDay, selectedConditions);
   }
 
-    // console.log(selectedCondition);
-    // console.log(selectedDay);
-    // const markers = document.getElementsByClassName('marker');
-    // markers.forEach(marker => marker.classList.add('invisible'));
-    // const badMarkers = document.getElementsByClassName('bad');
-    // const averageMarkers = document.getElementsByClassName('average');
-    // const goodMarkers = document.getElementsByClassName('good');
-    // const greatMarkers = document.getElementsByClassName('great');
-
-
 };
-
-
-
-
-
-
-
-
-
-  //   // tracking user zoom level
-  //   const zoomThreshold = 7;
-
-  //   this.map.on('zoom', () => {
-  //     console.log(this.map.getZoom());
-  //     if (this.map.getZoom() > zoomThreshold) {
-  //       console.log('Below zoom level 7');
-  //     } else {
-  //       console.log('Above zoom level 7');
-  //     }
-  //   });
-  //   console.log("inside controller");
-  // };
-
-
 
 
 

@@ -6,19 +6,6 @@ class ResortsController < ApplicationController
   end
 
   def index
-    # '?date=0&condition=good'
-    # @resorts = Resort.joins(:weather_reports, :forecasts)
-    # if(params[:date])
-    #   date = Date.today + params[:day].to_i.days
-    #   @resorts = @resorts.where('forecasts.forecast_day::date = ?', date )
-    # end
-    # if(condition = params[:condition])
-
-    #   @resorts = @resorts.where(forecasts: { condition: condition })
-    #     if (%w(good great).include?(condition))
-    #       @resorts = @resorts.where('weather_reports.snow_depth > ?', 50)
-    #     end
-    # end
     if params[:best].present?
       @resorts = Resort.joins(:weather_reports, :forecasts)
         .where(weather_reports: { current: true })
@@ -54,3 +41,18 @@ class ResortsController < ApplicationController
     @answer = Answer.new
   end
 end
+
+# REMOVED CODE FOR FILTERING WITH JSON...
+# '?date=0&condition=good'
+# @resorts = Resort.joins(:weather_reports, :forecasts)
+# if(params[:date])
+#   date = Date.today + params[:day].to_i.days
+#   @resorts = @resorts.where('forecasts.forecast_day::date = ?', date )
+# end
+# if(condition = params[:condition])
+
+#   @resorts = @resorts.where(forecasts: { condition: condition })
+#     if (%w(good great).include?(condition))
+#       @resorts = @resorts.where('weather_reports.snow_depth > ?', 50)
+#     end
+# end
