@@ -19,9 +19,8 @@ class ResortsController < ApplicationController
     #       @resorts = @resorts.where('weather_reports.snow_depth > ?', 50)
     #     end
     # end
-    if params[:recommended].present?
+    if params[:best].present?
       @resorts = Resort.joins(:weather_reports, :forecasts)
-        .where('weather_reports.snow_depth > ?', 50)
         .where(weather_reports: { current: true })
         .where(forecasts: { condition: ['good', 'great'] })
         .where('forecasts.forecast_day::date = ?', Date.today) # + 1.day
@@ -40,15 +39,11 @@ class ResortsController < ApplicationController
   def map_maker(resorts)
     resorts.map do |resort|
       snow_depth = WeatherReport.where("resort_id = ? AND current = ?", resort, true)[0].snow_depth
-      snow_change = WeatherReport.where("resort_id = ? AND current = ?", resort, true)[0].snow_change
       {
         lat: resort.latitude,
         lng: resort.longitude,
         conditions: resort.conditions,
-        snowDepth: snow_depth,
-        infoWindow: render_to_string(partial: "info_window", locals: { resort: resort, snow_depth: snow_depth, snow_change: snow_change }, formats: [:html])
-        # uncomment below to add a custom image
-        # image_url: helpers.asset_url('marker.svg')
+        infoWindow: render_to_string(partial: "info_window", locals: { resort: resort, snow_depth: snow_depth }, formats: [:html])
       }
     end
   end
@@ -59,12 +54,3 @@ class ResortsController < ApplicationController
     @answer = Answer.new
   end
 end
-
-# OLD SEARCH QUERIES
-  # if params[:new_snow].present?
-  #   # OLD SNOW-JAPAN METHOD
-  #   @resorts = Resort.joins(:weather_reports).where('weather_reports.snow_fall = ? AND current = ?', true, true)
-  # elsif params[:lots_snow].present?
-  #   @resorts = Resort.joins(:weather_reports).where('weather_reports.snow_depth > ? AND current = ?', 99, true)
-
-
