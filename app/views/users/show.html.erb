@@ -1,12 +1,10 @@
-<div class="container col-8 my-5">
+<div class="container my-2">
 	<div class="row justify-content-center">
-		<div class="col-12 col-md-8  col-lg-8">
-    	 <div class="well profile">
-           <h1 class="col-12 col-md-8 col-lg-10 resort-info-header">MY INFO</h1>
-            <div class="col-xs-12 col-sm-8 col-lg-10 text-center justify-content-center">
-              
+    	 <div class="well profile col-12 col-lg-9">
+          <h1 class="resort-info-header ">MY INFO</h1>
+            <div class="text-center justify-content-center">              
                 <figure>
-                    <img class="avatar-large" src="https://previews.123rf.com/images/kesu87/kesu871709/kesu87170900106/85183883-active-man-snowboarder-riding-on-slope-snowboarding-closeup-.jpg" alt="" class="img-circle img-responsive">
+                    <img class="avatar-large img-circle img-responsive" src="https://previews.123rf.com/images/kesu87/kesu871709/kesu87170900106/85183883-active-man-snowboarder-riding-on-slope-snowboarding-closeup-.jpg" alt="Profile Photo">
                     <figcaption class="ratings">
                         <p>
                         <a href="#">
@@ -29,58 +27,45 @@
                 </figure>
             </div>
 
-            <div class="col-12 col-md-8 col-lg-10">
-                <p><strong>Name: </strong> <%= current_user.first_name %></p>
-                <p><strong>About: </strong> <%= current_user.about %> </p>
-                <p><strong>Hobbies: </strong> Skiing, Snowboarding, Out with friends, Listen to music, Draw and Learn new things.</p>
+          <p><strong>Name: </strong> <%= current_user.first_name.present? ? current_user.first_name : "Sam" %></p>
+          <p><strong>About: </strong> <%= current_user.about.present? ? current_user.about : "UX designer, Snowboarder" %> </p>
+          <p><strong>Hobbies: </strong> Skiing, Snowboarding, Out with friends, Listen to music, Draw and Learn new things.</p>
 
-                <p class="resort-info-header mt-1">FAVORITE RESORTS 
-                  <% @favorites.each do |favorite| %>
-                    <%= link_to resort_path(favorite.resort), style:"text-decoration:none" do %>
-                    <li><%= favorite.resort.name %></li>
-                    <% end %>
-                  <% end %>
-                </p>
-                
-                <p class="resort-info-header mt-1">QUESTIONS & ANSWERS</p>
-                  <% @favorites.each do |favorite| %>
-                    <% if favorite.resort.questions.any? %>  
-                      
-                        
-                        <% favorite.resort.questions.each_with_index do |question, index| %>
-                          <div class="resort-info-block justify-content-center" id="data-question-<%= question.id %>">
-                            <p><strong>Resort: <%= favorite.resort.name %> - Q<%= index+1 %>:</strong>
-                            <%= question.question %>
-                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#data-<%= question.id %>" >
-                              <span class="tags-question"><%=question.answers.count %> answers</span>
-                              </p>        
-                            </button>
-
-                            <div id="data-<%= question.id %>" class="collapse" data-parent="#data-question-<%= question.id %>">
-                              <div  class="resort-info-block" id="answers">
-                                  <% question.answers.each_with_index do |answer, index| %>
-                                   <ul><%= render 'questions/answers', answer: answer, index: index %></ul>
-                                  <% end %>
-                              </div>
-                            </div>
-                            
-                          </div> 
-                         
-                        <% end %>
-                        
-                     
-                    <% end %> 
-                    
+          <p class="resort-info-header mt-1" >FAVORITE RESORTS 
+            <% @favorites.each_with_index do |favorite, index| %>
+              <%= link_to resort_path(favorite.resort), style:"text-decoration:none" do %>
+              <li id="fav-list"> <%= index+1 %>) <%= favorite.resort.name %></li>
+              <% end %>
+            <% end %>
+          </p>
+          
+          <p class="resort-info-header mt-1">QUESTIONS & ANSWERS</p>
+            <% @favorites.each do |favorite| %>
+              <% if favorite.resort.questions.any? %>                  
                   
+                  <% favorite.resort.questions.each_with_index do |question, index| %>
+                    <div class="resort-info-block justify-content-center " id="data-question-<%= question.id %>">
+                      
+                      <p><strong>Resort: <%= favorite.resort.name %> - Q<%= index+1 %>:</strong>
+                      <%= question.question %>
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#data-<%= question.id %>" >
+                          <span class=" map-button "><strong><%=question.answers.count %> answers </strong></span>
+                        </button>
+                      </p>        
 
+                      <div id="data-<%= question.id %>" class="collapse" data-parent="#data-question-<%= question.id %>">
+                        <div  class="resort-info-block" id="answers">
+                            <% question.answers.each_with_index do |answer, index| %>
+                              <ul><%= render 'questions/answers', answer: answer, index: index %></ul>
+                            <% end %>
+                        </div>
+                      </div>
+
+                    </div> 
                   <% end %>
-
-        
-                
-            </div>       
-                                
-
+              <% end %> 
+            <% end %>
     	 </div>                 
-		</div>
+
 	</div>
 </div>
