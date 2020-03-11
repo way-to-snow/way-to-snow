@@ -8,12 +8,13 @@
 #profile-favorites li {
   margin-bottom: 6px;
 }
+#fav-list {
+    list-style-type: none;
+}
 
 span.tags-question
-{
-    background:  rgb(4, 168, 72);
-    border-radius: 2px;
-    color: #f5f5f5;
+{  
+   
     font-weight: bold;
     padding: 2px 4px;
     margin-left:20px;
