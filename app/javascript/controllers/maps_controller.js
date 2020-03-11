@@ -63,8 +63,7 @@ export default class extends Controller {
     });
 
     // update resort counter
-    this.counterTarget.textContent = `${markers.length}`;
-    console.log(this.resortCounter);
+    this.counterTarget.textContent = `${this.resortCounter}`;
 
   };
 
