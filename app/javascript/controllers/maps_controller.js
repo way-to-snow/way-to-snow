@@ -14,6 +14,7 @@ export default class extends Controller {
 
   map = null;
   currentMarkers = [];
+  resortCounter = 0;
 
   connect() {
 
@@ -43,6 +44,8 @@ export default class extends Controller {
       marker.remove();
     });
 
+    this.resortCounter = 0;
+
     // Placing new markers on the map
     this.currentMarkers = markers.map((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
@@ -50,6 +53,7 @@ export default class extends Controller {
       const dailyCondition = marker.conditions[day];
       const visibility = conditions.includes(dailyCondition) ? '' : 'invisible'
       element.className = `marker ${dailyCondition} ${visibility}`;
+      if (visibility == "") { this.resortCounter += 1 };
       // Resort.conditons returns an array like this --> ["great", "bad", "average", "bad"]
       // Pass the element as an argument to the new marker
       return new mapboxgl.Marker(element)
@@ -60,6 +64,7 @@ export default class extends Controller {
 
     // update resort counter
     this.counterTarget.textContent = `${markers.length}`;
+    console.log(this.resortCounter);
 
   };
 
@@ -84,7 +89,7 @@ export default class extends Controller {
     event.target.classList.add('selected');
   };
 
-  displayDay () {
+  changeDay () {
     const slider = event.target;
     const day = slider.value;
     console.log(slider.value);
