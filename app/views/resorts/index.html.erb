@@ -1,7 +1,7 @@
 <div id="map-container" data-controller="maps">
   <div class="resort-counter">
     <span data-target="maps.counter" id="resort-counter-number"></span>
-    <strong>Resorts Shown</strong>
+    <div style="font-family: 'Karla'; font-size: 14px; margin-top: 8px; color: #04507C;">RESORTS SHOWN</div>
   </div>
 
 <!--   <div class="sidebar">
@@ -46,25 +46,25 @@
       <div class="range">
         <input data-target="maps.slider" data-action="change->maps#changeDay" type="range" min="0" max="3" steps="1" value="0" id='slider'>
         <div class="day-labels">
-          <div class="day active">Today</div>
-          <div class="day"><%= (Time.now + 1.day).strftime("%A") %></div>
-          <div class="day"><%= (Time.now + 2.day).strftime("%A") %></div>
-          <div class="day"><%= (Time.now + 3.day).strftime("%A") %></div>
+          <div class="day active">TODAY</div>
+          <div class="day"><%= (Time.now + 1.day).strftime("%A").upcase %></div>
+          <div class="day"><%= (Time.now + 2.day).strftime("%A").upcase %></div>
+          <div class="day"><%= (Time.now + 3.day).strftime("%A").upcase %></div>
         </div>
       </div>
 
       <div class="form-check form-check-inline" id="form-check-row">
         <div>
           <input class="form-check-input" data-action="change->maps#newFilter" type="checkbox" value="average" id="averageCheck">
-          <label class="form-check-label" for="averageCheck">Decent</label>
+          <label class="form-check-label" for="averageCheck">DECENT</label>
         </div>
         <div>
           <input class="form-check-input" data-action="change->maps#newFilter" type="checkbox" value="good" id="goodCheck">
-          <label class="form-check-label" for="goodCheck">Fresh Snow</label>
+          <label class="form-check-label" for="goodCheck">FRESH SNOW</label>
         </div>
         <div>
           <input class="form-check-input" data-action="change->maps#newFilter" type="checkbox" value="great" id="greatCheck">
-          <label class="form-check-label" for="greatCheck">Powder Day</label>
+          <label class="form-check-label" for="greatCheck">POWDER DAY</label>
         </div>
       </div>
 

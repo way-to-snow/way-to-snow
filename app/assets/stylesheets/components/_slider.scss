@@ -9,8 +9,8 @@
   z-index: 6;
   bottom: 0px;
   left: calc(80% - 225px);
-  background-color: rgba(175,197,212,0.9);
-  box-shadow: 0px 0px 4px 4px rgba(0,0,0,0.1);
+  background-color: rgba(175,197,212,0.8);
+  box-shadow: 0px 0px 4px 4px rgba(0,0,0,0.2);
   border-radius: 4px 4px 0px 0px;
   border: 1px solid #d3d3d3;
 }
@@ -33,7 +33,7 @@
   // margin: 4px 6px;
 }
 .form-check-label {
-  font-size: 13px;
+  font-size: 14px;
   font-family: 'Roboto';
   color: #04507C;
 }
@@ -59,7 +59,7 @@
 
 .day {
   width: 100px;
-  font-size: 13px;
+  font-size: 14px;
   font-family: 'Roboto';
   color: #04507C;
   margin-top: 2px;
