@@ -15,9 +15,9 @@
 <% days = ["Today", "Tomorrow", day_after, two_days_after ] %>
 
 
-<div class="container col-6">
+<div class="container col-6 my-4">
 
-  <div class="resort-info-header mt-4">MY INFO</div>
+  <div class="resort-info-header">MY INFO</div>
   <div id="profile">
     <div id="profile-left-side">
       <%= image_tag "sam.jpg", alt: "Profile Photo", class:"img-thumbnail", id: "sam" %>
@@ -56,30 +56,35 @@
 
   <div class="resort-info-header">QUESTIONS & ANSWERS</div>
 
-    <% @favorites.each do |favorite| %>
-      <% if favorite.resort.questions.any? %>
-
-          <% favorite.resort.questions.each_with_index do |question, index| %>
-            <div class="resort-info-block justify-content-center " id="data-question-<%= question.id %>">
-
-              <p><strong>Resort: <%= favorite.resort.name %> - Q<%= index+1 %>:</strong>
-              <%= question.question %>
-                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#data-<%= question.id %>" >
-                  <span class=" map-button "><strong><%=question.answers.count %> answers </strong></span>
-                </button>
-              </p>
-
-              <div id="data-<%= question.id %>" class="collapse" data-parent="#data-question-<%= question.id %>">
-                <div  class="resort-info-block" id="answers">
-                    <% question.answers.each_with_index do |answer, index| %>
-                      <ul><%= render 'questions/answers', answer: answer, index: index %></ul>
-                    <% end %>
-                </div>
-              </div>
-
+    <div style="padding: 0px 30px">
+      <% if current_user.questions.any? %>
+        <% current_user.questions.each do |question| %>
+          <div class="resort-info-block justify-content-center " id="data-question-<%= question.id %>">
+            <div style="font-family: 'Covered By Your Grace'; font-size: 24px; color: #04507C;"><%= question.resort.name %></strong></div>
+            <div style="display: flex; align-items: center; margin-bottom: 20px; width: 600px; justify-content: space-between;">
+              <div style="font-family: 'Open Sans'; font-size: 14px; color: #4A4A4A; margin-left: 20px"><i class="fas fa-chevron-circle-right"></i>&nbsp&nbsp<%= question.question %></div>
+              <button class="map-button btn-link collapsed" type="button" data-toggle="collapse" data-target="#data-<%= question.id %>" >
+                <span><%=question.answers.count %> <%= (question.answers.any? && question.answers.count > 1) ? "answers" : "answer" %></span>
+              </button>
             </div>
-          <% end %>
+
+            <div id="data-<%= question.id %>" class="collapse" data-parent="#data-question-<%= question.id %>">
+              <div  class="resort-info-block" id="answers">
+                  <% question.answers.each_with_index do |answer, index| %>
+                    <ul><%= render 'questions/answers', answer: answer, index: index %></ul>
+                  <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <%= "You haven't asked any questions!" %>
       <% end %>
-    <% end %>
+    </div>
 
 </div>
+
+
+
+
+
