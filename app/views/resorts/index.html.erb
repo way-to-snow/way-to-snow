@@ -4,31 +4,36 @@
     <div style="font-family: 'Karla'; font-size: 14px; margin-top: 8px; color: #04507C;">RESORTS SHOWN</div>
   </div>
 
-<!--   <div class="sidebar">
-    <div class="condition-key">
-      <strong>Conditions</strong>
-        <div class="condition-line">
-          <div class="condition-key-marker great" style="pointer-events:none"></div>
-            <h2>Powder Day</h2>
-            <small>Over 10cm of snow</small>
-        </div>
-        <div class="condition-line">
-          <div class="condition-key-marker good" style="pointer-events:none"></div>
-          <h2 >Fresh Snow</h2>
-          <small>Up to 10 cm of new snow</small>
-        </div>
-        <div class="condition-line">
-          <div class="condition-key-marker average" style="pointer-events:none"></div>
-          <h2>Decent</h2>
-          <small>No new snow</small>
-        </div>
-        <div class="condition-line" id="last" >
-          <div class="condition-key-marker bad" style="pointer-events:none"></div>
-          <h2 >Bad</h2>
-          <small>Either raining or not enough snow</small>
-        </div>
+  <div class="sidebar">
+    <div style="display: flex; flex-direction: column; align-items: flex-start; margin: 10px 0px;">
+      <div style="display: flex; align-items: center; justify-content: flex-start; margin: 10px 0px 5px 0px;">
+        <div class="condition-key-marker great" style="pointer-events:none"></div>
+        <div style="font-family: 'Karla'; font-size: 14px; color: #04507C; margin-left: 10px;">POWDER DAY</div>
+      </div>
+      <div style="margin-left: 30px;">More than 10cm of snow</div>
     </div>
-  </div> -->
+    <div style="display: flex; flex-direction: column; align-items: flex-start; margin: 10px 0px;">
+      <div style="display: flex; align-items: center; justify-content: flex-start; margin: 10px 0px 5px 0px;">
+        <div class="condition-key-marker good" style="pointer-events:none"></div>
+        <div style="font-family: 'Karla'; font-size: 14px; color: #04507C; margin-left: 10px;">FRESH SNOW</div>
+      </div>
+      <div style="margin-left: 30px;">Up to 10 cm of snow</div>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: flex-start; margin: 10px 0px;">
+      <div style="display: flex; align-items: center; justify-content: flex-start; margin: 10px 0px 5px 0px;">
+        <div class="condition-key-marker average" style="pointer-events:none"></div>
+        <div style="font-family: 'Karla'; font-size: 14px; color: #04507C; margin-left: 10px;">DECENT</div>
+      </div>
+      <div style="margin-left: 30px;">No new snow</div>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: flex-start; margin: 10px 0px;">
+      <div style="display: flex; align-items: center; justify-content: flex-start; margin: 10px 0px 5px 0px;">
+        <div class="condition-key-marker bad" style="pointer-events:none"></div>
+        <div style="font-family: 'Karla'; font-size: 14px; color: #04507C; margin-left: 10px;">BAD</div>
+      </div>
+      <div style="margin-left: 30px;">Raining, windy or no snow</div>
+    </div>
+  </div>
 
   <div id="map-buttons-holder">
     <div class="map-button selected" data-action="click->maps#filter click->maps#select" data-value="">All resorts</i></div>
@@ -56,15 +61,15 @@
       <div class="form-check form-check-inline" id="form-check-row">
         <div>
           <input class="form-check-input" data-action="change->maps#newFilter" type="checkbox" value="average" id="averageCheck">
-          <label class="form-check-label" for="averageCheck">DECENT</label>
+          <label class="form-check-label" for="averageCheck"><b>DECENT</b></label>
         </div>
         <div>
           <input class="form-check-input" data-action="change->maps#newFilter" type="checkbox" value="good" id="goodCheck">
-          <label class="form-check-label" for="goodCheck">FRESH SNOW</label>
+          <label class="form-check-label" for="goodCheck"><b>FRESH SNOW</b></label>
         </div>
         <div>
           <input class="form-check-input" data-action="change->maps#newFilter" type="checkbox" value="great" id="greatCheck">
-          <label class="form-check-label" for="greatCheck">POWDER DAY</label>
+          <label class="form-check-label" for="greatCheck"><b>POWDER DAY</b></label>
         </div>
       </div>
 
