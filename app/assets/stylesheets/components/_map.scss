@@ -116,9 +116,11 @@
   text-align: center;
   justify-content: center;
   align-items: center;
-  background-color: white;
-  position: absolute;
-  top: 200px;
+  background-color: rgba(175,197,212,0.7);
+  border-radius: 4px;
+  border: 1px solid #d3d3d3;
+  box-shadow: 0px 0px 4px 4px rgba(0,0,0,0.1);
+  top: 160px;
   left: 40px;
   flex-direction: column;
   margin-bottom: 16px;
@@ -182,8 +184,8 @@
   position: absolute;
   z-index: 6;
   background-color: white;
-  top: 133px;
-  left: 10px;
+  top: 250px;
+  left: 20px;
   text-align: center;
   font-size: 14px;
   padding: 8px;
