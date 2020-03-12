@@ -106,24 +106,22 @@
 }
 
 .resort-counter {
+  position: absolute;
   display: flex;
+  z-index: 6;
+  width: 160px;
+  height: 120px;
+  padding: 8px;
+  border-radius: 4px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  position: absolute;
+  top: 200px;
+  left: 40px;
   flex-direction: column;
   margin-bottom: 16px;
-  // position: absolute;
-  // z-index: 1;
-  // background-color: white;
-  // top: 250px;
-  // left: 100px;
-  // text-align: center;
-  // font-size: 12px;
-  // padding: 8px;
-  // border-radius: 4px;
-  // font-family: 'Karla';
-  // color: #333333;
-  // width: 120px;
-  // height: 120px;
-  // // align-items: center;
-  // justify-content: center;
 }
 
 #resort-counter-number {
