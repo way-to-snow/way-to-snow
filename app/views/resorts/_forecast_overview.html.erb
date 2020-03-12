@@ -20,8 +20,8 @@
     <h2> <%= change_condition_name(forecast.condition) %> </h2>
   <div id="<%= forecast.condition %>-body">
     <div class="forecast-condition-header">
-      <p><i class="fas fa-snowflake"></i> <b> <%= forecast.snow_amount.round %></b><small> cm</small></p>
-      <p><i class="fas fa-cloud-rain"></i> <%= forecast.rain.round %><small> cm</small></p>
+      <p><i class="fas fa-snowflake"></i> <b> <%= forecast.snow_amount.ceil %></b><small> cm</small></p>
+      <p><i class="fas fa-cloud-rain"></i> <%= forecast.rain.ceil %><small> cm</small></p>
     </div>
     <div class="forecast-condition-footer mt-3 mb-1" style="border-top: 1px solid white; padding-top: 10px; display: flex; flex-direction: column; font-size: 10px">
       <div style="display: flex; justify-content: center; justify-content: space-evenly">
