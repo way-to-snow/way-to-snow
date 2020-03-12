@@ -44,7 +44,7 @@ task forecast: :environment do
         forecast.condition = "bad"
       elsif forecast.snow_amount.ceil > 10
         forecast.condition = "great"
-      elsif (1..10).include?(forecast.snow_amount.ceil) && (50..99).include?(snow_depth)
+      elsif (1..10).include?(forecast.snow_amount.ceil)
         forecast.condition = "good"
       else
         forecast.condition = "average"
