@@ -10,98 +10,76 @@
   <% end %>
 <% end %>
 
-<div class="container my-2">
-	<div class="row justify-content-center">
-    	 <div class="well profile col-12 col-lg-9">
-          <h1 class="resort-info-header ">MY INFO</h1>
-            <div class="text-center justify-content-center">
-                <figure>
-                    <img class="avatar-large img-circle img-responsive" src="https://previews.123rf.com/images/kesu87/kesu871709/kesu87170900106/85183883-active-man-snowboarder-riding-on-slope-snowboarding-closeup-.jpg" alt="Profile Photo">
-                    <!-- <figcaption class="ratings">
-                        <p>
-                        <a href="#">
-                            <span class="fa fa-star"></span>
-                        </a>
-                        <a href="#">
-                            <span class="fa fa-star"></span>
-                        </a>
-                        <a href="#">
-                            <span class="fa fa-star"></span>
-                        </a>
-                        <a href="#">
-                            <span class="fa fa-star"></span>
-                        </a>
-                        <a href="#">
-                              <span class="fa fa-star-o"></span>
-                        </a>
-                        </p>
-                    </figcaption> -->
-                </figure>
-            </div>
+<% day_after = (Time.now + 2.day).strftime("%A")%>
+<% two_days_after = (Time.now + 3.day).strftime("%A")%>
+<% days = ["Today", "Tomorrow", day_after, two_days_after ] %>
 
-          <p><strong>Name: </strong> <%= current_user.first_name.present? ? current_user.first_name : "Sam" %></p>
-          <p><strong>About: </strong> <%= current_user.about.present? ? current_user.about : "Programmer, Snowboarder" %> </p>
 
-<!--           <p class="resort-info-header mt-1" >FAVORITE RESORTS
-            <% @favorites.each_with_index do |favorite, index| %>
-              <%= link_to resort_path(favorite.resort), style:"text-decoration:none" do %>
-              <li id="fav-list"> <%= index+1 %>) <%= favorite.resort.name %></li>
-              <% end %>
-            <% end %>
-          </p> -->
+<div class="container col-6">
 
-          <% day_after = (Time.now + 2.day).strftime("%A")%>
-          <% two_days_after = (Time.now + 3.day).strftime("%A")%>
-          <% days = ["Today", "Tomorrow", day_after, two_days_after ] %>
+  <div class="resort-info-header mt-4">MY INFO</div>
+  <div id="profile">
+    <div id="profile-left-side">
+      <%= image_tag "sam.jpg", alt: "Profile Photo", class:"img-thumbnail", id: "sam" %>
+    </div>
+    <div id="profile-right-side" style="display: flex; flex-direction: column; font-family: 'Open Sans'; color: #4A4A4A">
+      <div class="mb-1"><strong>Name:&nbsp&nbsp</strong> <%= current_user.first_name.present? ? current_user.first_name : "Sam" %></div>
+      <div><strong>About:&nbsp&nbsp</strong> <%= current_user.about.present? ? current_user.about : "Programmer, Snowboarder" %> </div>
+    </div>
+  </div>
 
-          <div class="resort-info-header">FAVORITE RESORTS</div>
-            <div class="favorites-grid">
-                <% @favorites.each do |favorite| %>
-                  <div class="favorites-card">
-                    <div class="favorites-card-heading"><%= link_to favorite.resort.name, resort_path(favorite.resort) %></div>
-                      <div class="favorites-summary-card-layout">
-                      <% favorite.resort.forecasts.each.with_index do |forecast, index| %>
-                        <div class="popup-summary-card" id="<%= forecast.condition %>">
-                          <h4> <%= days[index].upcase %> </h4>
-                          <div id="<%= forecast.condition %>-body">
-                          <div class="forecast-condition-footer">
-                            <div style="font-size: 10px"> <%= change_condition_name(forecast.condition) %> </div>
-                          </div>
-                        </div>
-                      </div>
-                    <% end %>
+  <div class="resort-info-header">FAVORITE RESORTS</div>
+    <div id="day-row">
+      <% days.each_with_index do |day, index| %>
+        <div id="day-row-item"><strong><%= days[index].upcase %></strong></div>
+      <% end %>
+    </div>
+    <ul style="list-style-type: none; padding: 0px 20px; margin: 0px 0px 20px 0px;">
+      <% @favorites.each do |favorite| %>
+        <li>
+          <div style="display: flex; justify-content: space-between; align-items: center">
+            <div style="width: 250px; text-align: right; padding-right: 30px"><%= link_to favorite.resort.name, resort_path(favorite.resort), style: "text-decoration: none; font-family: 'Covered By Your Grace'; font-size: 24px; color: #04507C; " %></div>
+            <div class="favorites-summary-card-layout" style="flex-grow: 0; width: 400px">
+              <% favorite.resort.forecasts.each.with_index do |forecast, index| %>
+                <div class="popup-summary-card" id="<%= forecast.condition %>">
+                    <div style="font-size: 10px"> <%= change_condition_name(forecast.condition) %> </div>
+                  <div class="invisible" id="<%= forecast.condition %>-body">
+                    <div class="forecast-condition-footer"></div>
                   </div>
                 </div>
               <% end %>
             </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
 
-          <p class="resort-info-header mt-1">QUESTIONS & ANSWERS</p>
-            <% @favorites.each do |favorite| %>
-              <% if favorite.resort.questions.any? %>
+  <div class="resort-info-header">QUESTIONS & ANSWERS</div>
 
-                  <% favorite.resort.questions.each_with_index do |question, index| %>
-                    <div class="resort-info-block justify-content-center " id="data-question-<%= question.id %>">
+    <% @favorites.each do |favorite| %>
+      <% if favorite.resort.questions.any? %>
 
-                      <p><strong>Resort: <%= favorite.resort.name %> - Q<%= index+1 %>:</strong>
-                      <%= question.question %>
-                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#data-<%= question.id %>" >
-                          <span class=" map-button "><strong><%=question.answers.count %> answers </strong></span>
-                        </button>
-                      </p>
+          <% favorite.resort.questions.each_with_index do |question, index| %>
+            <div class="resort-info-block justify-content-center " id="data-question-<%= question.id %>">
 
-                      <div id="data-<%= question.id %>" class="collapse" data-parent="#data-question-<%= question.id %>">
-                        <div  class="resort-info-block" id="answers">
-                            <% question.answers.each_with_index do |answer, index| %>
-                              <ul><%= render 'questions/answers', answer: answer, index: index %></ul>
-                            <% end %>
-                        </div>
-                      </div>
+              <p><strong>Resort: <%= favorite.resort.name %> - Q<%= index+1 %>:</strong>
+              <%= question.question %>
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#data-<%= question.id %>" >
+                  <span class=" map-button "><strong><%=question.answers.count %> answers </strong></span>
+                </button>
+              </p>
 
-                    </div>
-                  <% end %>
-              <% end %>
-            <% end %>
-    	 </div>
+              <div id="data-<%= question.id %>" class="collapse" data-parent="#data-question-<%= question.id %>">
+                <div  class="resort-info-block" id="answers">
+                    <% question.answers.each_with_index do |answer, index| %>
+                      <ul><%= render 'questions/answers', answer: answer, index: index %></ul>
+                    <% end %>
+                </div>
+              </div>
 
-	</div>
+            </div>
+          <% end %>
+      <% end %>
+    <% end %>
+
 </div>

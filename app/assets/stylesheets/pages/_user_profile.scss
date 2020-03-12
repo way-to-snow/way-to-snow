@@ -132,3 +132,28 @@ span.tags
   padding: 4px;
   border-radius: 5px;
 }
+
+#sam {
+  height: 200px;
+  width: 200px;
+}
+
+#profile {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 20px;
+}
+
+#day-row {
+  display: flex;
+  font-family: 'Open Sans';
+  color: #4A4A4A;
+  font-size: 12px;
+  justify-content: flex-end;
+  margin-right: 25px;
+  margin-top: 20px;
+}
+
+#day-row-item {
+  margin: 0px 20px;
+}
