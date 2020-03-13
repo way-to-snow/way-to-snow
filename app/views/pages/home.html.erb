@@ -2,7 +2,7 @@
 
   <div id="login-out-holder">
     <% if user_signed_in? %>
-      <%= link_to "Log out", destroy_user_session_path, method: :delete, style:"text-decoration:none", class: "login-out" %>
+      <%#= link_to "Log out", destroy_user_session_path, method: :delete, style:"text-decoration:none", class: "login-out" %>
     <% else %>
       <%= link_to "Login", new_user_session_path, style:"text-decoration:none", class: "login-out" %>
     <% end %>
