@@ -1,5 +1,15 @@
+#questions {
+  margin-bottom: 10px;
+}
+
+.question-holder {
+
+}
+
 #questions_answers {
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
 }
 
 .main-container{
