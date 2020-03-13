@@ -116,14 +116,17 @@
 
   <div class="row">
 
-    <div class="container col-9">
+    <div class="container col-6">
 
       <div class="resort-info-block">
         <div class="resort-info-header">Q&A</div>
         <div class="resort-info-body">
           <div id="questions_answers">
             <% if @resort.questions.blank? %>
-              <h5> Be the first to ask a question for <%= @resort.name %> </h5>
+              <div style="font-family: 'Open Sans'; font-size: 12px; color: #4A4A4A;">
+                Be the first to ask a question for <%= @resort.name %>!
+              </div>
+
               <%= render 'questions/question_form', resort: @resort, question: @question %>
             <% else %>
               <%= render 'resorts/q&a', resort: @resort, question: @question, answer: @answer %>
