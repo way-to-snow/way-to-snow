@@ -35,14 +35,14 @@
       <%# end %>
     </div> -->
     <ul style="list-style-type: none; padding: 0px 20px; margin: 0px 0px 20px 0px;">
-        <li>
-          <div id="day-row">
-            <div style="width: 40%; text-align: right; padding-right: 30px"></div>
-            <div id="day-row-labels">
-              <% days.each_with_index do |day, index| %>
-                <div id="day-row-item"><strong><%= days[index].upcase %></strong></div>
-              <% end %>
-            </div>
+        <li style="display:flex;">
+          <div style="width: 40%"></div>
+          <div style="width: 60%; display: flex;" id="day-row">
+            <% days.each_with_index do |day, index| %>
+              <div style="width: 25%; text-align: center;">
+                <strong><%= days[index].upcase %></strong>
+              </div>
+            <% end %>
           </div>
         </li>
       <% @favorites.each do |favorite| %>
@@ -92,6 +92,16 @@
 
 </div>
 
+//////////
+<!--
+<div id="day-row">
+  <div style="width: 40%; text-align: right; padding-right: 30px"></div>
+  <div id="day-row-labels">
+    <%# days.each_with_index do |day, index| %>
+      <div id="day-row-item"><strong><%#= days[index].upcase %></strong></div>
+    <%# end %>
+  </div>
+</div> -->
 
 
 
