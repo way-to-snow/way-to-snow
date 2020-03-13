@@ -1,5 +1,6 @@
-
-  <h5><%= pluralize @resort.questions.count, "question" %> for <%= @resort.name %>: </h5>
+  <div style="font-family: 'Open Sans'; font-size: 12px; color: #4A4A4A; margin: 10px 0px;">
+    There <%= (@resort.questions.count.zero? || @resort.questions.count > 1) ? "are #{@resort.questions.count} questions" : "is #{@resort.questions.count} question" %> for <strong><%= @resort.name %>:</strong>
+  </div>
   <%#= render 'questions/question_form', resort: @resort, question: @question %>
   <div id="questions">
     <%= render 'questions/question', resort: @resort, question: @question, answer: @answer %>

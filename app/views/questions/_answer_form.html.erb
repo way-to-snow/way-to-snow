@@ -1,5 +1,5 @@
 <%= simple_form_for([ question, answer ], remote: true) do |form| %>
-  <%= form.input :answer, as: :text %>
+  <%= form.input :answer, as: :text, :label => false %>
   <%= form.button :submit, 'Answer Question', class: "map-button" %>
 <% end %>
 
