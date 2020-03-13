@@ -149,11 +149,19 @@ span.tags
   font-family: 'Open Sans';
   color: #4A4A4A;
   font-size: 12px;
-  justify-content: flex-end;
-  margin-right: 25px;
+  margin-right: 0px;
   margin-top: 20px;
+  width: 100%;
+}
+
+#day-row-labels{
+  display: flex;
+  justify-content: flex-end;
+  width: 60%;
 }
 
 #day-row-item {
-  margin: 0px 20px;
+  margin: 0px;
+  width: 25%;
+  text-align: center;
 }
