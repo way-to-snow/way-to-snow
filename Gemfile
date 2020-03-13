@@ -23,6 +23,7 @@ gem 'geocoder'
 gem 'faker'
 gem 'smarter_csv'
 gem 'pg_search'
+gem 'rack-timeout'
 
 gem 'bootstrap-datepicker-rails'
 
