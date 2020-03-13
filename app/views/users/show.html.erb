@@ -29,16 +29,26 @@
   </div>
 
   <div class="resort-info-header">FAVORITE RESORTS</div>
-    <div id="day-row">
-      <% days.each_with_index do |day, index| %>
-        <div id="day-row-item"><strong><%= days[index].upcase %></strong></div>
-      <% end %>
-    </div>
+<!--     <div id="day-row">
+      <%# days.each_with_index do |day, index| %>
+        <div id="day-row-item"><strong><%#= days[index].upcase %></strong></div>
+      <%# end %>
+    </div> -->
     <ul style="list-style-type: none; padding: 0px 20px; margin: 0px 0px 20px 0px;">
+        <li>
+          <div id="day-row">
+            <div style="width: 40%; text-align: right; padding-right: 30px"></div>
+            <div id="day-row-labels">
+              <% days.each_with_index do |day, index| %>
+                <div id="day-row-item"><strong><%= days[index].upcase %></strong></div>
+              <% end %>
+            </div>
+          </div>
+        </li>
       <% @favorites.each do |favorite| %>
         <li>
           <div style="display: flex; justify-content: space-between; align-items: center">
-            <div style="width: 250px; text-align: right; padding-right: 30px"><%= link_to favorite.resort.name, resort_path(favorite.resort), style: "text-decoration: none; font-family: 'Covered By Your Grace'; font-size: 24px; color: #04507C; " %></div>
+            <div style="width: 40%; text-align: right; padding-right: 30px"><%= link_to favorite.resort.name, resort_path(favorite.resort), style: "text-decoration: none; font-family: 'Covered By Your Grace'; font-size: 24px; color: #04507C; " %></div>
             <div class="favorites-summary-card-layout" style="flex-grow: 0; width: 400px">
               <% favorite.resort.forecasts.each.with_index do |forecast, index| %>
                 <div class="popup-summary-card" id="<%= forecast.condition %>">
