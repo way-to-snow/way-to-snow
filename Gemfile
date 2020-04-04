@@ -26,6 +26,7 @@ gem 'pg_search'
 gem 'rack-timeout'
 
 gem 'bootstrap-datepicker-rails'
+gem 'omniauth-facebook'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

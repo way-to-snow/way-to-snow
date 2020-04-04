@@ -29,7 +29,8 @@ Rails.application.routes.draw do
   #     end
   #   end
 
-  devise_for :users
+  devise_for :users,
+  controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   resources :users, only: [:show]
 
   root to: 'pages#home', as: 'home'
@@ -37,5 +38,7 @@ Rails.application.routes.draw do
   get 'resorts/:id/ticket', to: 'pages#ticket', as: 'ticket'
   get 'resorts/:id/share', to: 'pages#share', as: 'share'
   get 'resorts/:id/itinerary', to: 'pages#itinerary', as: 'itinerary'
+
+
 
 end
