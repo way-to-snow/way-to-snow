@@ -12,6 +12,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
 
+  after_create :subscribe_to_newsletter
+
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice("provider", "uid")
     user_params.merge! auth.info.slice("email", "first_name", "last_name")
@@ -32,4 +34,11 @@ class User < ApplicationRecord
 
     return user
   end
+
+  private
+
+  def subscribe_to_newsletter
+    SubscribeToNewsletterService.new(self).call
+  end
+  
 end

@@ -26,6 +26,7 @@ gem 'pg_search'
 
 gem 'bootstrap-datepicker-rails'
 gem 'omniauth-facebook'
+gem 'gibbon'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
