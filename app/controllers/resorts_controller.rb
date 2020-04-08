@@ -16,16 +16,17 @@ class ResortsController < ApplicationController
     else
       @resorts = Resort.all
     end
-      @markers = map_maker(@resorts)
-      respond_to do |format|
-        format.html
-        format.json { render json:@markers }
-      end
+    @resorts = @resorts.includes(:weather_reports, :forecasts).where("current = ?", true).references(:weather_reports)
+    @markers = map_maker(@resorts)
+    respond_to do |format|
+      format.html
+      format.json { render json:@markers }
+    end
   end
 
   def map_maker(resorts)
     resorts.map do |resort|
-      snow_depth = WeatherReport.where("resort_id = ? AND current = ?", resort, true)[0].snow_depth
+      snow_depth = resort.weather_reports[0].snow_depth
       {
         lat: resort.latitude,
         lng: resort.longitude,
