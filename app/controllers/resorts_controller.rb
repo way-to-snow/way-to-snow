@@ -16,7 +16,7 @@ class ResortsController < ApplicationController
     else
       @resorts = Resort.all
     end
-    @resorts = @resorts.includes(:weather_reports, :forecasts).where("current = ?", true).references(:weather_reports)
+    @resorts = @resorts.includes(:weather_reports, :forecasts, :favorites).where("current = ?", true).references(:weather_reports)
     @markers = map_maker(@resorts)
     respond_to do |format|
       format.html
