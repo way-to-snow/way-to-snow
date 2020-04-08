@@ -13,7 +13,11 @@
   <div class="popup-header">
     <h1><%= resort.name.titlecase %></h1>
     <div data-controller="popup" >
-      <% favorited = current_user.resorts.include?(resort) %>
+    <% favorited = false %>
+    <% current_user.favorites.each do |favorite| 
+    favorited = (resort.favorites.include?(favorite))||favorited 
+    end %>
+
       <div style="font-size: 20px; margin-left: 16px; margin-bottom: 8px;"><i data-controller="popup" data-target="popup.heart" class="fas fa-heart button-favorite <%= favorited ? 'red' : '' %>" id="heart" style="text-decoration:none" data-action="click->popup#favorite" data-value="<%= resort.id %>" data-favorited="<%= favorited %>"></i></div>
     </div>
   </div>
