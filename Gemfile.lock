@@ -132,6 +132,7 @@ GEM
     multi_xml (0.6.0)
     multipart-post (2.1.1)
     netrc (0.11.0)
+    newrelic_rpm (6.10.0.364)
     nio4r (2.5.2)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
@@ -277,6 +278,7 @@ DEPENDENCIES
   gibbon
   jbuilder (~> 2.0)
   listen (~> 3.0.5)
+  newrelic_rpm
   omniauth-facebook
   pg (~> 0.21)
   pg_search
