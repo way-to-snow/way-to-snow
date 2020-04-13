@@ -6,8 +6,6 @@ require 'csv'
 require 'smarter_csv'
 
 puts 'Creating generic user...'
-Resort.destroy_all
-User.destroy_all
 User.create(email: "user1@waytosnow.com", password: "snowboard")
 
 puts 'User created...'
