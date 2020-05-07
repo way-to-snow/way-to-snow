@@ -1,4 +1,6 @@
 class Resort < ApplicationRecord
+  extend FriendlyId
+  friendly_id :name, use: :slugged
   has_many :questions, dependent: :destroy
   has_many :forecasts, dependent: :destroy
   has_many :favorites, dependent: :destroy
