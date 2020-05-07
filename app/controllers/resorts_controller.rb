@@ -37,7 +37,7 @@ class ResortsController < ApplicationController
   end
 
   def show
-    @resort = Resort.find(params[:id])
+    @resort = Resort.friendly.find(params[:id])
     @question = Question.new
     @answer = Answer.new
   end

@@ -28,6 +28,7 @@ gem 'bootstrap-datepicker-rails'
 gem 'omniauth-facebook'
 gem 'gibbon'
 gem 'newrelic_rpm'
+gem 'friendly_id', '~> 5.2.4'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
