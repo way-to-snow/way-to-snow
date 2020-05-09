@@ -13,6 +13,6 @@ class PagesController < ApplicationController
   end
 
   def itinerary
-    @resort = Resort.find(params[:id])
+    @resort = Resort.friendly.find(params[:id])
   end
 end
