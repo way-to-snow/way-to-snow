@@ -13,8 +13,10 @@
     </div>
 
     <div class="icon-holder">
-      <% favorited = current_user.resorts.include?(@resort) %>
-      <div><i data-controller="popup" data-target="popup.heart" class="fas fa-heart button-favorite <%= favorited ? 'red' : '' %>" id="heart" style="text-decoration:none" data-action="click->popup#favorite" data-value="<%= @resort.id %>" data-favorited="<%= favorited %>"></i></div>
+      <% if current_user %>
+        <% favorited = current_user.resorts.include?(@resort) %>
+        <div><i data-controller="popup" data-target="popup.heart" class="fas fa-heart button-favorite <%= favorited ? 'red' : '' %>" id="heart" style="text-decoration:none" data-action="click->popup#favorite" data-value="<%= @resort.id %>" data-favorited="<%= favorited %>"></i></div>
+      <% end %>
     </div>
 
   </div>
